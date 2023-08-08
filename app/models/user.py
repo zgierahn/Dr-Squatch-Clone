@@ -10,9 +10,28 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    firstName = db.Column(db.String(40), nullable=False)
+    lastName = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    subscription = db.Column(db.Boolean)
+    rewards = db.Column(db.Integer)
+    created_at = db.Column(db.Date)
+    edited_at = db.Column(db.Date)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+
+    reviews = db.relationship(
+        "Review",
+        cascade="all, delete-orphan",
+        back_populates="user"
+    )
+
+    carts = db.relationship(
+            "Cart",
+            cascade="all, delete-orphan",
+            back_populates="user"
+        )
+
 
     @property
     def password(self):
@@ -28,6 +47,11 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            "firstName" : self.firstName,
+            "lastName" : self.lastName,
+            "email" : self.email,
+            "subscription" : self.subscription,
+            "rewards" : self.rewards,
+            "createdAt" : self.created_at,
+            "editedAt" : self.edited_at
         }
