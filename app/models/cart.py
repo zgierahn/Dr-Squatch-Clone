@@ -20,7 +20,6 @@ class Cart(db.Model):
 
     productId = db.relationship(
         "Product",
-        cascade="all, delete-orphan",
         back_populates="carts"
     )
 
