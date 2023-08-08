@@ -9,7 +9,7 @@ class Cart(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     quantity = db.Column(db.Integer)
-    userId = db.Column(db.Integer)
+    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     productId = db.Column(db.Text, db.ForeignKey(add_prefix_for_prod("products.id")), nullable=False)
 
 
