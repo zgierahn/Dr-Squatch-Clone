@@ -8,10 +8,10 @@ class Product(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    category = db.Column(db.String(25), nullable=False)
+    category = db.Column(db.String(255), nullable=False)
     name = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Integer)
-    photos = db.Column(db.Text)
+    photos = db.Column(db.String(255))
 
 
     reviews = db.relationship(
