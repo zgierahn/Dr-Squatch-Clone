@@ -23,7 +23,7 @@ class Review(db.Model):
     )
 
 
-    productId = db.relationship(
+    productsId = db.relationship(
         "Product",
         back_populates="reviews"
     )

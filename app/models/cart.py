@@ -18,7 +18,7 @@ class Cart(db.Model):
             back_populates="carts"
         )
 
-    productId = db.relationship(
+    productsId = db.relationship(
         "Product",
         back_populates="carts"
     )

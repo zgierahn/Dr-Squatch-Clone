@@ -17,13 +17,13 @@ class Product(db.Model):
     reviews = db.relationship(
         "Review",
         cascade="all, delete-orphan",
-        back_populates="productId"
+        back_populates="productsId"
     )
 
     carts = db.relationship(
         "Cart",
         cascade="all, delete-orphan",
-        back_populates="productId"
+        back_populates="productsId"
     )
 
 
