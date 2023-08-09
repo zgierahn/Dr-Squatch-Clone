@@ -2,22 +2,34 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+
+
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
-			</li>
+		<nav className='navBarContainer'>
+			<div className='navLeft'>
+				<button>
+					Subscribe
+				</button>
+				<a>Bundles</a>
+				<a>Products</a>
+				<a>Rewards</a>
+			</div>
+			<div className='navCenter'>
+				<NavLink exact to="/">Dr. Stein</NavLink>
+			</div>
 			{isLoaded && (
-				<li>
+				<div className='navRight'>
+					<a>Take Quiz</a>
 					<ProfileButton user={sessionUser} />
-				</li>
+					<a>Cart</a>
+				</div>
 			)}
-		</ul>
+		</nav>
 	);
 }
 
