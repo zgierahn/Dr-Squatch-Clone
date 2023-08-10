@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import CheckoutCartModal from '../MyModals/CheckoutCartModal';
 
 import './Navigation.css';
 
@@ -32,9 +33,9 @@ function Navigation({ isLoaded }){
 			</div>
 			{isLoaded && (
 				<div className='navRight'>
-					<a>Take Quiz</a>
+					<button>Take Quiz</button>
 					<ProfileButton user={sessionUser} />
-					<a>Cart</a>
+					<CheckoutCartModal />
 				</div>
 			)}
 		</nav>

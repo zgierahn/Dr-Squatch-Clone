@@ -11,15 +11,28 @@ let allProducts = useSelector(state => Object.values(state.product.allProducts))
 
 useEffect(() => {
     dispatch(thunkGetProducts())
-}, [])
+}, [dispatch])
 
+const addToCart = (product) => {
+    if(!localStorage.getItem("shop") ) {
+        let shop = {}
+        product.quantity = 1;
+        shop[product.id] = product;
+        localStorage.setItem("shop", JSON.stringify(shop))
+    } else {
+        let shop = JSON.parse(localStorage.getItem("shop"))
+        product.quantity = 1;
+        shop[product.id] = product
+        localStorage.setItem("shop", JSON.stringify(shop))
+    }
 
+}
 
 	return (
 		<main>
         <header>
             <div className='ProductsImageBanner'>
-                <h1>Products Page!!!!</h1>
+                <h1>Products Banner</h1>
             </div>
             <section className='outerProductsContainer'>
                 <ul className='productListBar'>
@@ -44,7 +57,11 @@ useEffect(() => {
                                     <h3>{product.name}</h3>
                                     <h3>${product.price}</h3>
                                     <p>{product.description}</p>
-                                    <button>Add to Cart</button>
+                                    <button onClick={()=>{
+                                        addToCart(product)
+                                    }}>
+                                        Add to Cart
+                                    </button>
                                </div>
                     })}
                 </div>
