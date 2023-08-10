@@ -6,3 +6,15 @@
     height: 99.9vh;
     background-color: darkslategrey;
 }
+
+
+.quantityContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.innerQuantityContainer {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+}
