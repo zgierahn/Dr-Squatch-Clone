@@ -1,49 +1,61 @@
-import { useState } from "react";
+import { useState } from "react";  // , useEffect
+import { useDispatch, useSelector } from 'react-redux'
+import { updateCart } from "../../store/cart";
 import './CheckoutCartModal.css'
 
+
 function CheckoutCartModal() {
+
+const dispatch = useDispatch();
+let cartState = useSelector(state => state.cart);
 const [modal, setModal] = useState(false);
 
 const toggleShoppingButton = () => {
     setModal(!modal)
 }
 
-if(modal) document.body.classList.add('active-modl')
-if(!modal) document.body.classList.remove('active-modl')
+// useEffect(() => {
+//     window.addEventListener('click', toggleShoppingButton)
+
+//   return () => {
+//     window.removeEventlistener('click',toggleShoppingButton)
+//   }
+// }, [])
 
 
-let getLocalStorage = localStorage.getItem("shop")
-let shop = Object.values(JSON.parse(getLocalStorage))
-console.log('what is my shop right now', shop);
-
+let shop;
+if (Object.values(cartState.cart)) {
+shop = Object.values(cartState.cart)
+console.log("here it is", shop);
+}
 
 const deleteItem = (productId ) => {
     let shop = JSON.parse(localStorage.getItem("shop"))
     delete shop[productId]
     localStorage.setItem("shop", JSON.stringify(shop))
+    dispatch(updateCart(shop))
 }
 
 const changeQuantity = (productId, int) => {
     let shop = JSON.parse(localStorage.getItem("shop"))
     shop[productId].quantity += int
     localStorage.setItem("shop", JSON.stringify(shop))
-    return 'complete'
+    dispatch(updateCart(shop))
 }
 
-
 return (
-        <div>
+    <div>
 
-            <button className='reserve-button'
-            onClick={()=>{toggleShoppingButton()}}
-            >Cart</button>
+        <button className='reserve-button'
+        onClick={()=>{toggleShoppingButton()}}
+        >Cart</button>
 
-        {modal && getLocalStorage && (
+        {modal && (
             <div className='cart-modal'>
                 <div className='overlay'></div>
                 <div className='cart-content'>
                     <h1>Shopping Cart</h1>
-                    {shop &&
+                    {!!shop.length &&
                         shop.map((product)=>{
                             return <div key={product.id} className="shoppingCartItem">
                                 <div>Product Id: {product.id}</div>
@@ -67,10 +79,9 @@ return (
                     <button onClick={()=>{toggleShoppingButton()}} className='close-review-modal'>Close Cart</button>
                 </div>
             </div>
+        )}
 
-         )}
-
-        </div>
+    </div>
 
 
   )

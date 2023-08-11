@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { thunkGetProducts } from '../../store/product';
+import { updateCart } from '../../store/cart';
 import './products.css';
 
 
@@ -20,11 +21,13 @@ const addToCart = (product) => {
         product.quantity = 1;
         shop[product.id] = product;
         localStorage.setItem("shop", JSON.stringify(shop))
+        dispatch(updateCart(shop))
     } else {
         let shop = JSON.parse(localStorage.getItem("shop"))
         product.quantity = 1;
         shop[product.id] = product
         localStorage.setItem("shop", JSON.stringify(shop))
+        dispatch(updateCart(shop))
     }
 
 }

@@ -7,6 +7,9 @@
     background-color: darkslategrey;
 }
 
+.overlay {
+
+}
 
 .quantityContainer {
     display: flex;
