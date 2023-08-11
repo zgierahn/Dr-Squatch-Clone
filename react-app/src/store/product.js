@@ -1,5 +1,5 @@
-const GET_PRODUCTS = "servers/GET_SERVERS"
-const GET_SINGLE_PRODUCT = "servers/GET_SINGLE_SERVER"
+const GET_PRODUCTS = "products/GET_PRODUCTS"
+const GET_SINGLE_PRODUCT = "products/GET_SINGLE_PRODUCT"
 
 
 const getProducts = (products) => ({

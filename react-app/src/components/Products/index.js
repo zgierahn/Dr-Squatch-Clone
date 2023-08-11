@@ -14,7 +14,7 @@ useEffect(() => {
     dispatch(thunkGetProducts())
 }, [dispatch])
 
-//does not change dynamically yet
+
 const addToCart = (product) => {
     if(!localStorage.getItem("shop") ) {
         let shop = {}

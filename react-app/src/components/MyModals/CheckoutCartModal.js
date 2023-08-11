@@ -1,4 +1,4 @@
-import { useState } from "react";  // , useEffect
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { updateCart } from "../../store/cart";
 import './CheckoutCartModal.css'
@@ -14,19 +14,11 @@ const toggleShoppingButton = () => {
     setModal(!modal)
 }
 
-// useEffect(() => {
-//     window.addEventListener('click', toggleShoppingButton)
-
-//   return () => {
-//     window.removeEventlistener('click',toggleShoppingButton)
-//   }
-// }, [])
 
 
 let shop;
 if (Object.values(cartState.cart)) {
-shop = Object.values(cartState.cart)
-console.log("here it is", shop);
+    shop = Object.values(cartState.cart)
 }
 
 const deleteItem = (productId ) => {
@@ -42,6 +34,15 @@ const changeQuantity = (productId, int) => {
     localStorage.setItem("shop", JSON.stringify(shop))
     dispatch(updateCart(shop))
 }
+
+useEffect(() => {
+
+    if(localStorage.getItem("shop")) {
+        let shop = JSON.parse(localStorage.getItem("shop"))
+        dispatch(updateCart(shop))
+    }
+
+}, [dispatch])
 
 return (
     <div>

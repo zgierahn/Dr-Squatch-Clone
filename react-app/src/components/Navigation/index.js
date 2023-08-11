@@ -1,16 +1,18 @@
-import React from 'react';
+import React from 'react';   // useEffect
 import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 import ProfileButton from './ProfileButton';
 import CheckoutCartModal from '../MyModals/CheckoutCartModal';
 
 import './Navigation.css';
 
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
 
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory();
+
+
 
 	return (
 		<nav className='navBarContainer'>
