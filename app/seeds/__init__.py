@@ -20,11 +20,11 @@ def seed():
         # Make sure to add all your other model's undo functions below
         undo_users()
         undo_products()
-        # undo_reviews()
+        undo_reviews()
     # Add other seed functions here
     seed_users()
     seed_products()
-    # seed_reviews()
+    seed_reviews()
 
 
 # Creates the `flask seed undo` command
@@ -33,4 +33,4 @@ def undo():
     # Add other undo functions here
     undo_users()
     undo_products()
-    # undo_reviews()
+    undo_reviews()
