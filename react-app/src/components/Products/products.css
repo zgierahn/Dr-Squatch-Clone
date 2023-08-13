@@ -28,7 +28,38 @@
 }
 
 .productContainer {
-    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
     height: 250px;
     width: 250px;
+    cursor: pointer;
+    border: 1px solid blue;
+}
+
+.productsImage {
+    align-self: center;
+    height: 100px;
+    width: auto;
+    border: 1px solid green;
+}
+
+.productsName {
+    margin: 0px;
+    padding: 5px;
+}
+
+.productsPrice {
+    margin: 0px;
+    padding: 5px;
+}
+
+.productsDescription {
+    margin: 0px;
+    padding: 5px;
+}
+
+.addToCartButton {
+    width: 80%;
+    align-self: center;
+    cursor: pointer;
 }

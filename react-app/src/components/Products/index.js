@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom';
 import { thunkGetProducts } from '../../store/product';
 import { updateCart } from '../../store/cart';
 import './products.css';
@@ -8,6 +9,7 @@ import './products.css';
 
 function Products() {
 const dispatch = useDispatch();
+const history = useHistory();
 let allProducts = useSelector(state => Object.values(state.product.allProducts))
 
 useEffect(() => {
@@ -57,11 +59,16 @@ const addToCart = (product) => {
                 </ul>
                 <div className='mainProductsContainer'>
                     {allProducts.map((product)=>{
-                        return <div className='productContainer' key={product.id} value={product.id}>
-                                    <h3>{product.name}</h3>
-                                    <h3>${product.price}</h3>
-                                    <p>{product.description}</p>
-                                    <button onClick={()=>{
+                        return <div className='productContainer' key={product.id} value={product.id}
+                                onClick={()=>{history.push(`/collections/products/${product.id}`)
+                                }}>
+                                    <img className="productsImage" src={product.photos} alt={product.name} />
+                                    <p className='productsName'>{product.name}</p>
+                                    <p className='productsPrice'>${product.price}</p>
+                                    <p className='productsDescription'>{product.description}</p>
+                                    <button className='addToCartButton'
+                                    onClick={(e)=>{
+                                        e.stopPropagation();
                                         addToCart(product)
                                     }}>
                                         Add to Cart
