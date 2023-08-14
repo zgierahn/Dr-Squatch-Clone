@@ -37,27 +37,10 @@ class Review(db.Model):
             "createdAt" : self.created_at,
             "editedAt" : self.edited_at,
             "productId" : self.product_id,
-            "user" : self.user.to_dict()
+            # "user" : self.user.to_dict()
+            'firstName': self.user.firstName,
+            'lastName': self.user.lastName
         }
 
 
 
-'''
-##! Relationships
-    user = db.relationship('User', back_populates='comments')
-    posts = db.relationship('Post', back_populates='comments')
-
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'body': self.body,
-            'user_id': self.user_id,
-            'post_id': self.post_id,
-            'first_name':self.user.first_name,
-            'last_name':self.user.last_name,
-            'profile_image':self.user.profile_image,
-            # 'user': self.user.to_dict(),
-            'created_at': self.created_at,
-            'updated_at': self.updated_at
-    }
-'''

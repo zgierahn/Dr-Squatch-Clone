@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 3b4881ac9727
+Revision ID: f9547766797a
 Revises:
-Create Date: 2023-08-14 12:30:45.929193
+Create Date: 2023-08-14 14:25:07.861790
 
 """
 from alembic import op
@@ -13,7 +13,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = '3b4881ac9727'
+revision = 'f9547766797a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -60,18 +60,20 @@ def upgrade():
     sa.Column('rating', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.Date(), nullable=True),
     sa.Column('edited_at', sa.Date(), nullable=True),
-    sa.Column('userId', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('product_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
-    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    # ### end Alembic commands ###
-if environment == "production":
+
+    if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
+
+    # ### end Alembic commands ###
 
 
 def downgrade():

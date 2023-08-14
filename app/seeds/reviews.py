@@ -6,25 +6,25 @@ from datetime import datetime
 # Adds a demo user, you can add other users here if you want
 def seed_reviews():
     rev1 = Review(
-        title="loved it", body="This stuff is great!", rating="5", created_at=datetime(2023, 10, 3), userId="1", product_id="1")
+        title="loved it", body="This stuff is great!", rating="5", created_at=datetime(2023, 10, 3), user_id="1", product_id="1")
     rev2 = Review(
-        title="great", body="This stuff smells great", rating="4", created_at=datetime(2023, 10, 3), userId="2", product_id="1")
+        title="great", body="This stuff smells great", rating="4", created_at=datetime(2023, 10, 3), user_id="2", product_id="1")
     rev3 = Review(
-        title="yes", body="I really liked it", rating="5", created_at=datetime(2023, 10, 3), userId="2", product_id="2")
+        title="yes", body="I really liked it", rating="5", created_at=datetime(2023, 10, 3), user_id="2", product_id="2")
     rev4 = Review(
-        title="no", body="what is that smell? Oooh that smell", rating="1", created_at=datetime(2023, 10, 3), userId="2", product_id="3")
+        title="no", body="what is that smell? Oooh that smell", rating="1", created_at=datetime(2023, 10, 3), user_id="2", product_id="3")
     rev5 = Review(
-        title="great", body="I really liked the way this smells", rating="4", created_at=datetime(2023, 10, 3), userId="2", product_id="4")
+        title="great", body="I really liked the way this smells", rating="4", created_at=datetime(2023, 10, 3), user_id="2", product_id="4")
     rev6 = Review(
-        title="like it", body="okay for the price", rating="3", created_at=datetime(2023, 10, 3), userId="3", product_id="1")
+        title="like it", body="okay for the price", rating="3", created_at=datetime(2023, 10, 3), user_id="3", product_id="1")
     rev7 = Review(
-        title="love it", body="My gf loves the way I smell", rating="5", created_at=datetime(2023, 10, 3), userId="3", product_id="2")
+        title="love it", body="My gf loves the way I smell", rating="5", created_at=datetime(2023, 10, 3), user_id="3", product_id="2")
     rev8 = Review(
-        title="this is great", body="I get compliments with this", rating="5", created_at=datetime(2023, 10, 3), userId="3", product_id="5")
+        title="this is great", body="I get compliments with this", rating="5", created_at=datetime(2023, 10, 3), user_id="3", product_id="5")
     rev9 = Review(
-        title="average", body="it's kind of pricey but i enjoy it", rating="4", created_at=datetime(2023, 10, 3), userId="3", product_id="10")
+        title="average", body="it's kind of pricey but i enjoy it", rating="4", created_at=datetime(2023, 10, 3), user_id="3", product_id="10")
     rev10 = Review(
-        title="okay", body="nothing special to me", rating="3", created_at=datetime(2023, 10, 3), userId="3", product_id="15")
+        title="okay", body="nothing special to me", rating="3", created_at=datetime(2023, 10, 3), user_id="3", product_id="15")
 
 
     db.session.add_all([rev1, rev2, rev3, rev4, rev5, rev6, rev7, rev8, rev9, rev10])
