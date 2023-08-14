@@ -36,5 +36,5 @@ class Product(db.Model):
             "description" : self.description,
             "price" : self.price,
             "photos" : self.photos,
-            # 'restaurants': [restaurant.to_dict() for restaurant in self.restaurants]
+            'reviews': [review.to_dict() for review in self.reviews]
         }

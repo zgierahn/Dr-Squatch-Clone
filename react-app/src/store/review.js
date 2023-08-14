@@ -1,6 +1,7 @@
 
 //types
 const GET_REVIEWS_BY_PRODUCT = 'reviews/GetReviewsByProductId';
+const GET_SINGLE_REVIEW = 'reviews/GET_SINGLE_REVIEW'
 const EDIT_EXISTING_REVIEW = 'reviews/EditReviewById';
 const CREATE_REVIEW = 'reviews/CreateNewReview';
 const DELETE_REVIEW = 'reviews/DeleteReview';
@@ -8,6 +9,11 @@ const DELETE_REVIEW = 'reviews/DeleteReview';
 //action functions
 export const actionGetReviews = (data) => ({
     type: GET_REVIEWS_BY_PRODUCT,
+    data
+});
+
+export const actionGetSingleReview = (data) => ({
+    type: GET_SINGLE_REVIEW,
     data
 });
 
@@ -92,7 +98,7 @@ export const thunkCreateReview = (data, productId) => async (dispatch) => {
 
 const intitialState = {
     reviews: {},
-
+    singleReview : {}
 };
 
 
@@ -106,7 +112,13 @@ export default function ReviewsReducer (state = intitialState, action) {
                 newState.reviews[review.id] = review
             });
             return newState;
-        };
+        }
+        case GET_SINGLE_REVIEW:{
+            let newState = {...state, singleReview : {...state.singleProduct}}
+            newState.singleReview = {}
+            newState.singleReview = action.data
+            return newState
+        }
         case CREATE_REVIEW : {
             const newState = {...state, reviews : {...state.reviews} };
             newState.reviews[action.review.id] = action.review;
@@ -127,8 +139,5 @@ export default function ReviewsReducer (state = intitialState, action) {
 
 
 // let createReviewButton = false
-//     reviewArr.map((review)=> {
-//         return (
 //             !user.user || review.userId === user.user.id || user.user.id === spot.ownerId  ? createReviewButton = false : createReviewButton= true
-//         )
-//     })
+//

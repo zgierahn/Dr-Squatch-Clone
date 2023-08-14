@@ -36,7 +36,6 @@ def create_Review(productId):
             body = form.data['body'],
             rating = form.data['rating'],
             created_at = str(date.today()),
-            productId = form.data['productId'],
             userId = current_user,
             productId = productId,
         )
