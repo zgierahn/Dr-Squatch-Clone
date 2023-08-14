@@ -1,5 +1,6 @@
 
 //types
+const GET_ALL_REVIEWS = 'reviews/GetAllReviews';
 const GET_REVIEWS_BY_PRODUCT = 'reviews/GetReviewsByProductId';
 const GET_SINGLE_REVIEW = 'reviews/GET_SINGLE_REVIEW'
 const EDIT_EXISTING_REVIEW = 'reviews/EditReviewById';
@@ -7,7 +8,12 @@ const CREATE_REVIEW = 'reviews/CreateNewReview';
 const DELETE_REVIEW = 'reviews/DeleteReview';
 
 //action functions
-export const actionGetReviews = (data) => ({
+export const actionGetAllReviews = (data) => ({
+    type: GET_ALL_REVIEWS,
+    data
+});
+
+export const actionGetReviewsByProduct = (data) => ({
     type: GET_REVIEWS_BY_PRODUCT,
     data
 });
@@ -34,23 +40,21 @@ export const actionDeleteReview = (reviewId) => ({
 
 
 //thunk funcs
-export const thunkGetUserReviews = () => async (dispatch) => {
-    // console.log('thunkGetUserReviews is running');
-    const res = await fetch('/api/reviews/current');
+export const thunkGetReviews = () => async (dispatch) => {
+    const res = await fetch('/api/reviews/');
     if(res.ok) {
-        const response = await res.json();
-        dispatch(actionGetReviews(response));
-
-        return response;
+        const reviews = await res.json();
+        dispatch(actionGetAllReviews(reviews));
+        return reviews;
     }
 }
 
 export const thunkGetReviewsByProduct = (productId) => async (dispatch) => {
     const res = await fetch(`/api/reviews/products/${productId}`);
     if(res.ok) {
-        const response = await res.json();
-        dispatch(actionGetReviews(response));
-        return response;
+        const reviewsByProduct = await res.json();
+        dispatch(actionGetReviewsByProduct(reviewsByProduct));
+        return reviewsByProduct;
     } else {
     const err = await res.json();
         return err;
@@ -63,7 +67,6 @@ export const thunkDeleteReview = (reviewId) => async (dispatch) => {
     const res = await fetch(`/api/reviews/delete/${reviewId}`,{
         method: 'DELETE'
     });
-
     if(res.ok) {
         const review = await res.json();
         dispatch(actionDeleteReview(reviewId));
@@ -105,6 +108,15 @@ const intitialState = {
 //reducer
 export default function ReviewsReducer (state = intitialState, action) {
     switch(action.type) {
+        case GET_ALL_REVIEWS :{
+            const newState = {...state, reviews : {...state.reviews}};
+            newState.reviews = {};
+            console.log("action data--------------------------", action.data);
+            action.data.Reviews.forEach(review => {
+                newState.reviews[review.id] = review
+            });
+            return newState;
+        }
         case GET_REVIEWS_BY_PRODUCT :{
             const newState = {...state, reviews : {...state.reviews}};
             newState.reviews = {};

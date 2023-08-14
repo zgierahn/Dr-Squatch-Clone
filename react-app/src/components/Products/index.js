@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { thunkGetProducts } from '../../store/product';
 import { updateCart } from '../../store/cart';
+import { thunkGetReviews } from '../../store/review';
 import './products.css';
 
 
@@ -14,6 +15,7 @@ let allProducts = useSelector(state => Object.values(state.product.allProducts))
 
 useEffect(() => {
     dispatch(thunkGetProducts())
+    // dispatch(thunkGetReviews())
 }, [dispatch])
 
 

@@ -13,6 +13,15 @@ engine = create_engine(db_url)
 SessionFactory = sessionmaker(bind=engine)
 session = SessionFactory()
 
+
+#Get reviews
+@review_routes.route('/')
+def reviews():
+    reviews = Review.query.all()
+    print('-----------------reviews--------------------', reviews)
+    return [review.to_dict() for review in reviews]
+
+
 #Get reviews by product Id
 @review_routes.route('/products/<int:productId>')
 def reviews(productId):
