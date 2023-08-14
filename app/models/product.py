@@ -21,8 +21,8 @@ class Product(db.Model):
         back_populates="productsId"
     )
 
-    carts = db.relationship(
-        "Cart",
+    orders = db.relationship(
+        "Order",
         cascade="all, delete-orphan",
         back_populates="productsId"
     )
@@ -36,5 +36,5 @@ class Product(db.Model):
             "description" : self.description,
             "price" : self.price,
             "photos" : self.photos,
-            # 'reviews': [review.to_dict() for review in self.reviews]
+            'reviews': [review.to_dict() for review in self.reviews]
         }

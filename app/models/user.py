@@ -26,8 +26,8 @@ class User(db.Model, UserMixin):
         back_populates="user"
     )
 
-    carts = db.relationship(
-            "Cart",
+    orders = db.relationship(
+            "Order",
             cascade="all, delete-orphan",
             back_populates="user"
         )

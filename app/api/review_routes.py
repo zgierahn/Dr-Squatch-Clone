@@ -14,18 +14,17 @@ SessionFactory = sessionmaker(bind=engine)
 session = SessionFactory()
 
 
-#Get reviews
-@review_routes.route('/')
-def reviews():
-    reviews = Review.query.all()
-    print('-----------------reviews--------------------', reviews)
-    return [review.to_dict() for review in reviews]
-
+#Get review by Id
+@review_routes.route('/<int:reviewId>')
+@login_required
+def review(reviewId):
+    review = Review.query.get(reviewId)
+    return review.to_dict()
 
 #Get reviews by product Id
 @review_routes.route('/products/<int:productId>')
-def reviews(productId):
-    reviews = Review.query.filter(Review.product_id ==productId)
+def reviewsByProduct(productId):
+    reviews = Review.query.filter(Review.product_id == productId)
     print('-----------------reviews--------------------', reviews)
     return [review.to_dict() for review in reviews]
 
@@ -36,7 +35,7 @@ def reviews(productId):
 def create_Review(productId):
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    existing_review = Review.query.filter(form.data['name']==Review.name)
+    existing_review = Review.query.filter(Review.product_id == productId)
     if existing_review is True:
         return {'error':'Review for Product already exists'},403
     if form.validate_on_submit():
@@ -83,11 +82,6 @@ def edit_review(reviewId):
     # return {'errors': 'error'}, 401
 
 
-@review_routes.route('/<int:reviewId>')
-@login_required
-def single_channel(reviewId):
-    review = Review.query.get(reviewId)
-    return review.to_dict()
 
 ###########test stuff#############
 session.close()

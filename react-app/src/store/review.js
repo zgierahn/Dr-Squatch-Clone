@@ -40,15 +40,16 @@ export const actionDeleteReview = (reviewId) => ({
 
 
 //thunk funcs
-export const thunkGetReviews = () => async (dispatch) => {
+export const thunkGetReview = (reviewId) => async (dispatch) => {
     const res = await fetch('/api/reviews/');
+    console.log("what's coming back in", res);
     if(res.ok) {
         const reviews = await res.json();
         dispatch(actionGetAllReviews(reviews));
         return reviews;
     }
 }
-
+//potentially useless
 export const thunkGetReviewsByProduct = (productId) => async (dispatch) => {
     const res = await fetch(`/api/reviews/products/${productId}`);
     if(res.ok) {
@@ -108,18 +109,10 @@ const intitialState = {
 //reducer
 export default function ReviewsReducer (state = intitialState, action) {
     switch(action.type) {
-        case GET_ALL_REVIEWS :{
-            const newState = {...state, reviews : {...state.reviews}};
-            newState.reviews = {};
-            console.log("action data--------------------------", action.data);
-            action.data.Reviews.forEach(review => {
-                newState.reviews[review.id] = review
-            });
-            return newState;
-        }
         case GET_REVIEWS_BY_PRODUCT :{
             const newState = {...state, reviews : {...state.reviews}};
             newState.reviews = {};
+            console.log("action data--------------------------", action.data);
             action.data.Reviews.forEach(review => {
                 newState.reviews[review.id] = review
             });
