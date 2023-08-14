@@ -55,28 +55,27 @@ useEffect(() => {
             </div>
             <div className='productReviewsContainter'>
                 {allReviews.map((review)=>{
-                    return <div key={review.id} className='singleReviewContainer'>
-                            <div className='reviewDataContainer'>
-                                <span className='reviewNameSpan'>
-                                    <div>{review.firstName}{review.lastName}</div>
-                                    <div>Verified Buyer</div>
-                                </span>
-                                <div>rating: {review.rating}</div>
-                                <div>{review.title}</div>
-                                <div>{review.description}</div>
+                return <div key={review.id} className='singleReviewContainer'>
+                        <span className='reviewDataContainer'>
+                            <span className='reviewNameSpan'>
+                                <div>{review.firstName}{review.lastName}</div>
+                                <div>Verified Buyer</div>
+                            </span>
+                            <div>
+                                rating: {review.rating}
                             </div>
-                            <div className='reviewDateContainer'>
-                                {review.createdAt}
-                            </div>
-                    </div>
+                            <div>{review.title}</div>
+                            <div>{review.description}</div>
+                        </span>
+                        <div className='reviewDateContainer'>
+                            {review.createdAt}
+                        </div>
+                        </div>
                 })}
             </div>
-
         </section>
-
     </main>
-
   )
-}
+};
 
 export default SingleProduct
