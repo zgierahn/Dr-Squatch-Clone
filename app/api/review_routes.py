@@ -3,6 +3,8 @@ from flask_login import login_required, current_user
 from app.models import db, Review
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from ..forms.create_review_form import CreateReviewForm
+from ..forms.edit_review_form import EditReviewForm
 from datetime import date
 
 review_routes = Blueprint('reviews', __name__)
@@ -24,7 +26,7 @@ def reviews(productId):
 @review_routes.route('/products/<int:productId>/new', methods=['POST'])
 @login_required
 def create_Review(productId):
-    form = ReviewForm()
+    form = CreateReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     existing_review = Review.query.filter(form.data['name']==Review.name)
     if existing_review is True:
@@ -34,11 +36,10 @@ def create_Review(productId):
             title = form.data['title'],
             body = form.data['body'],
             rating = form.data['rating'],
-            created_at = str(date.today())
+            created_at = str(date.today()),
             productId = form.data['productId'],
             userId = current_user,
             productId = productId,
-
         )
         # print('-----------------backend---------------------',review)
         db.session.add(review)
@@ -61,7 +62,7 @@ def delete_review(reviewId):
 @review_routes.route('/edit/<int:reviewId>', methods=['GET','POST','PUT'])
 @login_required
 def edit_review(reviewId):
-    form = ChannelForm()
+    form = EditReviewForm()
     review = Review.query.get(reviewId)
     form['csrf_token'].data = request.cookies['csrf_token']
     name_dupicate = Review.query.filter(form.data['name']==Review.name)
