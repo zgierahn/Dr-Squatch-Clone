@@ -49,7 +49,8 @@ export const thunkGetReview = (reviewId) => async (dispatch) => {
         return reviews;
     }
 }
-//potentially useless
+
+
 export const thunkGetReviewsByProduct = (productId) => async (dispatch) => {
     const res = await fetch(`/api/reviews/products/${productId}`);
     if(res.ok) {
@@ -112,8 +113,7 @@ export default function ReviewsReducer (state = intitialState, action) {
         case GET_REVIEWS_BY_PRODUCT :{
             const newState = {...state, reviews : {...state.reviews}};
             newState.reviews = {};
-            console.log("action data--------------------------", action.data);
-            action.data.Reviews.forEach(review => {
+            action.data.forEach(review => {
                 newState.reviews[review.id] = review
             });
             return newState;

@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { thunkGetReviewsByProduct } from '../../store/review'
+import { useParams } from 'react-router-dom'
 import "./singleProduct.css"
 
 function SingleProduct() {
 
+const dispatch = useDispatch();
+const {productId} = useParams();
+let allReviews = useSelector(state => Object.values(state.review.reviews))
+
+useEffect(() => {
+    dispatch(thunkGetReviewsByProduct(productId))
+}, [dispatch])
 
   return (
     <main>
@@ -44,18 +54,22 @@ function SingleProduct() {
                 </span>
             </div>
             <div className='productReviewsContainter'>
-                <div className='singleReviewContainer'>
-                    <span className='reviewNameSpan'>
-                        <div>Customer name</div>
-                        <div>Verified Buyer</div>
-                    </span>
-                    <div>star rating</div>
-                    <div>Title</div>
-                    <div>description</div>
-                </div>
-                <div className='reviewDateContainer'>
-                    Date
-                </div>
+                {allReviews.map((review)=>{
+                    return <div key={review.id} className='singleReviewContainer'>
+                            <div className='reviewDataContainer'>
+                                <span className='reviewNameSpan'>
+                                    <div>{review.firstName}{review.lastName}</div>
+                                    <div>Verified Buyer</div>
+                                </span>
+                                <div>rating: {review.rating}</div>
+                                <div>{review.title}</div>
+                                <div>{review.description}</div>
+                            </div>
+                            <div className='reviewDateContainer'>
+                                {review.createdAt}
+                            </div>
+                    </div>
+                })}
             </div>
 
         </section>
