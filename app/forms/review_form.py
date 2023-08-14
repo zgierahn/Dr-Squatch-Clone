@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired, Email, ValidationError
 
 
 
-class CreateReviewForm(FlaskForm):
-    name = StringField('name')
-    server_id=IntegerField('Server ID')
+class ReviewForm(FlaskForm):
+    title = StringField('title')
+    body = StringField('body')
+    rating=IntegerField('rating')
