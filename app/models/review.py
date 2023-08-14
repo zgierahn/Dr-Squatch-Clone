@@ -13,7 +13,7 @@ class Review(db.Model):
     rating = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.Date)
     edited_at = db.Column(db.Date)
-    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")), nullable=False)
 
 
@@ -36,7 +36,28 @@ class Review(db.Model):
             "rating" : self.rating,
             "createdAt" : self.created_at,
             "editedAt" : self.edited_at,
-            "userId" : self.userId,
             "productId" : self.product_id,
-            "user" : [person.to_dict() for person in self.user]
+            "user" : self.user.to_dict()
         }
+
+
+
+'''
+##! Relationships
+    user = db.relationship('User', back_populates='comments')
+    posts = db.relationship('Post', back_populates='comments')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'body': self.body,
+            'user_id': self.user_id,
+            'post_id': self.post_id,
+            'first_name':self.user.first_name,
+            'last_name':self.user.last_name,
+            'profile_image':self.user.profile_image,
+            # 'user': self.user.to_dict(),
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+    }
+'''

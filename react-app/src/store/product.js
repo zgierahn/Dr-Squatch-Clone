@@ -29,6 +29,7 @@ export const thunkGetSingleProduct = (productId) => async(dispatch) => {
 
 export const thunkGetProducts = () => async (dispatch) => {
     const res = await fetch(`/api/products`)
+    console.log("this is the get products thunk", res);
     if (res.ok) {
         const data = await res.json()
         dispatch(getProducts(data))

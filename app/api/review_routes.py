@@ -16,10 +16,11 @@ session = SessionFactory()
 
 #Get review by Id
 @review_routes.route('/<int:reviewId>')
-@login_required
+# @login_required
 def review(reviewId):
     review = Review.query.get(reviewId)
     return review.to_dict()
+
 
 #Get reviews by product Id
 @review_routes.route('/products/<int:productId>')
@@ -44,8 +45,8 @@ def create_Review(productId):
             body = form.data['body'],
             rating = form.data['rating'],
             created_at = str(date.today()),
-            userId = current_user,
-            productId = productId,
+            user_id = current_user,
+            product_id = productId,
         )
         # print('-----------------backend---------------------',review)
         db.session.add(review)
@@ -86,3 +87,6 @@ def edit_review(reviewId):
 ###########test stuff#############
 session.close()
 engine.dispose()
+
+
+
