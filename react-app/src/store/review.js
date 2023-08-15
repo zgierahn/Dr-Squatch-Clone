@@ -42,7 +42,6 @@ export const actionDeleteReview = (reviewId) => ({
 //thunk funcs
 export const thunkGetReview = (reviewId) => async (dispatch) => {
     const res = await fetch('/api/reviews/');
-    console.log("what's coming back in", res);
     if(res.ok) {
         const reviews = await res.json();
         dispatch(actionGetAllReviews(reviews));
@@ -69,6 +68,7 @@ export const thunkDeleteReview = (reviewId) => async (dispatch) => {
     const res = await fetch(`/api/reviews/delete/${reviewId}`,{
         method: 'DELETE'
     });
+    console.log("this is the return of delete review", res);
     if(res.ok) {
         const review = await res.json();
         dispatch(actionDeleteReview(reviewId));

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { thunkGetSingleProduct } from '../../store/product'
-import { thunkGetReviewsByProduct } from '../../store/review'
+import { thunkGetReviewsByProduct, thunkDeleteReview } from '../../store/review'
 import "./singleProduct.css"
 
 function SingleProduct() {
@@ -92,10 +92,20 @@ useEffect(() => {
                                 rating: {review.rating}
                             </div>
                             <div>{review.title}</div>
-                            <div>{review.description}</div>
+                            <div>{review.body}</div>
                         </span>
                         <div className='reviewDateContainer'>
-                            {review.createdAt}
+                            <div>
+                                {review.createdAt}
+                            </div>
+                                <button onClick={()=>{
+                                    dispatch(thunkDeleteReview(review.id))
+                                }}
+                                >Delete Review</button>
+                                <button onClick={()=>{
+                                    dispatch()
+                                }}
+                                >Edit Review</button>
                         </div>
                         </div>
                 })}
