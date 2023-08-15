@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { thunkGetSingleProduct } from '../../store/product'
 import { thunkGetReviewsByProduct, thunkDeleteReview } from '../../store/review'
-import "./singleProduct.css"
 import ConfirmReviewModal from '../MyModals/ConfirmReviewModal'
+import ConfirmDeleteModal from '../MyModals/ConfirmDeleteModal'
+import "./singleProduct.css"
 
 function SingleProduct() {
 
@@ -99,11 +100,8 @@ useEffect(() => {
                             <div>
                                 {review.createdAt}
                             </div>
-                                <button onClick={()=>{
-                                    dispatch(thunkDeleteReview(review.id))
-                                }}
-                                >Delete Review</button>
-                                <ConfirmReviewModal />
+                            <ConfirmDeleteModal review={review}/>
+                            <ConfirmReviewModal review={review}/>
                         </div>
                         </div>
                 })}

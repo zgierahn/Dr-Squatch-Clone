@@ -1,16 +1,23 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import "./ConfirmReviewModal.css"
+import "./ConfirmationModal.css"
 
 
-function ConfirmReviewModal() {
+function ConfirmReviewModal({review}) {
 
 const dispatch = useDispatch();
 const [modal, setModal] = useState(false);
+const [title, setTitle] = useState(review.title);
+const [body, setBody] = useState(review.body);
+const [rating, setRating] = useState(review.rating);
 
 const toggleButton = () => {
     setModal(!modal)
+}
+
+const submitReveiw = () => {
+
 }
 
   return (
@@ -23,15 +30,35 @@ const toggleButton = () => {
         </button>
 
         {modal && (
-            <div>
+            <div className='reviewModalOverlay'>
                 <div className='reviewModal'>
                     <h1>Do you want to edit your Review?</h1>
-                    <button>
-                        Yes
-                    </button>
-                    <button onClick={()=>{toggleButton()}}>
-                        No
-                    </button>
+                    <section className='ReviewFormContainer'>
+                        <label>Title</label>
+                        <input type="text"className="ReviewTitleInput" value={title}
+                            onChange={(e) => {
+                                setTitle(e.target.value)
+                        }}/>
+                        <label>Description</label>
+                        <input type="text"className="ReviewDescriptionInput" value={body}
+                            onChange={(e) => {
+                                setBody(e.target.value)
+                        }}/>
+                        <label>Rating</label>
+                        <input type="text"className="ReviewRatingInput" value={rating}
+                            onChange={(e) => {
+                                setRating(e.target.value)
+                        }}/>
+
+                    </section>
+                    <span className='confirmButtonSpan'>
+                        <button onClick={()=>{
+                            return submitReveiw()
+                        }}>Edit Review</button>
+                        <button onClick={()=>{toggleButton()}}>
+                            Cancel
+                        </button>
+                    </span>
                 </div>
             </div>
         )}

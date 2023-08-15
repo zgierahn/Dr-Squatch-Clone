@@ -6,7 +6,7 @@ import { thunkCreateReview } from "../../store/review"
 import "./ReviewForm.css"
 
 
-function ReviewForm(review) {
+function ReviewForm() {
 
 const { productId } = useParams();
 const dispatch = useDispatch();
@@ -15,10 +15,7 @@ const [body, setBody] = useState("");
 const [rating, setRating] = useState(0);
 
 const submitReveiw = () => {
-    console.log('before thunk');
-    console.log({title, body, rating});
     dispatch(thunkCreateReview({title, body, rating}, productId))
-    console.log('after thunk');
 }
 
   return (
