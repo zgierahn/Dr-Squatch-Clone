@@ -11,13 +11,13 @@ function ReviewForm() {
 const { productId } = useParams();
 const dispatch = useDispatch();
 const [title, setTitle] = useState("");
-const [description, setDescription] = useState("");
+const [body, setBody] = useState("");
 const [rating, setRating] = useState(0);
 
 const submitReveiw = () => {
     console.log('before thunk');
-    console.log({title, description, rating});
-    dispatch(thunkCreateReview({title, description, rating}, productId))
+    console.log({title, body, rating});
+    dispatch(thunkCreateReview({title, body, rating}, productId))
     console.log('after thunk');
 }
 
@@ -31,9 +31,9 @@ const submitReveiw = () => {
                     setTitle(e.target.value)
             }}/>
             <label>Description</label>
-            <input type="text"className="ReviewDescriptionInput" value={description}
+            <input type="text"className="ReviewDescriptionInput" value={body}
                 onChange={(e) => {
-                    setDescription(e.target.value)
+                    setBody(e.target.value)
             }}/>
             <label>Rating</label>
             <input type="text"className="ReviewRatingInput" value={rating}

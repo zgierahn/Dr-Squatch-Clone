@@ -44,11 +44,11 @@ def create_Review(productId):
             title = form.data['title'],
             body = form.data['body'],
             rating = form.data['rating'],
-            created_at = str(date.today()),
-            user_id = current_user,
+            created_at = date.today(),
+            user_id = current_user.id,
             product_id = productId,
         )
-        # print('-----------------backend---------------------',review)
+        print('-----------------backend---------------------',review)
         db.session.add(review)
         db.session.commit()
         return review.to_dict()
