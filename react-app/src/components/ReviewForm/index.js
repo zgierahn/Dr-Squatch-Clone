@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useDispatch  } from 'react-redux'  //useSelector
-import { useParams, useHistory } from 'react-router-dom'
+import { useDispatch  } from 'react-redux'  //  , useSelector
+import { useParams } from 'react-router-dom'  // , useHistory
 import { thunkCreateReview } from "../../store/review"
 
 import "./ReviewForm.css"

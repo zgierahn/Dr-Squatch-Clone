@@ -68,14 +68,12 @@ export const thunkDeleteReview = (reviewId) => async (dispatch) => {
     const res = await fetch(`/api/reviews/delete/${reviewId}`,{
         method: 'DELETE'
     });
-    console.log("this is the return of delete review", res);
     if(res.ok) {
         const review = await res.json();
         dispatch(actionDeleteReview(reviewId));
         return review;
     } else {
         const err = await res.json();
-        // console.log(err);
         return err;
     }
 };
@@ -88,7 +86,6 @@ export const thunkCreateReview = (data, productId) => async (dispatch) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
-        console.log('what is my thunk returning', res);
         if(res.ok) {
         const review = await res.json();
             dispatch(actionCreateReview(review));
@@ -98,6 +95,27 @@ export const thunkCreateReview = (data, productId) => async (dispatch) => {
         return err;
     }
 };
+
+
+export const thunkEditReview = (data, reviewId) => async (dispatch) => {
+    console.log('what is my data????????????????????', data);
+    const res = await fetch(`/api/reviews/edit/${reviewId}`,
+     {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    console.log('what is my thunk returning', res);
+    if(res.ok) {
+    const review = await res.json();
+        dispatch(actionCreateReview(review));
+        return review;
+    } else {
+    const err = await res.json();
+    return err;
+}
+};
+
 
 
 

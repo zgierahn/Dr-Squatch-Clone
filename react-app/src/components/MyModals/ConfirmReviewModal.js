@@ -1,24 +1,26 @@
-import React from 'react'
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from "react";  //  , useEffect
+import { useDispatch } from 'react-redux'  //  , useSelector
+import { thunkEditReview } from '../../store/review';
+
 import "./ConfirmationModal.css"
 
 
 function ConfirmReviewModal({review}) {
 
-const dispatch = useDispatch();
-const [modal, setModal] = useState(false);
-const [title, setTitle] = useState(review.title);
-const [body, setBody] = useState(review.body);
-const [rating, setRating] = useState(review.rating);
+    const dispatch = useDispatch();
+    const [modal, setModal] = useState(false);
+    const [title, setTitle] = useState(review.title);
+    const [body, setBody] = useState(review.body);
+    const [rating, setRating] = useState(review.rating);
 
-const toggleButton = () => {
-    setModal(!modal)
-}
+    const toggleButton = () => {
+        setModal(!modal)
+    }
 
-const submitReveiw = () => {
-
-}
+    const submitReveiw = () => {
+        dispatch(thunkEditReview({title, body, rating }, review.id))
+        toggleButton()
+    }
 
   return (
     <div>
@@ -53,8 +55,10 @@ const submitReveiw = () => {
                     </section>
                     <span className='confirmButtonSpan'>
                         <button onClick={()=>{
-                            return submitReveiw()
-                        }}>Edit Review</button>
+                             return submitReveiw()
+                        }}>
+                            Edit Review
+                        </button>
                         <button onClick={()=>{toggleButton()}}>
                             Cancel
                         </button>

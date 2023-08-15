@@ -1,6 +1,6 @@
 import React from 'react'
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import { useState } from "react"; // , useEffect
+import { useDispatch } from 'react-redux'  //  , useSelector
 import { thunkDeleteReview } from '../../store/review'
 
 import "./ConfirmationModal.css"

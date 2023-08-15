@@ -72,15 +72,16 @@ def edit_review(reviewId):
     form = ReviewForm()
     review = Review.query.get(reviewId)
     form['csrf_token'].data = request.cookies['csrf_token']
-    name_dupicate = Review.query.filter(form.data['name']==Review.name)
-    name_dupicate_length =len([review.to_dict() for review in name_dupicate])
-    if name_dupicate_length > 0:
-        return {'error':'Review name already exists'},401
-    review.name = form.data['name']
-    # review.server_id=serverId
+    # if review != True:
+    #     return {'error':'Review cannnot be found'},404
+    print("---------------------------------------------------------", review)
+    print("=========================================================", form.data)
+    review.title = form.data['title']
+    review.body = form.data['body']
+    review.rating = form.data['rating']
+    review.edited_at = date.today()
     db.session.commit()
     return review.to_dict()
-    # return {'errors': 'error'}, 401
 
 
 

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { thunkGetSingleProduct } from '../../store/product'
-import { thunkGetReviewsByProduct, thunkDeleteReview } from '../../store/review'
+import { thunkGetReviewsByProduct } from '../../store/review'
 import ConfirmReviewModal from '../MyModals/ConfirmReviewModal'
 import ConfirmDeleteModal from '../MyModals/ConfirmDeleteModal'
 import "./singleProduct.css"
