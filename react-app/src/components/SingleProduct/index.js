@@ -37,18 +37,18 @@ useEffect(() => {
                 </div>
             </section>
             <section className='rightSideContainer'>
-                <div>{product.category}</div>
+                <div className='SPCategory'>{product.category}</div>
                 <header className='SingleProductName'>
                     {product.name}
                 </header>
-                {/* {product.reviews.length > 0 ? <div>{product.reviews.length} reviews</div> : <div>New!</div>} */}
-                <div>{product.description}</div>
+                {product.reviews && product.reviews.length > 0 ? <div>{product.reviews.length} reviews</div> : <div>New!</div>}
+                <div className='SPdescription'>{product.description}</div>
                 <span className='singleProductSpan'>
                     <div>image 1</div>
                     <div>image 2</div>
                 </span>
                 <ul className='selectPricesContainer'>
-                    <span>
+                    <span className='SPBuyOptions'>
                         <div>Buy 1</div>
                         <div>${product.price} / each</div>
                     </span>

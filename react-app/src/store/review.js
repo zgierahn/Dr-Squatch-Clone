@@ -88,6 +88,7 @@ export const thunkCreateReview = (data, productId) => async (dispatch) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
+        console.log('what is my thunk returning', res);
         if(res.ok) {
         const review = await res.json();
             dispatch(actionCreateReview(review));

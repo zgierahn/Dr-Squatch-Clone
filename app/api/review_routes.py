@@ -87,6 +87,3 @@ def edit_review(reviewId):
 ###########test stuff#############
 session.close()
 engine.dispose()
-
-
-

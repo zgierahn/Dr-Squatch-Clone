@@ -27,7 +27,11 @@
 }
 
 .profile-dropdown {
+  display: flex;
+  flex-direction: column;
   position: absolute;
+  right: 79px;
+  top: 32px;
 }
 
 .hidden {

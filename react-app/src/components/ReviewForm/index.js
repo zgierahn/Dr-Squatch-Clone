@@ -1,14 +1,25 @@
 import React, { useState } from 'react'
 import { useDispatch  } from 'react-redux'  //useSelector
+import { useParams, useHistory } from 'react-router-dom'
+import { thunkCreateReview } from "../../store/review"
+
 import "./ReviewForm.css"
+
 
 function ReviewForm() {
 
+const { productId } = useParams();
 const dispatch = useDispatch();
 const [title, setTitle] = useState("");
 const [description, setDescription] = useState("");
 const [rating, setRating] = useState(0);
 
+const submitReveiw = () => {
+    console.log('before thunk');
+    console.log({title, description, rating});
+    dispatch(thunkCreateReview({title, description, rating}, productId))
+    console.log('after thunk');
+}
 
   return (
     <main>
@@ -29,7 +40,9 @@ const [rating, setRating] = useState(0);
                 onChange={(e) => {
                     setRating(e.target.value)
             }}/>
-            <button>Create Review</button>
+            <button onClick={()=>{
+                return submitReveiw()
+            }}>Create Review</button>
         </section>
     </main>
   )

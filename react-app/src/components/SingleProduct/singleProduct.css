@@ -4,6 +4,8 @@
     border: 1px solid black;
 }
 
+/* ------------------ Left Side Image Container ---------------------- */
+
 .leftSideContainer {
     width: 40vw;
     height: 55vh;
@@ -27,16 +29,31 @@
     padding: 15px;
 }
 
+
+/* ------------------ Right Side Info Container ---------------------- */
+
 .rightSideContainer {
+    display: flex;
+    flex-direction: column;
     width: 40vw;
     height: 55vh;
     border: 1px solid red;
 
 }
 
+.SPCategory {
+    padding: 5px;
+}
+
 .SingleProductName {
     font-size: x-large;
     font-weight: 600;
+    padding: 5px;
+}
+
+.SPdescription {
+    padding: 5px;
+    height: 70px;
 }
 
 .singleProductSpan {
@@ -47,7 +64,11 @@
 .selectPricesContainer {
     display: flex;
     flex-direction: row;
+    height: 75px;
 }
+
+
+/* ------------------ Reviews Lower Container ---------------------- */
 
 .lowerProductSection {
     display: flex;
