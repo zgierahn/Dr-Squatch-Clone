@@ -6,7 +6,7 @@ import { thunkCreateReview } from "../../store/review"
 import "./ReviewForm.css"
 
 
-function ReviewForm() {
+function ReviewForm(review) {
 
 const { productId } = useParams();
 const dispatch = useDispatch();

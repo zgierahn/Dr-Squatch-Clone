@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import { thunkGetSingleProduct } from '../../store/product'
 import { thunkGetReviewsByProduct, thunkDeleteReview } from '../../store/review'
 import "./singleProduct.css"
+import ConfirmReviewModal from '../MyModals/ConfirmReviewModal'
 
 function SingleProduct() {
 
@@ -16,7 +17,7 @@ let allReviews = useSelector(state => Object.values(state.review.reviews))
 useEffect(() => {
     dispatch(thunkGetReviewsByProduct(productId))
     dispatch(thunkGetSingleProduct(productId))
-}, [dispatch])
+}, [dispatch, productId])
 
 
   return (
@@ -32,7 +33,7 @@ useEffect(() => {
                 </nav>
                 <div className='outerImagesContainer'>
                     <div className='innerImagesContainer'>
-                        <img className="singleProductImage" src={product.photos}/>
+                        <img className="singleProductImage" src={product.photos} alt="picute of product"/>
                     </div>
                 </div>
             </section>
@@ -102,10 +103,7 @@ useEffect(() => {
                                     dispatch(thunkDeleteReview(review.id))
                                 }}
                                 >Delete Review</button>
-                                <button onClick={()=>{
-                                    dispatch()
-                                }}
-                                >Edit Review</button>
+                                <ConfirmReviewModal />
                         </div>
                         </div>
                 })}
