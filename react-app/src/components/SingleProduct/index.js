@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { thunkGetReviewsByProduct } from '../../store/review'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import "./singleProduct.css"
 
 function SingleProduct() {
 
+const history = useHistory();
 const dispatch = useDispatch();
 const {productId} = useParams();
 let allReviews = useSelector(state => Object.values(state.review.reviews))
@@ -52,6 +53,12 @@ useEffect(() => {
                     <div>Review Stars</div>
                     <div># of Reviews</div>
                 </span>
+            </div>
+            <div className='searchAndCreateReviewsContainer'>
+                <button
+                onClick={()=>{history.push(`/products/${productId}/reviews/new`)}}>
+                    Add a Review
+                </button>
             </div>
             <div className='productReviewsContainter'>
                 {allReviews.map((review)=>{

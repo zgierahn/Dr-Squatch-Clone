@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Products from "./components/Products";
 import SingleProduct from "./components/SingleProduct";
+import ReviewForm from "./components/ReviewForm";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
@@ -41,6 +42,10 @@ function App() {
 
           <Route exact path="/collections/products/:productId">
             <SingleProduct />
+          </Route>
+
+          <Route exact path="/products/:productId/reviews/new" >
+            <ReviewForm />
           </Route>
 
         </Switch>
