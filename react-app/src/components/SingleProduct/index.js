@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { thunkGetReviewsByProduct } from '../../store/review'
 import { useParams, useHistory } from 'react-router-dom'
+import { thunkGetSingleProduct } from '../../store/product'
+import { thunkGetReviewsByProduct } from '../../store/review'
 import "./singleProduct.css"
 
 function SingleProduct() {
@@ -9,40 +10,59 @@ function SingleProduct() {
 const history = useHistory();
 const dispatch = useDispatch();
 const {productId} = useParams();
+let product = useSelector(state => state.product.singleProduct)
 let allReviews = useSelector(state => Object.values(state.review.reviews))
 
 useEffect(() => {
     dispatch(thunkGetReviewsByProduct(productId))
+    dispatch(thunkGetSingleProduct(productId))
 }, [dispatch])
+
 
   return (
     <main>
         <div className='mainProductContainer'>
             <section className='leftSideContainer'>
                 <nav className='trackWebLocation'>
-                    Nav Bar PlaceHolder
+                    <div>Home</div>
+                    <div>-</div>
+                    <div>{product.category}</div>
+                    <div>-</div>
+                    <div>{product.name}</div>
                 </nav>
-                <div className='imagesContainer'>
-                    <div>This is an image</div>
+                <div className='outerImagesContainer'>
+                    <div className='innerImagesContainer'>
+                        <img className="singleProductImage" src={product.photos}/>
+                    </div>
                 </div>
             </section>
             <section className='rightSideContainer'>
-                <header>
-                    The Name of the product
+                <div>{product.category}</div>
+                <header className='SingleProductName'>
+                    {product.name}
                 </header>
-                <div>reviews</div>
-                <div>description</div>
+                {/* {product.reviews.length > 0 ? <div>{product.reviews.length} reviews</div> : <div>New!</div>} */}
+                <div>{product.description}</div>
                 <span className='singleProductSpan'>
                     <div>image 1</div>
-                    <div> image 2</div>
+                    <div>image 2</div>
                 </span>
                 <ul className='selectPricesContainer'>
-                    <div>Select Price 1</div>
-                    <div>Select Price 2</div>
-                    <div>Select Price 3</div>
+                    <span>
+                        <div>Buy 1</div>
+                        <div>${product.price} / each</div>
+                    </span>
+                    <span>
+                        <div>Buy 2</div>
+                        <div>${product.price} / each</div>
+                    </span>
+                    <span>
+                        <div>Buy 3</div>
+                        <div>${product.price} / each</div>
+                    </span>
 
                 </ul>
-                <button>Add to Cart button</button>
+                <button className='addToCartButton'>${product.price} | Add to Cart</button>
             </section>
         </div>
         <section className='lowerProductSection'>

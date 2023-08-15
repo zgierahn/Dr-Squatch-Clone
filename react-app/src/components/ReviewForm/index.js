@@ -5,9 +5,11 @@ import "./ReviewForm.css"
 function ReviewForm() {
 
 const dispatch = useDispatch();
-const [title, setTitle] = useState("")
-const [description, setDescription] = useState("")
-const [rating, setRating] = useState(0)
+const [title, setTitle] = useState("");
+const [description, setDescription] = useState("");
+const [rating, setRating] = useState(0);
+
+
   return (
     <main>
         <h1>Review Form</h1>
@@ -27,6 +29,7 @@ const [rating, setRating] = useState(0)
                 onChange={(e) => {
                     setRating(e.target.value)
             }}/>
+            <button>Create Review</button>
         </section>
     </main>
   )
