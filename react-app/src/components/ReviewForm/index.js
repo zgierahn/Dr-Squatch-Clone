@@ -29,7 +29,6 @@ const submitReveiw = () => {
     if(Object.values(trackErrors).length > 0) {
         return null
     } else {
-        console.log("this shouldn't show up");
         dispatch(thunkCreateReview({title, body, rating}, productId))
         history.push(`/collections/products/${productId}`)
     }
