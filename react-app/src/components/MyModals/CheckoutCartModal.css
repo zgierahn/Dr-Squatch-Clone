@@ -1,0 +1,23 @@
+.cart-modal {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 375px;
+    height: 99.9vh;
+    background-color: darkslategrey;
+}
+
+.overlay {
+
+}
+
+.quantityContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.innerQuantityContainer {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+}

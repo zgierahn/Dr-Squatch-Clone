@@ -4,8 +4,10 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { login } from "../../store/session";
 
 function ProfileButton({ user }) {
+
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
@@ -17,15 +19,12 @@ function ProfileButton({ user }) {
 
   useEffect(() => {
     if (!showMenu) return;
-
     const closeMenu = (e) => {
       if (!ulRef.current.contains(e.target)) {
         setShowMenu(false);
       }
     };
-
     document.addEventListener("click", closeMenu);
-
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
@@ -36,6 +35,9 @@ function ProfileButton({ user }) {
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
+
+
+
 
   return (
     <>
@@ -64,6 +66,16 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
             />
+            <button className="demo1" onClick={async () => {
+                await dispatch(login('demo@aa.io', "password")).then(closeMenu)
+            }} >
+                Demo User
+            </button>
+            <button className="demo2" onClick={async () => {
+                await dispatch(login('marnie@aa.io', "password")).then(closeMenu)
+            }} >
+                Demo User 2
+            </button>
           </>
         )}
       </ul>

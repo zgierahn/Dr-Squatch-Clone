@@ -10,6 +10,7 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(255), nullable=False)
     name = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.Text, nullable=False)
     price = db.Column(db.Integer)
     photos = db.Column(db.String(255))
 
@@ -20,8 +21,8 @@ class Product(db.Model):
         back_populates="productsId"
     )
 
-    carts = db.relationship(
-        "Cart",
+    orders = db.relationship(
+        "Order",
         cascade="all, delete-orphan",
         back_populates="productsId"
     )
@@ -32,6 +33,8 @@ class Product(db.Model):
             'id': self.id,
             "category" : self.category,
             "name" : self.name,
+            "description" : self.description,
             "price" : self.price,
-            "photos" : self.photos
+            "photos" : self.photos,
+            'reviews': [review.to_dict() for review in self.reviews]
         }

@@ -1,0 +1,124 @@
+.mainProductContainer {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+/* ------------------ Left Side Image Container ---------------------- */
+
+.leftSideContainer {
+    width: 40vw;
+    height: 55vh;
+    border: 1px solid blue;
+}
+
+.trackWebLocation {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid violet;
+}
+
+.singleProductImage {
+    height: 320px;
+    width: auto;
+}
+
+.innerImagesContainer {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+
+/* ------------------ Right Side Info Container ---------------------- */
+
+.rightSideContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    height: 55vh;
+    border: 1px solid red;
+
+}
+
+.SPCategory {
+    padding: 5px;
+}
+
+.SingleProductName {
+    font-size: x-large;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.SPdescription {
+    padding: 5px;
+    height: 70px;
+}
+
+.singleProductSpan {
+    display: flex;
+    flex-direction: row;
+}
+
+.selectPricesContainer {
+    display: flex;
+    justify-content: center;
+    grid-gap: 10px;
+    gap: 10px;
+    margin-block: 20px;
+}
+
+.multiBuy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100px;
+    padding: 5px;
+    gap: 8px;
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+/* ------------------ Reviews Lower Container ---------------------- */
+
+.lowerProductSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid green;
+}
+
+.productReviewsHeader {
+    border: 1px solid pink;
+}
+
+.productReviewsContainter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 75vw;
+    height: auto;
+    border: 1px solid lightblue;
+}
+
+.singleReviewContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid orange;
+}
+
+.reviewDateContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid yellow;
+}
+
+.reviewNameSpan {
+    display: flex;
+    flex-direction: row;
+}

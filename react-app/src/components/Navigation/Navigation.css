@@ -1,5 +1,37 @@
+.navBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.navLeft {
+  display: flex;
+  gap: 15px;
+  margin-left: 15px;
+  /* border: 1px solid red; */
+
+}
+
+.navCenter {
+
+}
+
+.navRight {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  width: 275px;
+  margin-right: 15px;
+  /* border: 1px solid red; */
+}
+
 .profile-dropdown {
+  display: flex;
+  flex-direction: column;
   position: absolute;
+  right: 79px;
+  top: 32px;
 }
 
 .hidden {
