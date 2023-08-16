@@ -32,6 +32,11 @@
   position: absolute;
   right: 79px;
   top: 32px;
+  /* background-color: blue; */
+}
+
+.userDropdown {
+  
 }
 
 .hidden {
