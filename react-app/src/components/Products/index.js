@@ -59,22 +59,22 @@ const addToCart = (product) => {
                 </ul>
                 <div className='mainProductsContainer'>
                     {allProducts.map((product)=>{
-                        return <div className='productContainer' key={product.id} value={product.id}
-                                onClick={()=>{history.push(`/collections/products/${product.id}`)
+                    return <div className='productContainer' key={product.id} value={product.id}
+                            onClick={()=>{history.push(`/collections/products/${product.id}`)
+                            }}>
+                                <img className="productsImage" src={product.photos} alt={product.name} />
+                                <p className='productsName'>{product.name}</p>
+                                <p className='productsPrice'>${product.price}</p>
+                                <p className='productsDescription'>{product.description}</p>
+                                <button className='addToCartButton'
+                                onClick={(e)=>{
+                                    e.stopPropagation();
+                                    addToCart(product)
                                 }}>
-                                    <img className="productsImage" src={product.photos} alt={product.name} />
-                                    <p className='productsName'>{product.name}</p>
-                                    <p className='productsPrice'>${product.price}</p>
-                                    <p className='productsDescription'>{product.description}</p>
-                                    <button className='addToCartButton'
-                                    onClick={(e)=>{
-                                        e.stopPropagation();
-                                        addToCart(product)
-                                    }}>
-                                        Add to Cart
-                                    </button>
-                               </div>
-                    })}
+                                    Add to Cart
+                                </button>
+                            </div>
+                            })}
                 </div>
             </section>
         </header>

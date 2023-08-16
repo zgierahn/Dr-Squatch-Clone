@@ -13,8 +13,8 @@ class Review(db.Model):
     rating = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.Date)
     edited_at = db.Column(db.Date)
-    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    productId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")), nullable=False)
 
 
     user = db.relationship(
@@ -36,7 +36,11 @@ class Review(db.Model):
             "rating" : self.rating,
             "createdAt" : self.created_at,
             "editedAt" : self.edited_at,
-            "userId" : self.userId,
-            "productId" : self.productId,
-            "user" : [person.to_dict() for person in self.user]
+            "productId" : self.product_id,
+            # "user" : self.user.to_dict()
+            'firstName': self.user.firstName,
+            'lastName': self.user.lastName
         }
+
+
+

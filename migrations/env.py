@@ -1,16 +1,3 @@
-/----------------------- Flask commands ----------------------/
- --inside the pipenv shell
-flask db init
-flask db migrate
-flask db upgrade
-
-flask seed undo
-flask seed all
-
-
-
-/-------------------- env.py copy/pasta -------------------------------/
-
 from __future__ import with_statement
 
 import logging
@@ -112,16 +99,3 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
-
-
-/-------------------- Migrations version imports needed -------------------/
-
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
-
-if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
