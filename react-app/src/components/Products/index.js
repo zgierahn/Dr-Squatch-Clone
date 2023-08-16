@@ -8,6 +8,7 @@ import './products.css';
 
 
 function Products() {
+    
 const dispatch = useDispatch();
 const history = useHistory();
 let allProducts = useSelector(state => Object.values(state.product.allProducts))

@@ -1,26 +1,44 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { thunkGetSingleProduct } from '../../store/product'
 import { thunkGetReviewsByProduct } from '../../store/review'
 import ConfirmReviewModal from '../MyModals/ConfirmReviewModal'
 import ConfirmDeleteModal from '../MyModals/ConfirmDeleteModal'
+import { updateCart } from '../../store/cart';
 import "./singleProduct.css"
 
 function SingleProduct() {
 
-const history = useHistory();
-const dispatch = useDispatch();
-const {productId} = useParams();
-let product = useSelector(state => state.product.singleProduct)
-let allReviews = useSelector(state => Object.values(state.review.reviews))
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const {productId} = useParams();
+    const [quantity, setQuantity] = useState(1);
+    let product = useSelector(state => state.product.singleProduct)
+    let allReviews = useSelector(state => Object.values(state.review.reviews))
 
 useEffect(() => {
     dispatch(thunkGetReviewsByProduct(productId))
     dispatch(thunkGetSingleProduct(productId))
 }, [dispatch, productId])
 
+const addToCart = (product) => {
+    if(!localStorage.getItem("shop") ) {
+        let shop = {}
+        product.quantity = quantity;
+        shop[product.id] = product;
+        localStorage.setItem("shop", JSON.stringify(shop))
+        dispatch(updateCart(shop))
+    } else {
+        let shop = JSON.parse(localStorage.getItem("shop"))
+        product.quantity = quantity;
+        shop[product.id] = product
+        localStorage.setItem("shop", JSON.stringify(shop))
+        dispatch(updateCart(shop))
+    }
 
+}
+console.log("this is quantity", quantity);
   return (
     <main>
         <div className='mainProductContainer'>
@@ -49,22 +67,23 @@ useEffect(() => {
                     <div>image 1</div>
                     <div>image 2</div>
                 </span>
-                <ul className='selectPricesContainer'>
-                    <span className='SPBuyOptions'>
-                        <div>Buy 1</div>
+                <div className='selectPricesContainer'>
+                    <span className='multiBuy' onClick={()=>{setQuantity(1)}}>
+                        <div >Buy 1</div>
                         <div>${product.price} / each</div>
                     </span>
-                    <span>
+                    <span className='multiBuy'onClick={()=>{setQuantity(2)}}>
                         <div>Buy 2</div>
                         <div>${product.price} / each</div>
                     </span>
-                    <span>
+                    <span className='multiBuy'onClick={()=>{setQuantity(3)}}>
                         <div>Buy 3</div>
                         <div>${product.price} / each</div>
                     </span>
-
-                </ul>
-                <button className='addToCartButton'>${product.price} | Add to Cart</button>
+                </div>
+                <button className='addToCartButton' onClick={()=>{addToCart(product)}}>
+                    ${product.price * quantity} | Add to Cart
+                </button>
             </section>
         </div>
         <section className='lowerProductSection'>
