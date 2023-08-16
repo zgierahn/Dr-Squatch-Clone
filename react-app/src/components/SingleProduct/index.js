@@ -17,9 +17,10 @@ function SingleProduct() {
     let product = useSelector(state => state.product.singleProduct)
     let allReviews = useSelector(state => Object.values(state.review.reviews))
     let session = useSelector(state => Object.values(state.session))
+    let userReviews = new Set();
+    allReviews.forEach(review=>{userReviews.add(review.userId)})
 
-
-useEffect(() => {
+    useEffect(() => {
     dispatch(thunkGetReviewsByProduct(productId))
     dispatch(thunkGetSingleProduct(productId))
 }, [dispatch, productId])
@@ -97,12 +98,14 @@ const addToCart = (product) => {
                 </span>
             </div>
             <div className='searchAndCreateReviewsContainer'>
-                <button
-                onClick={()=>{history.push(`/products/${productId}/reviews/new`)}}>
-                    Add a Review
-                </button>
             </div>
             <div className='productReviewsContainter'>
+                {session[0]?.id && !userReviews.has(session[0]?.id) &&
+                    <button className='addAReviewButton'
+                    onClick={()=>{history.push(`/products/${productId}/reviews/new`)}}>
+                        Add a Review
+                    </button>
+                }
                 {allReviews.map((review)=>{
                 return <div key={review.id} className='singleReviewContainer'>
                         <span className='reviewDataContainer'>

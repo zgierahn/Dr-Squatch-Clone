@@ -95,6 +95,10 @@
     border: 1px solid pink;
 }
 
+.addAReviewButton {
+    align-self: baseline;
+}
+
 .productReviewsContainter {
     display: flex;
     flex-direction: column;
