@@ -63,10 +63,24 @@
 
 .selectPricesContainer {
     display: flex;
-    flex-direction: row;
-    height: 75px;
+    justify-content: center;
+    grid-gap: 10px;
+    gap: 10px;
+    margin-block: 20px;
 }
 
+.multiBuy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100px;
+    padding: 5px;
+    gap: 8px;
+    cursor: pointer;
+    border: 1px solid red;
+}
 
 /* ------------------ Reviews Lower Container ---------------------- */
 
