@@ -1,0 +1,9 @@
+.signupForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.submitSignup {
+    align-self: center;
+}

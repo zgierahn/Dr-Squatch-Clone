@@ -3,7 +3,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import ProfileButton from './ProfileButton';
 import CheckoutCartModal from '../MyModals/CheckoutCartModal';
-import FrankyLogo from "../../images/Franky-logo.jpg"
+import FrankyLogo from "../../images/Franky-logo.png"
 import './Navigation.css';
 
 
