@@ -107,7 +107,9 @@ const submitReveiw = () => {
                 }}>
                     Create Review
                 </button>
-                <button>
+                <button onClick={()=>{
+                    return history.push(`/collections/products/${productId}`)
+                }}>
                     Cancel
                 </button>
             </span>
