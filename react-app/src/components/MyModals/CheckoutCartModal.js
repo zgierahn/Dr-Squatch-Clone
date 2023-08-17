@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { updateCart } from "../../store/cart";
+import shoppingCart from "../../images/Cart-Logo.png"
 import './CheckoutCartModal.css'
 
 
@@ -49,7 +50,9 @@ return (
 
         <button className='reserve-button'
         onClick={()=>{toggleShoppingButton()}}
-        >Cart</button>
+        >
+            <img className="shoppingCart" src={shoppingCart} alt="shopping cart" />
+        </button>
 
         {modal && (
             <div className='cart-modal'>

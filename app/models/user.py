@@ -15,8 +15,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     subscription = db.Column(db.Boolean)
     rewards = db.Column(db.Integer)
-    created_at = db.Column(db.Date)
-    edited_at = db.Column(db.Date)
+    created_at = db.Column(db.DateTime)
+    edited_at = db.Column(db.DateTime)
     hashed_password = db.Column(db.String(255), nullable=False)
 
 

@@ -3,7 +3,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import ProfileButton from './ProfileButton';
 import CheckoutCartModal from '../MyModals/CheckoutCartModal';
-
+import FrankyLogo from "../../images/Franky-logo.png"
 import './Navigation.css';
 
 
@@ -20,9 +20,9 @@ function Navigation({ isLoaded }) {
 				<button onClick={()=>alert('Feature Coming Soon')}>
 					Subscribe
 				</button>
-				<button onClick={()=>alert('Feature Coming Soon')}>
+				{/* <button onClick={()=>alert('Feature Coming Soon')}>
 					Bundles
-				</button>
+				</button> */}
 				<button onClick={()=>history.push("/collections")}>
 					Products
 				</button>
@@ -31,7 +31,12 @@ function Navigation({ isLoaded }) {
 				</button>
 			</div>
 			<div className='navCenter'>
-				<NavLink exact to="/">Dr. Stein</NavLink>
+				<NavLink exact to="/">
+					<span className='navHomeSpan'>
+						<img className='navFrankyLogo' src={FrankyLogo} alt="Franky-logo"/>
+						<div>Dr. Stein</div>
+					</span>
+				</NavLink>
 			</div>
 			{isLoaded && (
 				<div className='navRight'>

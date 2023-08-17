@@ -42,7 +42,7 @@ function ConfirmReviewModal({review}) {
                                 setTitle(e.target.value)
                         }}/>
                         <label>Description</label>
-                        <input type="text"className="ReviewDescriptionInput" value={body}
+                        <textarea type="text"className="ReviewDescriptionInput" value={body}
                             onChange={(e) => {
                                 setBody(e.target.value)
                         }}/>
