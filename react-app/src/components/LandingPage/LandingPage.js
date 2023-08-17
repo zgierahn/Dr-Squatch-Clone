@@ -1,27 +1,48 @@
 import React from 'react';  // , { useEffect }
 // import { useDispatch, useSelector } from 'react-redux'
 // import { updateCart } from "../../store/cart";
+import avengersAd from "../../images/avengers-tile-1.png"
+import avengers from "../../images/avengers.webp"
 import './LandingPage.css';
 
 
 
 function LandingPage() {
 
-	// useEffect(() => {
-	// 	if(!localStorage.getItem("shop") ) {
-	// 		let shop = {}
-	// 		dispatch(updateCart(shop))
-	// 	} else {
-	// 		let shop = localStorage.getItem("shop")
-	// 		dispatch(updateCart(shop))
-	// 	}
-	// }, [])
+
 
 	return (
 		<main>
 
-        <h1>Dr. Stein</h1>
+        <header className='landingFirst'>
+			<div className='firstAdContainer'>
+				<img className="avLogo" src={avengers} alt="avengers logo"/>
+				<div className='firstAdTitle'>
+					LATHER YOUR WAY TO A HEROIC DAY
+				</div>
+				<span className='firstAdSpan'>
+					<div className='ad1Description'>
+						SAVE YOUR SKIN WITH FOUR HEROIC BAR SOAPS INPSIRED BY THE AVENGERS
+					</div>
+					<button className='addToCartButton'>
+						Get Started
+					</button>
+					<button className='addToCartButton'>
+						Shop Bar Soaps
+					</button>
+				</span>
+			</div>
+				<img className="avTile1" src={avengersAd} alt="avengers tile 1 ad"/>
+		</header>
+		<section>
 
+		</section>
+		<section>
+
+		</section>
+		<footer>
+
+		</footer>
 
 		</main>
 	);
