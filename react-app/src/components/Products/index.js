@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { thunkGetProducts } from '../../store/product';
 import { updateCart } from '../../store/cart';
+import america from "../../images/avengers-america.webp"
+import hulk from "../../images/avengers-hulk.webp"
+import avengers from "../../images/avengers.webp"
 import './products.css';
 
 
 
 function Products() {
-    
+
 const dispatch = useDispatch();
 const history = useHistory();
 let allProducts = useSelector(state => Object.values(state.product.allProducts))
@@ -39,7 +42,17 @@ const addToCart = (product) => {
 		<main>
         <header>
             <div className='ProductsImageBanner'>
-                <h1>Products Banner</h1>
+                <img className="avengerSoap" src={america} alt="AvengersSoap" />
+                <span className='centerAvengersSpan'>
+                    <img className="avengerProductsLogo" src={avengers} alt="AvengersSoap" />
+                    <div className='productsAdTitle'>
+                        LATHER YOUR WAY TO A HEROIC DAY
+                    </div>
+                    <div className='productsAdDescription'>
+                        JOIN FORCES WITH THE NEWEST HERO OF YOUR SHOWER ROUTINE.
+                    </div>
+                </span>
+                <img className="avengerSoap" src={hulk} alt="AvengersSoap" />
             </div>
             <section className='outerProductsContainer'>
                 <ul className='productListBar'>

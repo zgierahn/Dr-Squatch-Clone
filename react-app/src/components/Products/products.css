@@ -1,6 +1,42 @@
 .ProductsImageBanner {
-    height: 125px;
-    border: 1px solid green;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+    background-color: deepskyblue;
+}
+
+.centerAvengersSpan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avengerProductsLogo {
+    width: 200px;
+}
+
+.avengerSoap {
+    height: 145px;
+}
+
+.productsAdTitle {
+    display: flex;
+    justify-content: center;
+    width: 332px;
+    font-weight: 600;
+    padding: 2px;
+    border: 2px solid black;
+    background-color: rgb(255, 213, 0);
+}
+
+.productsAdDescription {
+    font-size: medium;
+    font-weight: 500;
+    width: 297px;
+    padding: 5px;
+    background-color: white;
+    border: 2px solid black;
 }
 
 .outerProductsContainer {
