@@ -76,10 +76,19 @@ const addToCart = (product) => {
                     return <div className='productContainer' key={product.id} value={product.id}
                             onClick={()=>{history.push(`/collections/products/${product.id}`)
                             }}>
-                                <img className="productsImage" src={product.photos} alt={product.name} />
+                                <div className='productsImageContainer'>
+                                    <img className="productsImage" src={product.photos} alt={product.name} />
+                                </div>
                                 <p className='productsName'>{product.name}</p>
                                 <p className='productsPrice'>${product.price}</p>
-                                <p className='productsDescription'>{product.description}</p>
+                                <div className='productsReviewsDiv'>
+                                    {!product.reviews.length ?
+                                    <div>New!</div> :
+                                    ( product.reviews.length === 1 ?
+                                    <div>1 review</div> :
+                                    <div>{product.reviews.length} reviews</div>
+                                    )}
+                                </div>
                                 <button className='addToCartButton'
                                 onClick={(e)=>{
                                     e.stopPropagation();
