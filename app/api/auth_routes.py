@@ -67,7 +67,7 @@ def sign_up():
             email=form.data['email'],
             firstName=form.data['firstname'],
             lastName=form.data['lastname'],
-            created_at = datetime.today(),
+            created_at = datetime.utcnow(),
             password=form.data['password']
         )
         db.session.add(user)
