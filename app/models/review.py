@@ -37,10 +37,7 @@ class Review(db.Model):
             "createdAt" : self.created_at,
             "editedAt" : self.edited_at,
             "productId" : self.product_id,
-            # "user" : self.user.to_dict()
+            "userId" : self.user.id,
             'firstName': self.user.firstName,
             'lastName': self.user.lastName
         }
-
-
-
