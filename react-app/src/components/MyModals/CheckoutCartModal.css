@@ -1,8 +1,10 @@
+/* ----------------------- Cart ----------------------- */
+
 .cart-modal {
     position: fixed;
     top: 0px;
     right: 0px;
-    width: 375px;
+    width: 400px;
     height: 99.9vh;
     background-color: darkslategrey;
     z-index: 2;
@@ -11,6 +13,35 @@
 .overlay {
 
 }
+
+.cart-content {
+    display: flex;
+    height: 99.5%;
+    flex-direction: column;
+}
+
+/* ----------------------- Cart Header ----------------------- */
+
+.cartHeader {
+    padding: 10px;
+}
+
+.cartTitleSpan {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.exitButton {
+    height: 25px;
+}
+
+.close-review-modal {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* ----------------------- Cart Body ----------------------- */
 
 .quantityContainer {
     display: flex;
@@ -28,6 +59,65 @@
     background-color: transparent;
 }
 
+.shoppingCartItems {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.shoppingCartItems::-webkit-scrollbar {
+    display: none;
+  }
+
+/* ----------------------------- Shopping Cart Item Div ---------------------- */
+.shoppingCartItem {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    border: 1px solid yellow;
+}
+
+.cartItemInfoSpan {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    border: 1px solid blue;
+}
+
+.cartItemImageDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    background-color: lightgray;
+}
+
+.cartItemPhoto {
+    height: 55px;
+}
+
+.cartItemDescriptionDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 5px;
+}
+
+.CartProductName {
+    font-weight: bold;
+    margin: 0px;
+}
+.cartPriceSpan {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid red;
+
+}
+
+.cartPriceDiv {
+
+}
+
 .reserve-button {
     border: none;
     border-radius: 5px;
@@ -36,4 +126,20 @@
 
 .reserve-button:hover {
     box-shadow: inset 0px 0px 10px 15px rgba(255, 255, 255, 0.40);
+}
+
+/* ----------------------- Cart Footer ----------------------- */
+
+.checkoutFooter {
+    border: 1px solid red;
+    height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+}
+
+.subTotalSpan {
+    display: flex;
+    justify-content: space-around;
 }
