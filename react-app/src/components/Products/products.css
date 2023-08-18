@@ -3,13 +3,19 @@
     justify-content: space-around;
     align-items: center;
     height: 200px;
-    background-color: deepskyblue;
+    /* background-color: deepskyblue; */
 }
 
+.avBGBanner {
+    width: 97vw;
+    height: 28vh;
+    position: absolute;
+}
 .centerAvengersSpan {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 .avengerProductsLogo {
@@ -17,7 +23,8 @@
 }
 
 .avengerSoap {
-    height: 145px;
+    height: 155px;
+    z-index: 1;
 }
 
 .productsAdTitle {

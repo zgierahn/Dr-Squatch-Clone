@@ -6,6 +6,8 @@ import { updateCart } from '../../store/cart';
 import america from "../../images/avengers-america.webp"
 import hulk from "../../images/avengers-hulk.webp"
 import avengers from "../../images/avengers.webp"
+import avengersBG from "../../images/avengers-bg.jpg"
+
 import './products.css';
 
 
@@ -41,6 +43,7 @@ const addToCart = (product) => {
 	return (
 		<main>
         <header>
+			<img className="avBGBanner" src={avengersBG} alt="blue background"/>
             <div className='ProductsImageBanner'>
                 <img className="avengerSoap" src={america} alt="AvengersSoap" />
                 <span className='centerAvengersSpan'>

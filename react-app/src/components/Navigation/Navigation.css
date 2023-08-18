@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
 }
 
 .navLeft {
@@ -22,12 +21,16 @@
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 
 .navFrankyLogo {
-  height: 70px;
+  height: 80px;
 }
 
+.navSteinLogo {
+  height: 35px;
+}
 .navRight {
   display: flex;
   justify-content: flex-end;

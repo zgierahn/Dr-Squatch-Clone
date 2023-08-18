@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { thunkGetSingleProduct } from '../../store/product'
 import { thunkGetReviewsByProduct } from '../../store/review'
+import { updateCart } from '../../store/cart';
 import ConfirmReviewModal from '../MyModals/ConfirmReviewModal'
 import ConfirmDeleteModal from '../MyModals/ConfirmDeleteModal'
-import { updateCart } from '../../store/cart';
+
 import "./singleProduct.css"
 
 function SingleProduct() {

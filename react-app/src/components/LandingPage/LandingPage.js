@@ -3,6 +3,7 @@ import React from 'react';  // , { useEffect }
 // import { updateCart } from "../../store/cart";
 import avengersAd from "../../images/avengers-tile-1.png"
 import avengers from "../../images/avengers.webp"
+import avengersBG from "../../images/avengers-bg.jpg"
 import './LandingPage.css';
 
 
@@ -15,6 +16,7 @@ function LandingPage() {
 		<main>
 
         <header className='landingFirst'>
+				<img className="avBG" src={avengersBG} alt="blue background"/>
 			<div className='firstAdContainer'>
 				<img className="avLogo" src={avengers} alt="avengers logo"/>
 				<div className='firstAdTitle'>

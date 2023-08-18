@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import ProfileButton from './ProfileButton';
 import CheckoutCartModal from '../MyModals/CheckoutCartModal';
 import FrankyLogo from "../../images/Franky-logo.png"
+import SteinLogo from "../../images/dr-stein.png"
 import './Navigation.css';
 
 
@@ -34,7 +35,7 @@ function Navigation({ isLoaded }) {
 				<NavLink exact to="/">
 					<span className='navHomeSpan'>
 						<img className='navFrankyLogo' src={FrankyLogo} alt="Franky-logo"/>
-						<div>Dr. Stein</div>
+						<img className='navSteinLogo' src={SteinLogo} alt="Frankenstein-logo"/>
 					</span>
 				</NavLink>
 			</div>

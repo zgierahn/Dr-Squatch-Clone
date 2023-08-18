@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
     height: 60vh;
-    background-color: deepskyblue;
+    gap: 20px;
+    /* background-color: deepskyblue; */
 }
 
 .firstAdContainer {
@@ -11,6 +12,14 @@
     flex-direction: column;
     align-items: center;
     width: 315px;
+}
+
+.avBG {
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: 60vh;
+    z-index: 0;
 }
 
 .firstAdTitle {
@@ -23,6 +32,7 @@
     font-weight: 600;
     border: 2px solid black;
     background-color: rgb(255, 213, 0);
+    z-index: 2;
 }
 
 .firstAdSpan {
@@ -33,17 +43,21 @@
     gap: 20px;
     background-color: white;
     border: 2px solid black;
+    z-index: 1;
 }
 
 .ad1Description {
     font-size: medium;
     font-weight: 600;
+    z-index: 1;
 }
 
 .avTile1 {
     height: 54vh;
+    z-index: 1;
 }
 
 .avLogo {
-    width: 245px
+    width: 245px;
+    z-index: 1;
 }
