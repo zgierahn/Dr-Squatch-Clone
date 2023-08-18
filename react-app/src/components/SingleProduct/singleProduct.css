@@ -7,26 +7,33 @@
 /* ------------------ Left Side Image Container ---------------------- */
 
 .leftSideContainer {
-    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45vw;
     height: 55vh;
-    border: 1px solid blue;
 }
 
 .trackWebLocation {
     display: flex;
     flex-direction: row;
-    border: 1px solid violet;
+    align-items: center;
+    padding-left: 4vw;
+    gap: 5px;
+    height: 30px;
 }
 
 .singleProductImage {
-    height: 320px;
+    height: 335px;
     width: auto;
 }
 
 .innerImagesContainer {
     display: flex;
     justify-content: center;
-    padding: 15px;
+    align-items: center;
+    height: 100%;
+    background-color: lightgrey;
 }
 
 
@@ -35,7 +42,7 @@
 .rightSideContainer {
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 45vw;
     height: 55vh;
     border: 1px solid red;
 
@@ -43,17 +50,24 @@
 
 .SPCategory {
     padding: 5px;
+    font-size: 18px;
 }
 
 .SingleProductName {
-    font-size: x-large;
+    font-size: 30px;
     font-weight: 600;
+    padding: 5px;
+}
+
+.numReviews {
+    font-size: 18px;
     padding: 5px;
 }
 
 .SPdescription {
     padding: 5px;
     height: 70px;
+    font-size: 18px;
 }
 
 .singleProductSpan {
@@ -79,7 +93,8 @@
     padding: 5px;
     gap: 8px;
     cursor: pointer;
-    border: 1px solid red;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
 }
 
 /* ------------------ Reviews Lower Container ---------------------- */

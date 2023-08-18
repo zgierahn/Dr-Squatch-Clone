@@ -44,27 +44,28 @@ const addToCart = (product) => {
 
     return (
     <main>
+        <nav className='trackWebLocation'>
+            <div className='productNav'>Home</div>
+            <div>-</div>
+            <div className='productNav'>{product.category}</div>
+            <div>-</div>
+            <div className='productNav'>{product.name}</div>
+        </nav>
         <div className='mainProductContainer'>
             <section className='leftSideContainer'>
-                <nav className='trackWebLocation'>
-                    <div>Home</div>
-                    <div>-</div>
-                    <div>{product.category}</div>
-                    <div>-</div>
-                    <div>{product.name}</div>
-                </nav>
-                <div className='outerImagesContainer'>
                     <div className='innerImagesContainer'>
                         <img className="singleProductImage" src={product.photos} alt="picute of product"/>
                     </div>
-                </div>
             </section>
             <section className='rightSideContainer'>
                 <div className='SPCategory'>{product.category}</div>
                 <header className='SingleProductName'>
                     {product.name}
                 </header>
-                {product.reviews && product.reviews.length > 0 ? <div>{product.reviews.length} reviews</div> : <div>New!</div>}
+                {product.reviews && product.reviews.length > 0 ?
+                    <div className='numReviews'>{product.reviews.length} reviews</div> :
+                    <div className='numReviews'>New!</div>
+                }
                 <div className='SPdescription'>{product.description}</div>
                 <span className='singleProductSpan'>
                     <div>image 1</div>
@@ -91,11 +92,14 @@ const addToCart = (product) => {
         </div>
         <section className='lowerProductSection'>
             <div className='productReviewsHeader'>
-                <h1>Reviews</h1>
+                <h1 className='reviewsTitle'>Reviews</h1>
                 <div> Avg Review #</div>
                 <span>
                     <div>Review Stars</div>
-                    <div># of Reviews</div>
+                    {product.reviews && product.reviews.length > 0 ?
+                    <div className=''>{product.reviews.length} reviews</div> :
+                    <div className=''>New!</div>
+                }
                 </span>
             </div>
             <div className='searchAndCreateReviewsContainer'>

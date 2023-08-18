@@ -101,7 +101,7 @@ return (
                                 </span>
                                 <span className="cartPriceSpan">
                                     <div className="cartPriceDiv">
-                                        Price:${product.price}
+                                        ${product.price}
                                     </div>
                                     <button className="cartRemoveButton" onClick={()=>{deleteItem(product.id)}}>
                                         Remove
