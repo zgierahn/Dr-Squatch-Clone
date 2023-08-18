@@ -59,20 +59,20 @@ const addToCart = (product) => {
             </div>
             <section className='outerProductsContainer'>
                 <ul className='productListBar'>
-                    <h3>Essentials</h3>
-                    <button>Bar Soaps</button>
-                    <button>Face Wash</button>
-                    <button>Hair Care</button>
-                    <button>Deodorant</button>
-                    <button>Lotion</button>
-                    <button>Cologne</button>
-                    <h3>More Products</h3>
-                    <button>Shower Boosters</button>
-                    <button>Candles</button>
-                    <button>Beard Oil</button>
-                    <button>Gift Cards</button>
-                    <button>Swag</button>
-                    <button>Toothpaste</button>
+                    <h3 className='sidebarTitle'>ESSENTIALS</h3>
+                    <button className='sidebarLinks'>Bar Soaps</button>
+                    <button className='sidebarLinks'>Face Wash</button>
+                    <button className='sidebarLinks'>Hair Care</button>
+                    <button className='sidebarLinks'>Deodorant</button>
+                    <button className='sidebarLinks'>Lotion</button>
+                    <button className='sidebarLinks'>Cologne</button>
+                    <h3 className='sidebarTitle'>MORE PRODUCTS</h3>
+                    <button className='sidebarLinks'>Shower Boosters</button>
+                    <button className='sidebarLinks'>Candles</button>
+                    <button className='sidebarLinks'>Beard Oil</button>
+                    <button className='sidebarLinks'>Gift Cards</button>
+                    <button className='sidebarLinks'>Swag</button>
+                    <button className='sidebarLinks'>Toothpaste</button>
                 </ul>
                 <div className='mainProductsContainer'>
                     {allProducts.map((product)=>{
@@ -97,7 +97,7 @@ const addToCart = (product) => {
                                     e.stopPropagation();
                                     addToCart(product)
                                 }}>
-                                    Add to Cart
+                                    + Add to Cart
                                 </button>
                             </div>
                             })}
