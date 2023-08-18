@@ -18,16 +18,13 @@ function Navigation({ isLoaded }) {
 	return (
 		<nav className='navBarContainer'>
 			<div className='navLeft'>
-				<button onClick={()=>alert('Feature Coming Soon')}>
+				<button className='navSubscribe' onClick={()=>alert('Feature Coming Soon')}>
 					Subscribe
 				</button>
-				{/* <button onClick={()=>alert('Feature Coming Soon')}>
-					Bundles
-				</button> */}
-				<button onClick={()=>history.push("/collections")}>
+				<button  className="navButton" onClick={()=>history.push("/collections")}>
 					Products
 				</button>
-				<button onClick={()=>alert('Feature Coming Soon')}>
+				<button className="navButton" onClick={()=>alert('Feature Coming Soon')}>
 					Rewards
 				</button>
 			</div>
@@ -41,7 +38,9 @@ function Navigation({ isLoaded }) {
 			</div>
 			{isLoaded && (
 				<div className='navRight'>
-					<button>Take Quiz</button>
+					<button className="navButton">
+						Take Quiz
+					</button>
 					<ProfileButton user={sessionUser} />
 					<CheckoutCartModal />
 				</div>

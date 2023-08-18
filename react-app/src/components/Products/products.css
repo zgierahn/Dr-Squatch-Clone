@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 205px;
+    height: 215px;
 }
 
 .avBGBanner {
@@ -71,12 +71,14 @@
     background-color: transparent;
     padding: 5px;
     font-size: 15px;
+    font-weight: bold;
     border: none;
     cursor: pointer;
 }
 
 .sidebarLinks:hover {
-    color: darkorange;
+    color: rgb(185, 103, 1);
+    color: white;
 }
 
 /* ----------------------- Main Products Container ------------------------ */
@@ -97,6 +99,7 @@
     width: 250px;
     cursor: pointer;
     gap: 4px;
+    background-color: grey;
 }
 
 .productContainer:hover {
@@ -106,8 +109,8 @@
 .productsImageContainer {
     display: flex;
     justify-content: center;
-    background-color: grey;
     height: 50%;
+    background-color: lightgrey
 }
 
 .productsImage {
@@ -119,6 +122,7 @@
 .productsName {
     margin: 0px;
     padding: 5px;
+    font-weight: bold;
 }
 
 .productsPrice {

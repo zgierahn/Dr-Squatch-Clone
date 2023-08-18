@@ -26,10 +26,10 @@ function LandingPage() {
 					<div className='ad1Description'>
 						SAVE YOUR SKIN WITH FOUR HEROIC BAR SOAPS INPSIRED BY THE AVENGERS
 					</div>
-					<button className='addToCartButton'>
+					<button className='addToCartButton' onClick={()=>alert('Feature Coming Soon')}>
 						Get Started
 					</button>
-					<button className='addToCartButton'>
+					<button className='addToCartButton' onClick={()=>alert('Feature Coming Soon')}>
 						Shop Bar Soaps
 					</button>
 				</span>

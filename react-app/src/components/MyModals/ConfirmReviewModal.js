@@ -12,6 +12,7 @@ function ConfirmReviewModal({review}) {
     const [title, setTitle] = useState(review.title);
     const [body, setBody] = useState(review.body);
     const [rating, setRating] = useState(review.rating);
+    const [activeRating, setActiveRating] = useState(rating);
 
     const toggleButton = () => {
         setModal(!modal)
@@ -46,12 +47,43 @@ function ConfirmReviewModal({review}) {
                             onChange={(e) => {
                                 setBody(e.target.value)
                         }}/>
-                        <label>Rating</label>
-                        <input type="text"className="ReviewRatingInput" value={rating}
-                            onChange={(e) => {
-                                setRating(e.target.value)
-                        }}/>
-
+                        <section className="star-rating">
+                            <div className={activeRating >= 1 ? "filled" : "empty"}
+                                onMouseEnter={() => {setActiveRating(1)} }
+                                onMouseLeave={() => {setActiveRating(rating)} }
+                                onClick={() => {setRating(1)} }
+                            >
+                                <i className="fa fa-star"></i>
+                            </div>
+                            <div className={activeRating >= 2 ? "filled" : "empty"}
+                                onMouseEnter={() => {setActiveRating(2)} }
+                                onMouseLeave={() => {setActiveRating(rating)} }
+                                onClick={() => {setRating(2)} }
+                            >
+                                <i className="fa fa-star"></i>
+                            </div>
+                            <div className={activeRating >= 3 ? "filled" : "empty"}
+                                onMouseEnter={() => {setActiveRating(3)} }
+                                onMouseLeave={() => {setActiveRating(rating)} }
+                                onClick={() => {setRating(3)} }
+                            >
+                                <i className="fa fa-star"></i>
+                            </div>
+                            <div className={activeRating >= 4 ? "filled" : "empty"}
+                                onMouseEnter={() => {setActiveRating(4)} }
+                                onMouseLeave={() => {setActiveRating(rating)} }
+                                onClick={() => {setRating(4)} }
+                            >
+                                <i className="fa fa-star"></i>
+                            </div>
+                            <div className={activeRating >= 5 ? "filled" : "empty"}
+                                onMouseEnter={() => {setActiveRating(5)} }
+                                onMouseLeave={() => {setActiveRating(rating)} }
+                                onClick={() => {setRating(5)} }
+                            >
+                                <i className="fa fa-star"></i>
+                            </div>
+                        </section>
                     </section>
                     <span className='confirmButtonSpan'>
                         <button onClick={()=>{

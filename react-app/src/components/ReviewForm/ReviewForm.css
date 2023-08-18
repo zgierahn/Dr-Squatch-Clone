@@ -12,7 +12,7 @@
     grid-gap: 10px;
     gap: 10px;
     padding: 20px;
-    border: 1px solid red;
+    background-color: darkgray;
 }
 
 .labelInputSpan {
@@ -20,7 +20,6 @@
     flex-direction: column;
     width: 275px;
     height: 94px;
-    border: 1px solid rgb(69, 46, 107);
 }
 
 .labelDesciptionSpan {
@@ -28,7 +27,6 @@
     flex-direction: column;
     width: 275px;
     height: 231px;
-    border: 1px solid rgb(69, 46, 107);
 }
 
 .reviewLabel {
@@ -47,7 +45,7 @@
 }
 
 .errorTag {
-    color: rgb(168, 0, 0);
+    color: rgb(188, 3, 3);
     margin-left: 8px;
 }
 
@@ -58,7 +56,7 @@
 }
 
 .empty {
-    color:darkgrey;
+    color:black;
 }
 
 .filled {
