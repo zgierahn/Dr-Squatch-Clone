@@ -6,8 +6,10 @@
     right: 0px;
     width: 400px;
     height: 99.9vh;
-    background-color: darkslategrey;
+    background: linear-gradient(to bottom, #7B9B7E 19.39%, #97B399 59.52%);
+    /* background-color: darkslategrey; */
     z-index: 2;
+    border-left: 2px solid black;
 }
 
 .overlay {
@@ -24,6 +26,7 @@
 
 .cartHeader {
     padding: 10px;
+    border-bottom: 1px solid black;
 }
 
 .cartTitleSpan {
@@ -46,6 +49,7 @@
 .quantityContainer {
     display: flex;
     flex-direction: row;
+    gap: 5px;
 }
 
 .innerQuantityContainer {
@@ -73,21 +77,21 @@
     display: flex;
     justify-content: space-between;
     height: 80px;
-    border: 1px solid yellow;
+    border: 1px solid black;
+    background-color: grey;
 }
 
 .cartItemInfoSpan {
     display: flex;
     flex-direction: row;
     gap: 5px;
-    border: 1px solid blue;
 }
 
 .cartItemImageDiv {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75px;
+    width: 85px;
     background-color: lightgray;
 }
 
@@ -112,11 +116,30 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border: 1px solid red;
 }
 
 .cartPriceDiv {
+    font-weight: bold;
+}
 
+.cartRemoveButton{
+    border-radius: 5px;
+    padding-block: 3px;
+    padding-inline: 6px;
+    font-size: 14px;
+    border: none;
+    color: white;
+    background-color: rgb(211, 116, 1);
+    cursor: pointer;
+}
+
+.changeQuantity {
+    border-radius: 5px;
+    font-size: 19px;
+    border: none;
+    color: white;
+    background-color: rgb(211, 116, 1);
+    cursor: pointer;
 }
 
 .reserve-button {
@@ -132,15 +155,16 @@
 /* ----------------------- Cart Footer ----------------------- */
 
 .checkoutFooter {
-    border: 1px solid red;
-    height: 125px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     padding-bottom: 10px;
+    border-top: 1px solid black;
 }
 
 .subTotalSpan {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }

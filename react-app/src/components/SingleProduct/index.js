@@ -93,9 +93,8 @@ const addToCart = (product) => {
         <section className='lowerProductSection'>
             <div className='productReviewsHeader'>
                 <h1 className='reviewsTitle'>Reviews</h1>
-                <div> Avg Review #</div>
-                <span>
-                    <div>Review Stars</div>
+                <span className='avgReviewSpan'>
+                    <div> Avg Review #</div>
                     {product.reviews && product.reviews.length > 0 ?
                     <div className=''>{product.reviews.length} reviews</div> :
                     <div className=''>New!</div>

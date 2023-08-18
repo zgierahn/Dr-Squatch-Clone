@@ -44,8 +44,6 @@
     flex-direction: column;
     width: 45vw;
     height: 55vh;
-    border: 1px solid red;
-
 }
 
 .SPCategory {
@@ -107,7 +105,18 @@
 }
 
 .productReviewsHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid pink;
+}
+
+.reviewsTitle {
+    font-size: 40px;
+}
+
+.avgReviewSpan {
+    display: flex;
 }
 
 .addAReviewButton {

@@ -16,11 +16,11 @@ const toggleShoppingButton = () => {
     setModal(!modal)
 }
 
-
-
 let shop;
+let subTotal = 0;
 if (Object.values(cartState.cart)) {
     shop = Object.values(cartState.cart)
+    shop.forEach((product) => subTotal += (product.price * product.quantity));
 }
 
 const deleteItem = (productId ) => {
@@ -70,9 +70,10 @@ return (
                                 <img className="exitButton" src={exit} alt="shopping cart" />
                             </button>
                         </span>
-                        <div>
-                            Free Shipping at $55
-                        </div>
+                        {subTotal >= 55 ?
+                            <div>You qualify for free shipping!</div> :
+                            <div>Spend $55 and claim free shippipng!</div>
+                        }
                     </header>
                     <section className="shoppingCartItems">
                     {!!shop.length &&
@@ -80,20 +81,22 @@ return (
                             return <div key={product.id} className="shoppingCartItem">
                                 <span className="cartItemInfoSpan">
                                     <div className="cartItemImageDiv">
-                                        <img className="cartItemPhoto" src={product.photos} alt="product image" />
+                                        <img className="cartItemPhoto" src={product.photos} alt="product" />
                                     </div>
                                     <div className="cartItemDescriptionDiv">
                                         <p className="CartProductName">{product.name}</p>
                                         <div>{product.category}</div>
                                         <div className="quantityContainer">
-                                            <button onClick={()=>{changeQuantity(product.id, -1)}}>
+                                            <button className="changeQuantity"
+                                            onClick={()=>{changeQuantity(product.id, -1)}}>
                                                 -
                                             </button>
                                             <div className="innerQuantityContainer">
-                                                Quantity:
+                                                {/* Quantity: */}
                                                 <div>{product.quantity}</div>
                                             </div>
-                                            <button onClick={()=>{changeQuantity(product.id, 1)}}>
+                                            <button className="changeQuantity"
+                                            onClick={()=>{changeQuantity(product.id, 1)}}>
                                                 +
                                             </button>
                                         </div>
@@ -101,7 +104,7 @@ return (
                                 </span>
                                 <span className="cartPriceSpan">
                                     <div className="cartPriceDiv">
-                                        ${product.price}
+                                        ${product.price * product.quantity}
                                     </div>
                                     <button className="cartRemoveButton" onClick={()=>{deleteItem(product.id)}}>
                                         Remove
@@ -113,11 +116,11 @@ return (
                     </section>
                     <footer className="checkoutFooter">
                         <span className="subTotalSpan">
-                            <div>
+                            <h3>
                                 SubTotal:
-                            </div>
-                            <div>
-                                Amount
+                            </h3>
+                            <div className="cartPriceDiv">
+                                ${subTotal}
                             </div>
                         </span>
                         <button className="addToCartButton">
