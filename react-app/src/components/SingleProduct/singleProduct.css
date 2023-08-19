@@ -33,6 +33,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    border-radius: 10px;
     background-color: lightgrey;
 }
 
@@ -49,23 +50,26 @@
 .SPCategory {
     padding: 5px;
     font-size: 18px;
+    margin-left: 10px;
 }
 
 .SingleProductName {
     font-size: 30px;
     font-weight: 600;
-    padding: 5px;
+    padding: 10px;
 }
 
 .numReviews {
     font-size: 18px;
     padding: 5px;
+    margin-left: 10px;
 }
 
 .SPdescription {
     padding: 5px;
     height: 70px;
     font-size: 18px;
+    margin-left: 10px;
 }
 
 .singleProductSpan {
@@ -108,7 +112,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid pink;
+    margin-bottom: 20px;
 }
 
 .reviewsTitle {
@@ -129,14 +133,20 @@
     justify-content: space-around;
     width: 75vw;
     height: auto;
-    border: 1px solid lightblue;
+    /* border: 1px solid lightblue; */
 }
 
 .singleReviewContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 1px solid orange;
+    padding: 10px;
+    border-bottom: 3px solid black;
+}
+
+.reviewInfoContainer {
+    border: 1px solid yellow;
+    width: 400px;
 }
 
 .reviewDateContainer {

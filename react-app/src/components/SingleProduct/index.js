@@ -94,7 +94,7 @@ const addToCart = (product) => {
             <div className='productReviewsHeader'>
                 <h1 className='reviewsTitle'>Reviews</h1>
                 <span className='avgReviewSpan'>
-                    <div> Avg Review #</div>
+                    <div> Avg Rating</div>
                     {product.reviews && product.reviews.length > 0 ?
                     <div className=''>{product.reviews.length} reviews</div> :
                     <div className=''>New!</div>
@@ -112,10 +112,10 @@ const addToCart = (product) => {
                 }
                 {allReviews.map((review)=>{
                 return <div key={review.id} className='singleReviewContainer'>
-                        <span className='reviewDataContainer'>
+                        <span className='reviewInfoContainer'>
                             <span className='reviewNameSpan'>
-                                <div>{review.firstName}{review.lastName}</div>
-                                <div>Verified Buyer</div>
+                                <div>{review.firstName} {review.lastName[0]}.</div>
+                                {/* <div>Verified Buyer</div> */}
                             </span>
                             <div>
                                 rating: {review.rating}
