@@ -48,7 +48,10 @@ function LandingPage() {
 					<img className='LandingBundle1' src={bundle} alt="bundle of products"/>
 					<span className='bundleSloganSpan'>
 						<h3 className='adTitle'>
-							FEEL LIKE A MAN, SMELL LIKE A CHAMPION.
+							FEEL LIKE A MAN,
+						</h3>
+						<h3 className='adTitle'>
+							SMELL LIKE A CHAMPION.
 						</h3>
 						<p className='adDescription'>
 							Natural products, designed for men, in fresh, manly scents.
@@ -77,10 +80,53 @@ function LandingPage() {
 						</div>
 					</span>
 				</span>
-
 			</section>
 			<section className='thirdAdContainer'>
-
+				<span className='greenSpan'>
+					<img className='greenImages' src={leaf} alt="leaf"/>
+					<p className='greenImagesTitle'>
+						Get Dirty, Stay Clean
+					</p>
+					<p className='greenDescription'>
+						Experience a wilderness-inspired shower
+					</p>
+					<p className='greenDescription'>
+						adventure that will have you coming up
+					</p>
+					<p className='greenDescription'>
+						with excuses to get dirty.
+					</p>
+				</span>
+				<span className='greenSpan'>
+					<img className='greenImages' src={log} alt="log"/>
+					<p className='greenImagesTitle'>
+						No Harmful Ingredients
+					</p>
+					<p className='greenDescription'>
+						Only the finest products Mother Nature
+					</p>
+					<p className='greenDescription'>
+						has to offer and naturally-derived
+					</p>
+					<p className='greenDescription'>
+						fragrances that smell awesome.
+					</p>
+				</span>
+				<span className='greenSpan'>
+					<img className='greenImages' src={plane} alt="plane"/>
+					<p className='greenImagesTitle'>
+						Formulated For Men
+					</p>
+					<p className='greenDescription'>
+						Manly scents, designed to avoid
+					</p>
+					<p className='greenDescription'>
+						estrogenics, and made to meet the
+					</p>
+					<p className='greenDescription'>
+						specific demands of men everywhere.
+					</p>
+				</span>
 			</section>
 			<section className='fourthAdContainer'>
 
