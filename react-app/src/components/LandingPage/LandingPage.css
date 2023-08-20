@@ -85,7 +85,7 @@
     flex-direction: row;
     justify-content: center;
     gap: 15px;
-    margin-block: 20px;
+    margin-block: 50px;
 }
 
 .bundleContainer {
@@ -127,6 +127,7 @@
     align-items: center;
     background: #345A40;
     width: 47vw;
+    height: 232px;
     border-radius: 10px;
 }
 
@@ -136,13 +137,13 @@
 
 .facewashContainer {
     width: 23vw;
-    height: 278px;
+    height: 270px;
     border-radius: 10px;
 }
 
 .faceWash {
     width: 23vw;
-    height: 278px;
+    height: 270px;
     border-radius: 10px;
  }
 
@@ -178,7 +179,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 278px;
+    height: 270px;
     width: 23vw;
     background: #345A40;
     border-radius: 10px;
@@ -191,12 +192,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-block: 70px;
 }
 
 .greenSpan {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .greenImages {

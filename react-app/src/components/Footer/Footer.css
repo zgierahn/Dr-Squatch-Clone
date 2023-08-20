@@ -1,0 +1,45 @@
+
+
+.woodGrain {
+    height: 375px;
+    width: 98.5vw;
+    background-color: #345a40;
+    position: relative;
+    bottom: -250px;
+    z-index: -1;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bCorpContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.corpLogo {
+    height: 164px;
+}
+
+.fa-brands {
+    color: white;
+    font-size: 22px;
+    padding: 3px;
+}
+
+.paymentSpan {
+
+}
+
+.paymentLogos {
+    padding: 10px;
+}
+
+.rightsReserved {
+    color: #e5d0bb;
+    cursor: default;
+}
