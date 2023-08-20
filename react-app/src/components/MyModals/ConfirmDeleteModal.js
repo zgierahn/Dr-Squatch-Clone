@@ -18,7 +18,7 @@ const toggleButton = () => {
   return (
     <div>
 
-        <button className='editReviewButton'
+        <button className='confirmButton'
             onClick={()=>{toggleButton()
             }}>
                 Delete Review

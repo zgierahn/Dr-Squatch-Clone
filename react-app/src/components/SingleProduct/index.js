@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams, useHistory } from 'react-router-dom'
-import { thunkGetSingleProduct } from '../../store/product'
-import { thunkGetReviewsByProduct } from '../../store/review'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams, useHistory } from 'react-router-dom';
+import { thunkGetSingleProduct } from '../../store/product';
+import { thunkGetReviewsByProduct } from '../../store/review';
 import { updateCart } from '../../store/cart';
-import ConfirmReviewModal from '../MyModals/ConfirmReviewModal'
-import ConfirmDeleteModal from '../MyModals/ConfirmDeleteModal'
+import ConfirmReviewModal from '../MyModals/ConfirmReviewModal';
+import ConfirmDeleteModal from '../MyModals/ConfirmDeleteModal';
+import crossBones from "../../images/cross-bones.png";
+import drops from "../../images/drops.png";
+import handWorld from "../../images/hand-world.png";
+import soapBar from "../../images/soap-bar.png";
 
 import "./singleProduct.css"
 
@@ -68,9 +72,30 @@ const addToCart = (product) => {
                 }
                 <div className='SPdescription'>{product.description}</div>
                 <span className='singleProductSpan'>
-                    <div>image 1</div>
-                    <div>image 2</div>
+                    <div className='miniLogoContainer'>
+                        <img src={drops} alt="three drops" />
+                        <p className='miniLogoText'>Made from</p>
+                        <p className='miniLogoText'>natural oils</p>
+                    </div>
+                    <div className='miniLogoContainer'>
+                        <img src={crossBones} alt="cross bones" />
+                        <p className='miniLogoText'>No harsh</p>
+                        <p className='miniLogoText'>chemicals</p>
+                    </div>
+                    <div className='miniLogoContainer'>
+                        <img src={soapBar} alt="bar of soap" />
+                        <p className='miniLogoText'>Cold process</p>
+                    </div>
+                    <div className='miniLogoContainer'>
+                        <img src={handWorld} alt="hand under world" />
+                        <p className='miniLogoText'>Sustainably</p>
+                        <p className='miniLogoText'> sourced</p>
+                    </div>
                 </span>
+                <hr className='singleProdHR'></hr>
+                <div className='selectQuantityTitle'>
+                    Select Quantity:
+                </div>
                 <div className='selectPricesContainer'>
                     <span className='multiBuy' onClick={()=>{setQuantity(1)}}>
                         <div >Buy 1</div>
@@ -93,13 +118,13 @@ const addToCart = (product) => {
         <section className='lowerProductSection'>
             <div className='productReviewsHeader'>
                 <h1 className='reviewsTitle'>Reviews</h1>
-                <span className='avgReviewSpan'>
+                {/* <span className='avgReviewSpan'>
                     <div> Avg Rating</div>
                     {product.reviews && product.reviews.length > 0 ?
-                    <div className=''>{product.reviews.length} reviews</div> :
-                    <div className=''>New!</div>
+                    <div className='none'>{product.reviews.length} reviews</div> :
+                    <div className='none'>New!</div>
                 }
-                </span>
+                </span> */}
             </div>
             <div className='searchAndCreateReviewsContainer'>
             </div>
@@ -114,21 +139,24 @@ const addToCart = (product) => {
                 return <div key={review.id} className='singleReviewContainer'>
                         <span className='reviewInfoContainer'>
                             <span className='reviewNameSpan'>
-                                <div>{review.firstName} {review.lastName[0]}.</div>
+                                <div className='bold'>
+                                    {review.firstName} {review.lastName[0]}.
+                                </div>
                                 {/* <div>Verified Buyer</div> */}
                             </span>
                             <div>
                                 rating: {review.rating}
                             </div>
-                            <div>{review.title}</div>
+                            <div className='bold'>{review.title}</div>
                             <div>{review.body}</div>
                         </span>
                         <div className='reviewDateContainer'>
-                            <div>
-                                {review.createdAt}
+                            <div className='reviewDateDiv'>
+                                {/* {review.createdAt} */}
+                                {review.createdAt.slice(8,11)} {review.createdAt.slice(5,7)}, {review.createdAt.slice(12,17)}
                             </div>
                             {session[0]?.id === review.userId && (
-                                <span>
+                                <span className='conditionalReviewButtonSpan'>
                                 <ConfirmDeleteModal review={review}/>
                                 <ConfirmReviewModal review={review}/>
                                 </span>

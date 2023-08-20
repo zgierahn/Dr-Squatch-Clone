@@ -23,3 +23,14 @@
     gap: 20px;
     padding-top: 25px;
 }
+
+.confirmButton {
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(211, 116, 1);
+}

@@ -26,7 +26,7 @@ function ConfirmReviewModal({review}) {
   return (
     <div>
 
-        <button className='editReviewButton'
+        <button className='confirmButton'
             onClick={()=>{toggleButton()
             }}>
                 Edit Review

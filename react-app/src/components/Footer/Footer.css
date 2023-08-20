@@ -5,7 +5,7 @@
     width: 98.5vw;
     background-color: #345a40;
     position: relative;
-    bottom: -250px;
+    bottom: -275px;
     z-index: -1;
 }
 
@@ -36,10 +36,12 @@
 }
 
 .paymentLogos {
-    padding: 10px;
+    height: 16px;
+    padding: 7px;
 }
 
 .rightsReserved {
     color: #e5d0bb;
     cursor: default;
+    margin-bottom: 20px;
 }
