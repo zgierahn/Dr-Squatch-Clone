@@ -30,16 +30,24 @@ const toggleButton = () => {
                 <div className='completePurchaseModal'>
                     <img src={funnyCheckout} alt="guy surfing a cart"/>
                     <span className='completePurchaseSpan'>
-                    <h1>Thank you for your purchase!</h1>
-                    <button className="returnHome" onClick={()=>{
-                        localStorage.removeItem("shop");
-                        dispatch(updateCart());
-                        toggleButton();
-                        history.push("/");
-                        window.location.reload(true);
+                    <h1>Would you like to complete your purhase?</h1>
+                    <span className="completePurchaseButtonsSpan">
+                        <button className="returnHome" onClick={()=>{
+                            localStorage.removeItem("shop");
+                            dispatch(updateCart());
+                            toggleButton();
+                            history.push("/");
+                            window.location.reload(true);
                         }}>
-                        Return Home
-                    </button>
+                            Complete Purchase
+                        </button>
+                        <button className="returnHome"
+                            onClick={()=>{
+                                toggleButton();
+                            }}>
+                            Cancel
+                        </button>
+                    </span>
                     </span>
                 </div>
             </div>

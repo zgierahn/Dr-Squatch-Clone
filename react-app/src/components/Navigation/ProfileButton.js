@@ -51,7 +51,8 @@ function ProfileButton({ user }) {
             <div>Welcome, {user.firstName}!</div>
             <div>{user.email}</div>
             <div>
-              <button onClick={handleLogout}>Log Out</button>
+              <button className="userProfileButton"
+              onClick={handleLogout}>Log Out</button>
             </div>
           </span>
         ) : (
@@ -67,12 +68,12 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
             />
-            <button className="demo1" onClick={async () => {
+            <button className="userProfileButton" onClick={async () => {
                 await dispatch(login('demo@aa.io', "password")).then(closeMenu)
             }} >
                 Demo User
             </button>
-            <button className="demo2" onClick={async () => {
+            <button className="userProfileButton" onClick={async () => {
                 await dispatch(login('marnie@aa.io', "password")).then(closeMenu)
             }} >
                 Demo User 2

@@ -9,7 +9,7 @@
 }
 
 .avBGBanner {
-    width: 97vw;
+    width: 99vw;
     height: 28vh;
     position: absolute;
 }
@@ -61,7 +61,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 200px;
+    width: 220px;
     height: auto;
 }
 

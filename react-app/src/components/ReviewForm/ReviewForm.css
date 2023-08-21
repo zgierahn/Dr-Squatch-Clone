@@ -11,8 +11,10 @@
     align-items: center;
     grid-gap: 10px;
     gap: 10px;
-    padding: 20px;
-    background-color: darkgray;
+    padding: 40px;
+    background: #304b63;
+    border: 4px solid #ddc8ad;
+    border-radius: 10px;
 }
 
 .labelInputSpan {
@@ -32,6 +34,7 @@
 .reviewLabel {
     font-size: larger;
     padding: 5px;
+    color: white;
 }
 
 .ReviewDescriptionInput {
@@ -41,7 +44,7 @@
 .confirmReviewsSpan {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 75px;
 }
 
 .errorTag {

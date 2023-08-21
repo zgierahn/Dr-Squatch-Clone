@@ -148,6 +148,15 @@
 
 .addAReviewButton {
     align-self: baseline;
+    padding-block: 6px;
+    padding-inline: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(211, 116, 1);
 }
 
 .productReviewsContainter {
@@ -188,7 +197,7 @@
 }
 
 .reviewDateDiv {
-    
+
 }
 
 

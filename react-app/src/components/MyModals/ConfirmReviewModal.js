@@ -35,14 +35,20 @@ function ConfirmReviewModal({review}) {
         {modal && (
             <div className='reviewModalOverlay'>
                 <div className='reviewModal'>
-                    <h1>Do you want to edit your Review?</h1>
-                    <section className='ReviewFormContainer'>
-                        <label>Title</label>
+                    <h1 className="ConfirmModalTitles">
+                        Do you want to edit your Review?
+                    </h1>
+                    <section className='ReviewFormModal'>
+                        <label className="editReviewTitles">
+                            Title:
+                        </label>
                         <input type="text"className="ReviewTitleInput" value={title}
                             onChange={(e) => {
                                 setTitle(e.target.value)
                         }}/>
-                        <label>Description</label>
+                        <label className="editReviewTitles">
+                            Description:
+                        </label>
                         <textarea type="text"className="ReviewDescriptionInput" value={body}
                             onChange={(e) => {
                                 setBody(e.target.value)
@@ -86,12 +92,14 @@ function ConfirmReviewModal({review}) {
                         </section>
                     </section>
                     <span className='confirmButtonSpan'>
-                        <button onClick={()=>{
+                        <button className="reviewModalButtons"
+                        onClick={()=>{
                              return submitReveiw()
                         }}>
                             Edit Review
                         </button>
-                        <button onClick={()=>{toggleButton()}}>
+                        <button className="reviewModalButtons"
+                        onClick={()=>{toggleButton()}}>
                             Cancel
                         </button>
                     </span>
