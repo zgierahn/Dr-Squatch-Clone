@@ -37,51 +37,51 @@ def seed_products():
     soa5 = Product(
         category='Bar Soap', name= "Fresh Falls", description="Refreshing and clean with a hint of citrus.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/FreshFalls_1.png?v=1616616867')
     soa6 = Product(
-        category='Bar Soap', name= "Fresh Falls", description="Refreshing and clean with a hint of citrus.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/FreshFalls_1.png?v=1616616867')
+        category='Bar Soap', name= "Alpine Sage", description="New name! Same refreshing mix of cypress, lavender, and sage.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/AlpinsSage_1.png?v=1616617440')
     soa7 = Product(
-        category='Bar Soap', name= "Fresh Falls", description="Refreshing and clean with a hint of citrus.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/FreshFalls_1.png?v=1616616867')
+        category='Bar Soap', name= "Wood barrel Bourbon", description="An old fashioned blend of spice, bourbon, and oak.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/WoodBarrelBourbon_1.png?v=1616616812')
     soa8 = Product(
-        category='Bar Soap', name= "Fresh Falls", description="Refreshing and clean with a hint of citrus.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/FreshFalls_1.png?v=1616616867')
+        category='Bar Soap', name= "Deep Sea Goats Milk", description="Rejuvenate and moisturize your skin with the nectar of the goats.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/DeepSeaGoatsMilk_1.png?v=1616617993')
     soa9 = Product(
-        category='Bar Soap', name= "Fresh Falls", description="Refreshing and clean with a hint of citrus.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/FreshFalls_1.png?v=1616616867')
+        category='Bar Soap', name= "Cold Brew Cleanse", description="A robust and caffeine infused soap bar for a cause.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/ColdBrew_1.png?v=1616617758')
     soa10 = Product(
-        category='Bar Soap', name= "Fresh Falls", description="Refreshing and clean with a hint of citrus.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/FreshFalls_1.png?v=1616616867')
+        category='Bar Soap', name= "Birchwood Breeze", description="Fresh and woody with a crisp finish.", price=8, photos='https://www.drsquatch.com/cdn/shop/products/Front.png?v=1619122823')
 
 
 
     fac1 = Product(
         category='Face Care', name= "Fresh Falls Face Wash", description="Cleanse and exfoliate with energizing scents of water, birch, and pine.", price=14, photos='https://www.drsquatch.com/cdn/shop/files/Frame2896_9e126e25-3812-4288-b412-0f5bcac9711a.png?v=1686237588')
     fac2 = Product(
-        category='Face Care', name= "Fresh Falls Face Wash", description="Cleanse and exfoliate with energizing scents of water, birch, and pine.", price=14, photos='https://www.drsquatch.com/cdn/shop/files/Frame2896_9e126e25-3812-4288-b412-0f5bcac9711a.png?v=1686237588')
+        category='Face Care', name= "Cool Fresh Aloe Face Wash", description="Cleanse and refresh with the energizing scent of aloe.", price=14, photos='https://www.drsquatch.com/cdn/shop/files/Frame2878_c6f8fd65-55af-40ca-8dcb-336a725c2aea.png?v=1686237357')
     fac3 = Product(
-        category='Face Care', name= "Fresh Falls Face Wash", description="Cleanse and exfoliate with energizing scents of water, birch, and pine.", price=14, photos='https://www.drsquatch.com/cdn/shop/files/Frame2896_9e126e25-3812-4288-b412-0f5bcac9711a.png?v=1686237588')
+        category='Face Care', name= "Pine Tar Face Wash", description="Cleanse and exfoliate with the rugged scent of fresh-cut pine.", price=14, photos='https://www.drsquatch.com/cdn/shop/files/Frame2881_30d832b9-4d8d-4dc1-b4a8-af695320d1b9.png?v=1686237771')
 
 
 
     hai1 = Product(
         category='Hair Care', name= "Coconut Castaway Shampoo", description="A tranquil and exotic scent of toasted coconut.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-7.png?v=1683091341')
     hai2 = Product(
-        category='Hair Care', name= "Coconut Castaway Shampoo", description="A tranquil and exotic scent of toasted coconut.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-7.png?v=1683091341')
+        category='Hair Care', name= "Cool Fresh Aloe Shampoo", description="Cleanse your cut with the cool, refreshing scent of aloe.", price=16, photos='https://www.drsquatch.com/cdn/shop/products/DrSquatch_coolfreshaloe_haircare_1200PNG_0001_1.png?v=1667948186')
     hai3 = Product(
-        category='Hair Care', name= "Coconut Castaway Shampoo", description="A tranquil and exotic scent of toasted coconut.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-7.png?v=1683091341')
+        category='Hair Care', name= "Cypress Coast Shampoo", description="Fresh like an ocean breeze", price=16, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q3_DrSquatch_ProductPhotos_HairCareBottles_IMG_3228.png?v=1635192909')
     hai4 = Product(
-        category='Hair Care', name= "Coconut Castaway Shampoo", description="A tranquil and exotic scent of toasted coconut.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-7.png?v=1683091341')
+        category='Hair Care', name= "Fresh Falls Shampoo", description="Cleanse your hair with this refreshing scent", price=16, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q3_DrSquatch_ProductPhotos_HairCareBottles_IMG_3198.png?v=1635193271')
     hai5 = Product(
-        category='Hair Care', name= "Coconut Castaway Shampoo", description="A tranquil and exotic scent of toasted coconut.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-7.png?v=1683091341')
+        category='Hair Care', name= "Pine Tar Shampoo", description="Suds your strands and soothe your scalp with this rugged, manly scent.", price=16, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q3_DrSquatch_ProductPhotos_HairCareBottles_IMG_3178.png?v=1634066961')
     hai6 = Product(
-        category='Hair Care', name= "Coconut Castaway Shampoo", description="A tranquil and exotic scent of toasted coconut.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-7.png?v=1683091341')
+        category='Hair Care', name= "Summer Citrus Shampoo", description="Suds your strands with a bright, refreshing scent.", price=16, photos='https://www.drsquatch.com/cdn/shop/products/Frame9.png?v=1662072973')
     hai7 = Product(
         category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
     hai8 = Product(
-        category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
+        category='Hair Care', name= "Cool Citrus Conditioner", description="A cool and crisp burst of hydration", price=17, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q3_DrSquatch_ProductPhotos_HairCareBottles_IMG_3208_f046f223-744c-482c-98c4-7c0350dd2f03.png?v=1633996175')
     hai9 = Product(
-        category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
+        category='Hair Care', name= "Cool Fresh Aloe Conditioner", description="Moisturize and revitalize with Mother Natures finest plus the refreshing scent of aloe.", price=17, photos='https://www.drsquatch.com/cdn/shop/products/DrSquatch_coolfreshaloe_haircare_1200PNG_0004.png?v=1648140674')
     hai10 = Product(
-        category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
+        category='Hair Care', name= "Fresh Falls Conditioner", description="Revitalize your locks with scents of water and wood", price=17, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q3_DrSquatch_ProductPhotos_HairCareBottles_IMG_3190_93eccf54-3ee9-4283-aac6-d3ac3c2063ea.png?v=1633997453')
     hai11 = Product(
-        category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
+        category='Hair Care', name= "Pine Tar Conditioner", description="Moisturize your mane with the rugged scent of an old growth forest.", price=17, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q3_DrSquatch_ProductPhotos_HairCareBottles_IMG_3164.png?v=1634066915')
     hai12 = Product(
-        category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
+        category='Hair Care', name= "Summer Citrus Conditioner", description="Rejuvenate those locks with this freshly-squeezed scent.", price=17, photos='https://www.drsquatch.com/cdn/shop/products/Frame12.png?v=1662072959')
     hai13 = Product(
         category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
     hai14 = Product(
@@ -96,18 +96,18 @@ def seed_products():
     lot1 = Product(
         category='Lotion', name= "Pine Tar Lotion", description="Hydrate with ultra-manly scent of fresh-cut pine.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/Frame6_739d66ef-e486-4021-af8f-44c500db06d2.png?v=1688142913')
     lot2 = Product(
-        category='Lotion', name= "Pine Tar Lotion", description="Hydrate with ultra-manly scent of fresh-cut pine.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/Frame6_739d66ef-e486-4021-af8f-44c500db06d2.png?v=1688142913')
+        category='Lotion', name= "Fresh Falls Lotion", description="Revitalize your skin with a fresh, cooling scent.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/Frame5_f5d0d1f5-c916-4589-8467-0acce13cf0c6.png?v=1688142548')
     lot3 = Product(
-        category='Lotion', name= "Pine Tar Lotion", description="Hydrate with ultra-manly scent of fresh-cut pine.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/Frame6_739d66ef-e486-4021-af8f-44c500db06d2.png?v=1688142913')
+        category='Lotion', name= "Cool Fresh Aloe Lotion", description="Soothe and cool your skin with a fresh aloe scent.", price=16, photos='https://www.drsquatch.com/cdn/shop/files/Frame4_dd9c2dba-0865-48d6-9a7e-14cae3b62b45.png?v=1688142512')
 
 
 
     too1 = Product(
         category='Toothpaste', name= "Citrus Mint - Morning", description="Squatch morning breath with citrus mint", price=12, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q2_DrSquatch_ProductPhotos_Toothpaste_IMG_6082.png?v=1636391929')
     too2 = Product(
-        category='Toothpaste', name= "Citrus Mint - Morning", description="Squatch morning breath with citrus mint", price=12, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q2_DrSquatch_ProductPhotos_Toothpaste_IMG_6082.png?v=1636391929')
+        category='Toothpaste', name= "Soothing Spearmint - Night", description="Unwind with stain-fighting spearmint", price=12, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q2_DrSquatch_ProductPhotos_Toothpaste_IMG_6085.png?v=1636391995')
     too3 = Product(
-        category='Toothpaste', name= "Citrus Mint - Morning", description="Squatch morning breath with citrus mint", price=12, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q2_DrSquatch_ProductPhotos_Toothpaste_IMG_6082.png?v=1636391929')
+        category='Toothpaste', name= "Toothpast Kit", description="Morning + night! Give your mouth what it needs, when it needs it.", price=22, photos='https://www.drsquatch.com/cdn/shop/products/toothpaste_kit_1.png?v=1636406989')
 
 
 
