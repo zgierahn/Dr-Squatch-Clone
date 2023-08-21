@@ -38,7 +38,9 @@ function Navigation({ isLoaded }) {
 			</div>
 			{isLoaded && (
 				<div className='navRight'>
-					<button className="navButton">
+					<button className="navButton"
+						onClick={()=>alert('Feature Coming Soon')}
+					>
 						Take Quiz
 					</button>
 					<ProfileButton user={sessionUser} />
