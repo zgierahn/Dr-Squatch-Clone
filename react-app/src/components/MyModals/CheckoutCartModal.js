@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateCart } from "../../store/cart";
 import shoppingCart from "../../images/Cart-Logo.png"
 import exit from "../../images/orange-exit.png"
+import CompleteCheckout from "./CompleteCheckout";
 import './CheckoutCartModal.css'
 
 
@@ -123,9 +124,7 @@ return (
                                 ${subTotal}
                             </div>
                         </span>
-                        <button className="addToCartButton">
-                            Checkout
-                        </button>
+                        <CompleteCheckout />
                     </footer>
                 </div>
             </div>
