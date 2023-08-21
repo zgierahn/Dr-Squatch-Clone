@@ -40,7 +40,7 @@ const submitReveiw = () => {
         <section className='ReviewFormContainer'>
             <span className='labelInputSpan'>
                 <label className='reviewLabel'>
-                    Title
+                    Title:
                 </label>
                 <input type="text"className="ReviewTitleInput" value={title}
                     onChange={(e) => {
@@ -50,7 +50,7 @@ const submitReveiw = () => {
             </span>
             <span className='labelDesciptionSpan'>
                 <label className='reviewLabel'>
-                    Description
+                    Description:
                 </label>
                 <textarea type="text"className="ReviewDescriptionInput" value={body}
                     onChange={(e) => {
@@ -60,7 +60,7 @@ const submitReveiw = () => {
             </span>
             <span className='labelInputSpan'>
                 <label className='reviewLabel'>
-                    Rating
+                    Rating:
                 </label>
                 <section className="star-rating">
                     <div className={activeRating >= 1 ? "filled" : "empty"}
@@ -102,12 +102,14 @@ const submitReveiw = () => {
                 {errors.rating && <p className='errorTag'>{errors.rating}</p>}
             </span>
             <span className='confirmReviewsSpan'>
-                <button onClick={()=>{
+                <button className='reviewModalButtons'
+                onClick={()=>{
                     return submitReveiw()
                 }}>
                     Create Review
                 </button>
-                <button onClick={()=>{
+                <button className='reviewModalButtons'
+                onClick={()=>{
                     return history.push(`/collections/products/${productId}`)
                 }}>
                     Cancel

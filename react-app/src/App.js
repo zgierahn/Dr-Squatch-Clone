@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Products from "./components/Products";
 import SingleProduct from "./components/SingleProduct";
+import Footer from "./components/Footer";
 import ReviewForm from "./components/ReviewForm";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -26,6 +27,7 @@ function App() {
 
           <Route exact path="/" >
             <LandingPage />
+            <Footer />
           </Route>
 
           <Route exact path="/login" >

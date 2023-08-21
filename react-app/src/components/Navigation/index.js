@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import ProfileButton from './ProfileButton';
 import CheckoutCartModal from '../MyModals/CheckoutCartModal';
 import FrankyLogo from "../../images/Franky-logo.png"
+import SteinLogo from "../../images/dr-stein.png"
 import './Navigation.css';
 
 
@@ -17,16 +18,13 @@ function Navigation({ isLoaded }) {
 	return (
 		<nav className='navBarContainer'>
 			<div className='navLeft'>
-				<button onClick={()=>alert('Feature Coming Soon')}>
+				<button className='navSubscribe' onClick={()=>alert('Feature Coming Soon')}>
 					Subscribe
 				</button>
-				{/* <button onClick={()=>alert('Feature Coming Soon')}>
-					Bundles
-				</button> */}
-				<button onClick={()=>history.push("/collections")}>
+				<button  className="navButton" onClick={()=>history.push("/collections")}>
 					Products
 				</button>
-				<button onClick={()=>alert('Feature Coming Soon')}>
+				<button className="navButton" onClick={()=>alert('Feature Coming Soon')}>
 					Rewards
 				</button>
 			</div>
@@ -34,13 +32,15 @@ function Navigation({ isLoaded }) {
 				<NavLink exact to="/">
 					<span className='navHomeSpan'>
 						<img className='navFrankyLogo' src={FrankyLogo} alt="Franky-logo"/>
-						<div>Dr. Stein</div>
+						<img className='navSteinLogo' src={SteinLogo} alt="Frankenstein-logo"/>
 					</span>
 				</NavLink>
 			</div>
 			{isLoaded && (
 				<div className='navRight'>
-					<button>Take Quiz</button>
+					<button className="navButton">
+						Take Quiz
+					</button>
 					<ProfileButton user={sessionUser} />
 					<CheckoutCartModal />
 				</div>

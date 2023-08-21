@@ -1,15 +1,23 @@
+
+/* -------------------- Products Ad Banner ---------------------- */
+
 .ProductsImageBanner {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 200px;
-    background-color: deepskyblue;
+    height: 215px;
 }
 
+.avBGBanner {
+    width: 99vw;
+    height: 28vh;
+    position: absolute;
+}
 .centerAvengersSpan {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 .avengerProductsLogo {
@@ -17,7 +25,8 @@
 }
 
 .avengerSoap {
-    height: 145px;
+    height: 155px;
+    z-index: 1;
 }
 
 .productsAdTitle {
@@ -28,6 +37,7 @@
     padding: 2px;
     border: 2px solid black;
     background-color: rgb(255, 213, 0);
+    cursor: default;
 }
 
 .productsAdDescription {
@@ -37,6 +47,7 @@
     padding: 5px;
     background-color: white;
     border: 2px solid black;
+    cursor: default;
 }
 
 .outerProductsContainer {
@@ -44,23 +55,43 @@
     flex-direction: row;
 }
 
+/* ----------------------- SideBar List ------------------------ */
+
 .productListBar {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 175px;
+    width: 220px;
     height: auto;
-    border: 1px solid red;
 }
+
+.sidebarTitle {
+    font-size: 20px;
+}
+
+.sidebarLinks {
+    background-color: transparent;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.sidebarLinks:hover {
+    color: rgb(185, 103, 1);
+    color: white;
+}
+
+/* ----------------------- Main Products Container ------------------------ */
 
 .mainProductsContainer {
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
+    width: 1250px;
     height: auto;
     padding: 10px;
     gap: 10px;
-    border: 1px solid red;
 }
 
 .productContainer {
@@ -70,6 +101,7 @@
     width: 250px;
     cursor: pointer;
     gap: 4px;
+    background-color: grey;
 }
 
 .productContainer:hover {
@@ -79,8 +111,8 @@
 .productsImageContainer {
     display: flex;
     justify-content: center;
-    background-color: grey;
     height: 50%;
+    background-color: lightgrey
 }
 
 .productsImage {
@@ -92,12 +124,15 @@
 .productsName {
     margin: 0px;
     padding: 5px;
+    font-weight: bold;
 }
 
 .productsPrice {
     margin: 0px;
     margin-left: 5px;
     padding: 1px;
+    font-weight: 600;
+    /* color: #4aad4a; */
 }
 
 .productsDescription {
@@ -110,6 +145,8 @@
     padding-bottom: 5px;
 }
 
+/* ------------------------  Add to Cart Button ------------------------------ */
+
 .addToCartButton {
     align-self: center;
     width: 80%;
@@ -117,7 +154,8 @@
     border: none;
     border-radius: 5px;
     color: white;
-    background-color: darkorange;
+    background-color: rgb(211, 116, 1);
+    font-weight: bold;
     cursor: pointer;
 }
 

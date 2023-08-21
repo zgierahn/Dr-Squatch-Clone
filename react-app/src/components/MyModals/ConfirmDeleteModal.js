@@ -18,7 +18,7 @@ const toggleButton = () => {
   return (
     <div>
 
-        <button className='editReviewButton'
+        <button className='confirmButton'
             onClick={()=>{toggleButton()
             }}>
                 Delete Review
@@ -27,15 +27,19 @@ const toggleButton = () => {
         {modal && (
             <div className='reviewModalOverlay'>
                 <div className='reviewModal'>
-                    <h1>Do you want to delete your Review?</h1>
+                    <h1 className='ConfirmModalTitles'>
+                        Do you want to delete your Review?
+                    </h1>
                     <span className='confirmButtonSpan'>
-                    <button onClick={()=>{
+                    <button className='reviewModalButtons'
+                    onClick={()=>{
                     dispatch(thunkDeleteReview(review.id))
                     toggleButton()
                      }}>
                         Delete Review
                     </button>
-                    <button onClick={()=>{toggleButton()}}>
+                    <button className='reviewModalButtons'
+                    onClick={()=>{toggleButton()}}>
                         Cancel
                     </button>
                     </span>

@@ -1,0 +1,45 @@
+.completeCheckoutMain {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 13px;
+    z-index: 3;
+
+}
+
+.completePurchaseModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    background-color: #304b63;
+    border: 4px solid #ddc8ad;
+    border-radius: 15px;
+    z-index: 3;
+}
+
+.completePurchaseSpan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.completePurchaseButtonsSpan {
+
+}
+
+.returnHome {
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(211, 116, 1);
+    margin: 15px;
+}
+
+.returnHome:hover {
+  box-shadow: inset 0px 0px 10px 15px rgba(255, 255, 255, 0.40);
+}

@@ -13,13 +13,47 @@
 .reviewModal {
     display: flex;
     flex-direction: column;
-    background-color: darkgrey;
+    background: #304b63;
+    border: 4px solid #ddc8ad;
+    border-radius: 10px;
     align-items: center;
     padding: 25px;
 }
 
+.ReviewFormModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 10px;
+    gap: 10px;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.ConfirmModalTitles {
+    color: white;
+}
+
+.editReviewTitles {
+    color: white;
+    align-self: baseline;
+    font-size: 20px;
+}
+
 .confirmButtonSpan {
     display: flex;
-    gap: 20px;
+    gap: 50px;
     padding-top: 25px;
+}
+
+.confirmButton,
+.reviewModalButtons {
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(211, 116, 1);
 }

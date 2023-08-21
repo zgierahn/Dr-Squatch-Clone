@@ -1,32 +1,39 @@
 .mainProductContainer {
     display: flex;
     justify-content: center;
-    border: 1px solid black;
 }
 
 /* ------------------ Left Side Image Container ---------------------- */
 
 .leftSideContainer {
-    width: 40vw;
-    height: 55vh;
-    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45vw;
+    height: 425px;
 }
 
 .trackWebLocation {
     display: flex;
     flex-direction: row;
-    border: 1px solid violet;
+    align-items: center;
+    padding-left: 4vw;
+    gap: 5px;
+    height: 30px;
 }
 
 .singleProductImage {
-    height: 320px;
+    height: 335px;
     width: auto;
 }
 
 .innerImagesContainer {
     display: flex;
     justify-content: center;
-    padding: 15px;
+    align-items: center;
+    height: 100%;
+    border-radius: 10px;
+    background-color: lightgrey;
 }
 
 
@@ -35,30 +42,63 @@
 .rightSideContainer {
     display: flex;
     flex-direction: column;
-    width: 40vw;
-    height: 55vh;
-    border: 1px solid red;
-
+    width: 45vw;
 }
 
 .SPCategory {
-    padding: 5px;
+    padding: 5px 5px 0px 5px;
+    font-size: 18px;
+    margin-left: 10px;
 }
 
 .SingleProductName {
-    font-size: x-large;
+    font-size: 30px;
     font-weight: 600;
+    padding-inline: 10px;
+}
+
+.numReviews {
+    font-size: 18px;
     padding: 5px;
+    margin-left: 10px;
 }
 
 .SPdescription {
     padding: 5px;
     height: 70px;
+    font-size: 18px;
+    margin-left: 10px;
 }
 
 .singleProductSpan {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+
+.miniLogoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 8px;
+}
+
+.miniLogoText {
+    margin: 0px;
+}
+
+.singleProdHR {
+    border: 1px solid #ddc8ad;
+    width: 100%;
+    position: relative;
+    left: 20px;
+}
+
+.selectQuantityTitle {
+    margin-top: 3px;
+    margin-left: 47px;
 }
 
 .selectPricesContainer {
@@ -66,7 +106,7 @@
     justify-content: center;
     grid-gap: 10px;
     gap: 10px;
-    margin-block: 20px;
+    margin-block: 15px;
 }
 
 .multiBuy {
@@ -74,12 +114,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60px;
-    width: 100px;
+    height: 54px;
+    width: 90px;
     padding: 5px;
     gap: 8px;
     cursor: pointer;
-    border: 1px solid red;
+    border: 1px solid #ddc8ad;
+    border-radius: 5px;
 }
 
 /* ------------------ Reviews Lower Container ---------------------- */
@@ -88,15 +129,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid green;
 }
 
 .productReviewsHeader {
-    border: 1px solid pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.reviewsTitle {
+    font-size: 40px;
+}
+
+.avgReviewSpan {
+    display: flex;
 }
 
 .addAReviewButton {
     align-self: baseline;
+    padding-block: 6px;
+    padding-inline: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(211, 116, 1);
 }
 
 .productReviewsContainter {
@@ -105,24 +165,44 @@
     justify-content: space-around;
     width: 75vw;
     height: auto;
-    border: 1px solid lightblue;
+    /* border: 1px solid lightblue; */
 }
 
 .singleReviewContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 1px solid orange;
+    padding: 10px;
+    border-bottom: 3px solid black;
+}
+
+.reviewInfoContainer {
+    width: 400px;
 }
 
 .reviewDateContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border: 1px solid yellow;
+    gap: 5px;
 }
 
 .reviewNameSpan {
     display: flex;
     flex-direction: row;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.reviewDateDiv {
+
+}
+
+
+.conditionalReviewButtonSpan {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
 }

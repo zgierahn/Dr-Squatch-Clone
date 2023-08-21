@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
 }
 
 .navLeft {
@@ -17,15 +16,65 @@
 
 }
 
+.navSubscribe {
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgb(211, 116, 1);
+}
+
+.navSubscribe:hover {
+  box-shadow: inset 0px 0px 10px 15px rgba(255, 255, 255, 0.40);
+}
+
+.fa-user-circle {
+  font-size: 25px;
+}
+
+.userProfileButton{
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(211, 116, 1);
+}
+
+.userProfileButton:hover {
+  box-shadow: inset 0px 0px 10px 15px rgba(255, 255, 255, 0.40);
+}
+
+.navButton {
+  background-color: transparent;
+  border: none;
+  font-size: 17px;
+}
+
+.navButton:hover {
+  color: white;
+}
+
+
 .navHomeSpan {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 
 .navFrankyLogo {
-  height: 70px;
+  height: 80px;
+}
+
+.navSteinLogo {
+  height: 35px;
 }
 
 .navRight {
@@ -35,16 +84,15 @@
   gap: 15px;
   width: 275px;
   margin-right: 15px;
-  /* border: 1px solid red; */
 }
 
 .profile-dropdown {
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: 79px;
-  top: 32px;
-  /* background-color: blue; */
+  right: 77px;
+  top: 46px;
+  z-index: 2;
 }
 
 .userDropdown {

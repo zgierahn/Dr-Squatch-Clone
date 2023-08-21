@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { updateCart } from "../../store/cart";
 import shoppingCart from "../../images/Cart-Logo.png"
+import exit from "../../images/orange-exit.png"
+import CompleteCheckout from "./CompleteCheckout";
 import './CheckoutCartModal.css'
 
 
@@ -15,11 +17,11 @@ const toggleShoppingButton = () => {
     setModal(!modal)
 }
 
-
-
 let shop;
+let subTotal = 0;
 if (Object.values(cartState.cart)) {
     shop = Object.values(cartState.cart)
+    shop.forEach((product) => subTotal += (product.price * product.quantity));
 }
 
 const deleteItem = (productId ) => {
@@ -31,7 +33,11 @@ const deleteItem = (productId ) => {
 
 const changeQuantity = (productId, int) => {
     let shop = JSON.parse(localStorage.getItem("shop"))
-    shop[productId].quantity += int
+    if(shop[productId].quantity + int === 0){
+        delete shop[productId]
+    } else {
+        shop[productId].quantity += int
+    }
     localStorage.setItem("shop", JSON.stringify(shop))
     dispatch(updateCart(shop))
 }
@@ -58,29 +64,68 @@ return (
             <div className='cart-modal'>
                 <div className='overlay'></div>
                 <div className='cart-content'>
-                    <h1>Shopping Cart</h1>
+                    <header className="cartHeader">
+                        <span className="cartTitleSpan">
+                            <h1>Your Cart</h1>
+                            <button onClick={()=>{toggleShoppingButton()}} className='close-review-modal'>
+                                <img className="exitButton" src={exit} alt="shopping cart" />
+                            </button>
+                        </span>
+                        {subTotal >= 55 ?
+                            <div>You qualify for free shipping!</div> :
+                            <div>Spend $55 and claim free shippipng!</div>
+                        }
+                    </header>
+                    <section className="shoppingCartItems">
                     {!!shop.length &&
                         shop.map((product)=>{
                             return <div key={product.id} className="shoppingCartItem">
-                                <div>Product Id: {product.id}</div>
-                                <div>{product.name}</div>
-                                <div>Price:${product.price}</div>
-                                <div className="quantityContainer">
-                                    <button onClick={()=>{changeQuantity(product.id, -1)}}>-</button>
-                                    <div className="innerQuantityContainer">
-                                        Quantity:
-                                        <div>{product.quantity}</div>
+                                <span className="cartItemInfoSpan">
+                                    <div className="cartItemImageDiv">
+                                        <img className="cartItemPhoto" src={product.photos} alt="product" />
                                     </div>
-                                    <button onClick={()=>{changeQuantity(product.id, 1)}}>+</button>
-                                </div>
-                                <button
-                                    onClick={()=>{deleteItem(product.id)}}
-                                >Delete</button>
+                                    <div className="cartItemDescriptionDiv">
+                                        <p className="CartProductName">{product.name}</p>
+                                        <div>{product.category}</div>
+                                        <div className="quantityContainer">
+                                            <button className="changeQuantity"
+                                            onClick={()=>{changeQuantity(product.id, -1)}}>
+                                                -
+                                            </button>
+                                            <div className="innerQuantityContainer">
+                                                {/* Quantity: */}
+                                                <div>{product.quantity}</div>
+                                            </div>
+                                            <button className="changeQuantity"
+                                            onClick={()=>{changeQuantity(product.id, 1)}}>
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </span>
+                                <span className="cartPriceSpan">
+                                    <div className="cartPriceDiv">
+                                        ${product.price * product.quantity}
+                                    </div>
+                                    <button className="cartRemoveButton" onClick={()=>{deleteItem(product.id)}}>
+                                        Remove
+                                    </button>
+                                </span>
                             </div>
                         })
-
                     }
-                    <button onClick={()=>{toggleShoppingButton()}} className='close-review-modal'>Close Cart</button>
+                    </section>
+                    <footer className="checkoutFooter">
+                        <span className="subTotalSpan">
+                            <h3>
+                                SubTotal:
+                            </h3>
+                            <div className="cartPriceDiv">
+                                ${subTotal}
+                            </div>
+                        </span>
+                        <CompleteCheckout />
+                    </footer>
                 </div>
             </div>
         )}
