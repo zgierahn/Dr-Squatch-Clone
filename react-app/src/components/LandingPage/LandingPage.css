@@ -35,7 +35,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    /* top: 7px; */
+    top: 10px;
     width: 345px;
     padding: 5px;
     font-weight: 600;
@@ -224,4 +224,39 @@
     font-size: 16px;
     margin: 3px;
     cursor: default;
+}
+
+
+
+
+
+
+
+/* ---------------------- Last Ad ------------------------ */
+
+.trustedFooter {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 190px;
+    justify-content: center;
+}
+
+.trustedByText {
+    align-self: center;
+    color: #345a40;
+    font-family: adrianna,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 40px;
+}
+
+.trustedBySpan {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.trustedBy {
+    height: 25px;
 }

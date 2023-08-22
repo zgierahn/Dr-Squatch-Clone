@@ -11,6 +11,11 @@ import bayRum from "../../images/bay_rum_deo_mosaic_tile.webp"
 import leaf from "../../images/leaf.png"
 import log from "../../images/log.png"
 import plane from "../../images/plane.png"
+import trusted1 from "../../images/trusted_by_1.png";
+import trusted2 from "../../images/trusted_by_2.png";
+import trusted3 from "../../images/trusted_by_3.png";
+import trusted4 from "../../images/trusted_by_4.png";
+
 import './LandingPage.css';
 
 
@@ -131,10 +136,17 @@ function LandingPage() {
 			<section className='fourthAdContainer'>
 
 			</section>
-		<footer>
-
-		</footer>
-
+		<footer className='trustedFooter'>
+            <div className='trustedByText'>
+                Trusted By
+            </div>
+            <span className='trustedBySpan'>
+                <img  className="trustedBy" src={trusted1} alt="mens journal"/>
+                <img  className="trustedBy" src={trusted2} alt="mens health"/>
+                <img  className="trustedBy" src={trusted3} alt="GQ"/>
+                <img  className="trustedBy" src={trusted4} alt="birchbox"/>
+            </span>
+        </footer>
 		</main>
 	);
 }
