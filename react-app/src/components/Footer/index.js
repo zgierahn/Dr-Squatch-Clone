@@ -14,9 +14,9 @@ import "./Footer.css";
 function Footer() {
 
   return (
-    <main>
+    <main className='footerMain'>
         <img  className="woodGrain" src={woodGrain} alt="footer woodgrain graphic"/>
-        <section className='footer'>
+        <section className='footerSection'>
             <div className='bCorpContainer'>
                 <img  className="corpLogo" src={bCorp} alt="B corp logo"/>
                 <span className='faBrandsSpan'>
