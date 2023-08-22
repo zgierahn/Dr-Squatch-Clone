@@ -1,9 +1,19 @@
 .signupForm {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
+    gap: 15px;;
 }
 
 .submitSignup {
-    align-self: center;
+    align-self: end;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(211, 116, 1);
+
 }

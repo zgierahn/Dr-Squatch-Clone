@@ -1,4 +1,7 @@
 /----------------------- Flask commands ----------------------/
+ to start backend in root file-- pipenv run flask run
+ to start frontend in /react-app -- npm start
+
  --inside the pipenv shell
 flask db init
 flask db migrate

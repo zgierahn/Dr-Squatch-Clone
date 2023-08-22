@@ -16,13 +16,13 @@ def seed_products():
     deo5 = Product(
         category='Deodorant', name = "Birchwood Breeze Deodorant", description="Fresh and woody with a crisp finish.", price=13.50, photos='https://www.drsquatch.com/cdn/shop/products/BirhwoodDeo_1.png?v=1616617893')
     deo6 = Product(
-        category='Deodorant', name = "Birchwood Breeze Deodorant", description="Fresh and woody with a crisp finish.", price=13.50, photos='https://www.drsquatch.com/cdn/shop/products/BirhwoodDeo_1.png?v=1616617893')
+        category='Deodorant', name = "Fresh Falls Deodorant", description="Refreshing and clean with a hint of citrus.", price=13.50, photos='https://www.drsquatch.com/cdn/shop/products/FreshFallsDeo_1.png?v=1616619181')
     deo7 = Product(
-        category='Deodorant', name = "Birchwood Breeze Deodorant", description="Fresh and woody with a crisp finish.", price=13.50, photos='https://www.drsquatch.com/cdn/shop/products/BirhwoodDeo_1.png?v=1616617893')
+        category='Deodorant', name = "Cool Fresh Aloe Deodorant", description="A scent as crisp and cool as the other side of the pillow.", price=13.50, photos='https://www.drsquatch.com/cdn/shop/products/DrSquatch_coolfreshdeo_0001.png?v=1647539295')
     deo8 = Product(
-        category='Deodorant', name = "Birchwood Breeze Deodorant", description="Fresh and woody with a crisp finish.", price=13.50, photos='https://www.drsquatch.com/cdn/shop/products/BirhwoodDeo_1.png?v=1616617893')
+        category='Deodorant', name = "Bay Rum Deodorant", description="Intoxicatingly delightful cocktail of clove, cinnamon, pine, and citrus.", price=13.50, photos='https://www.drsquatch.com/cdn/shop/products/BayRumDeo_1.png?v=1616617191')
     deo9 = Product(
-        category='Deodorant', name = "Birchwood Breeze Deodorant", description="Fresh and woody with a crisp finish.", price=13.50, photos='https://www.drsquatch.com/cdn/shop/products/BirhwoodDeo_1.png?v=1616617893')
+        category='Deodorant', name = "Coconut Castaway Deodorant", description="Better than a beachside piña colada? Maybe.", price=13.50, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-11.png?v=1683091434')
 
 
 
@@ -82,14 +82,14 @@ def seed_products():
         category='Hair Care', name= "Pine Tar Conditioner", description="Moisturize your mane with the rugged scent of an old growth forest.", price=17, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q3_DrSquatch_ProductPhotos_HairCareBottles_IMG_3164.png?v=1634066915')
     hai12 = Product(
         category='Hair Care', name= "Summer Citrus Conditioner", description="Rejuvenate those locks with this freshly-squeezed scent.", price=17, photos='https://www.drsquatch.com/cdn/shop/products/Frame12.png?v=1662072959')
-    hai13 = Product(
-        category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
-    hai14 = Product(
-        category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
-    hai15 = Product(
-        category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
-    hai16 = Product(
-        category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
+    # hai13 = Product(
+    #     category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
+    # hai14 = Product(
+    #     category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
+    # hai15 = Product(
+    #     category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
+    # hai16 = Product(
+    #     category='Hair Care', name= "Coconut Castaway Conditioner", description="A tranquil and exotic scent of toasted coconut.", price=17, photos='https://www.drsquatch.com/cdn/shop/files/coconutcastaway-2.png?v=1683091355')
 
 
 
@@ -114,22 +114,40 @@ def seed_products():
     col1 = Product(
         category='Cologne', name= "Fireside Bourbon Cologne", description="Aromas of cedarwood, clove and patchouli.", price=59, photos='https://www.drsquatch.com/cdn/shop/products/Frame2015.png?v=1672765943')
     col2 = Product(
-        category='Cologne', name= "Fireside Bourbon Cologne", description="Aromas of cedarwood, clove and patchouli.", price=59, photos='https://www.drsquatch.com/cdn/shop/products/Frame2015.png?v=1672765943')
+        category='Cologne', name= "Woodland Pine Cologne", description="An outdoorsy blend of cypress, pine and vetiver.", price=59, photos='https://www.drsquatch.com/cdn/shop/products/Frame2027.png?v=1672765968')
     col3 = Product(
-        category='Cologne', name= "Fireside Bourbon Cologne", description="Aromas of cedarwood, clove and patchouli.", price=59, photos='https://www.drsquatch.com/cdn/shop/products/Frame2015.png?v=1672765943')
+        category='Cologne', name= "Glacial Falls Cologne", description="Refreshing hints of fresh bergamot, clove and citrus.", price=59, photos='https://www.drsquatch.com/cdn/shop/products/Frame2028.png?v=1672765952')
 
 
 
     sho1 = Product(
+        category='Shower Booster', name= "Soap Saver", description="Extend your soap life with this handmade cedar block that reduces soap scum.", price=15, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q4_DrSquatch_SoapSaver_IMG_5488.png?v=1638924022')
+    sho2 = Product(
         category='Shower Booster', name= "Shower Caddy", description="Handcrafted Squatch storage to level up your shower game.", price=35, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q2_DrSquatch_ProductPhotos_ShowerCaddy_IMG_54442.png?v=1634164831')
+    sho3 = Product(
+        category='Shower Booster', name= "Soap Gripper", description="For a Squatch-like grip on your bar", price=8, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q2_DrSquatch_ProductPhotos_SoapGripper_IMG_5383.png?v=1633152376')
+    sho4 = Product(
+        category='Shower Booster', name= "The Star Wars Soap Saver", description="Extend the life of your soap with a Star Wars™-inspired cedar block.", price=16, photos='https://www.drsquatch.com/cdn/shop/products/drsquatch_starwars_soapsaver_1200png_0004_acd6cdf9-862b-402e-8c80-ad6a6bdeda39.png?v=1660245179')
+    sho5 = Product(
+        category='Shower Booster', name= "Scalp Scrubber", description="Massage and exfoliate your scalp for a deeper clean", price=12, photos='https://www.drsquatch.com/cdn/shop/products/IMG_6317.png?v=1634529687')
+    sho6 = Product(
+        category='Shower Booster', name= "BigFoot Soap Saver", description="Mix up your shower routine with up to 3 bars at once, soap scum free.", price=25, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q4_DrSquatch_BigFootSoapSaver_IMG_5604.png?v=1638924197')
+
 
 
     can1 = Product(
         category='Candle', name= "Fresh Falls Candle", description="A refreshing, watery blend of birch and pine.", price=30, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q2_DrSquatch_ProductPhotos_FreshFalls_IMG_5107.png?v=1631224933')
+    can2 = Product(
+        category='Candle', name= "Alpine Sage Candle", description="A breezy mix of cyprus and sage.", price=30, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q2_DrSquatch_ProductPhotos_AlpineSage_IMG_5116_1.png?v=1631224884')
+    can3 = Product(
+        category='Candle', name= "Bay Rum Candle", description="A cocktail of cinnamon, clove, and citrus.", price=30, photos='https://www.drsquatch.com/cdn/shop/products/2021_Q2_DrSquatch_ProductPhotos_BayRum_IMG_5124.png?v=1631228646')
+
 
 
     bea1 = Product(
         category='Beard', name= "Sandalwood Bourbon Beard Oil", description="A tastefully smooth sandalwood scent to quench any beard's thirst.", price=18, photos='https://www.drsquatch.com/cdn/shop/products/BeardOil_Sandlewood_1.png?v=1616629536')
+    bea2 = Product(
+        category='Beard', name= "Crushed Pine Beard Oil", description="A classy, woodsy beard oil scent for that manly beard", price=18, photos='https://www.drsquatch.com/cdn/shop/products/BeardOil_CrushedPine_1_f646f3c0-5520-4fb4-8d4a-9042be0870de.png?v=1616622996')
 
 
     swa1 = Product(
@@ -141,13 +159,13 @@ def seed_products():
     db.session.add_all([deo1, deo2, deo3, deo4, deo5, deo6, deo7, deo8, deo9])
     db.session.add_all([soa1, soa2, soa3, soa4, soa5, soa6, soa7, soa8, soa9, soa10,])
     db.session.add_all([fac1, fac2, fac3])
-    db.session.add_all([hai1, hai2, hai3, hai4, hai5, hai6, hai7, hai8, hai9, hai10, hai11, hai12, hai13, hai14, hai15, hai16 ])
+    db.session.add_all([hai1, hai2, hai3, hai4, hai5, hai6, hai7, hai8, hai9, hai10, hai11, hai12 ])  # , hai13, hai14, hai15, hai16
     db.session.add_all([lot1, lot2, lot3])
     db.session.add_all([too1, too2, too3])
     db.session.add_all([col1, col2, col3])
-    db.session.add_all([sho1,])
-    db.session.add_all([can1,])
-    db.session.add_all([bea1,])
+    db.session.add_all([sho1, sho2, sho3, sho4, sho5, sho6])
+    db.session.add_all([can1, can2, can3])
+    db.session.add_all([bea1, bea2 ])
     db.session.add_all([swa1, swa2])
     db.session.commit()
 

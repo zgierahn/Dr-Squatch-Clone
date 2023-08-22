@@ -20,7 +20,7 @@ function LandingPage() {
 
 
 	return (
-		<main>
+		<main className='landingPageMain'>
 
         <header className='landingFirst'>
 				<img className="avBG" src={avengersBG} alt="blue background"/>
