@@ -1,9 +1,59 @@
-# Flask React Project
+# Dr. Stein / [drsquatch.com](https://www.drsquatch.com/) clone project
 
-This is the starter for the Flask React project.
+I decided to make a clone of the drsquatch.com clone and take a few liberties in the design.  I wanted to build an e commerce site with products that would be for sale, available to add to your cart, checkout with those items, make a user profile, leave product reviews, and have an overall smooth website.
+
+## Live link to project Dr. Stein
+[Dr. Stein](https://capstone-squatch-clone.onrender.com)
+
+
+## Technologies/Frameworks used
+#### 1. Backend - Flask, SQLAlchemy, PostgresSQL, SQLite3
+#### 2. Frontend - React, Redux, Javascript, HTML, CSS
+
+
+## Core Features
+#### 1. New account creation, log in, log out, and guest/demo login
+
+   * Users can sign up, log in, and log out.
+   * Users can use a demo login to try the site.
+   * Users can't use certain features without logging in (like adding products to cart or checking out).
+   * Logged out users are directed to the home page.
+
+#### 2. Checkout Cart
+
+   * Logged in users can add items to the cart and change quantity of any item.
+   * Logged in users can edit and delete their items within the checkout cart.
+   * The checkout cart will empty upon submitting items for  purchase.
+
+#### 3. Reviews
+
+   * All users can view Reviews
+   * Logged in users can post reviews on products.
+   * Logged in users can edit and delete their own reviews.
+
+## Future Features
+
+ #### 4. User Profiles
+
+   * All users will be able to login, create, view, edit, and delete user personal information.
+
+ #### 5. Favorites
+
+   * Logged in users can favorite a product
+   * Logged in users can view which products were favorited.
+   * Logged in users can delete their favorite status of a product they favorited.
+
+ #### 6. Search Bar
+
+   * All users will be able to search for and view products on the main navigation bar
+
+ #### 7. Dark Mode
+
+   * All users will be able to choose if they want to view the website in standard or dark mode
+
 
 ## Getting started
-1. Clone this repository (only this branch)
+1. Clone this repository (only this branch "main")
 
 2. Install dependencies
 
@@ -26,15 +76,12 @@ This is the starter for the Flask React project.
    ```bash
    pipenv shell
    ```
-
    ```bash
    flask db upgrade
    ```
-
    ```bash
    flask seed all
    ```
-
    ```bash
    flask run
    ```
