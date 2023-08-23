@@ -6,6 +6,7 @@ import Products from "./components/Products";
 import SingleProduct from "./components/SingleProduct";
 import Footer from "./components/Footer";
 import ReviewForm from "./components/ReviewForm";
+import ProfilePage from "./components/ProfilePage";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
@@ -36,6 +37,10 @@ function App() {
 
           <Route exact path="/signup">
             <SignupFormPage />
+          </Route>
+
+          <Route exact path="/account/:userId">
+            <ProfilePage />
           </Route>
 
           <Route exact path="/collections">
