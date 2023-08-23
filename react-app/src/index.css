@@ -3,10 +3,19 @@ body {
     /* display: flex; */
     /* justify-content: center; */
     margin: 0px;
-    width: 1100px;
+    /* width: 1100px; */
     background: linear-gradient(to bottom, #7B9B7E 19.39%, #97B399 59.52%)
 }
 
 #root {
     width: 1100px;
+}
+
+
+@media (min-width: 1100px) {
+.ultraMain {
+    display: flex;
+    justify-content: center;
+}
+
 }
