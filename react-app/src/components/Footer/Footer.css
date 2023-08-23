@@ -1,24 +1,31 @@
-
-
-.woodGrain {
-    height: 375px;
-    width: 98.5vw;
-    background-color: #345a40;
-    position: relative;
-    bottom: -275px;
-    z-index: -1;
-}
-
-.footer {
+.footerMain {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.woodGrain {
+    height: 375px;
+    width: 1100px;
+    background-color: #345a40;
+    position: absolute;
+    z-index: -1;
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 375px;
+    width: 1100px;
+    justify-content: flex-end;
 }
 
 .bCorpContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .corpLogo {
@@ -32,7 +39,7 @@
 }
 
 .paymentSpan {
-
+    margin: 8px;
 }
 
 .paymentLogos {
