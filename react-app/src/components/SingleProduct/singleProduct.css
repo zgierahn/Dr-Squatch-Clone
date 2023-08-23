@@ -32,6 +32,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 475px;
     border-radius: 10px;
     background-color: lightgrey;
 }
@@ -42,7 +43,7 @@
 .rightSideContainer {
     display: flex;
     flex-direction: column;
-    width: 45vw;
+    width: 475px;
 }
 
 .SPCategory {

@@ -41,7 +41,7 @@ const addToCart = (product) => {
 }
 
 	return (
-		<main>
+		<main className='productsMain'>
         <header>
 			<img className="avBGBanner" src={avengersBG} alt="blue background"/>
             <div className='ProductsImageBanner'>
