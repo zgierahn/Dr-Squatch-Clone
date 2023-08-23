@@ -7,11 +7,6 @@ import mc from "../../images/mc-logo.png";
 import payPal from "../../images/PayPal-logo.png";
 import shopPay from "../../images/Shop-Pay-logo.png";
 import visa from "../../images/Visa-logo.png";
-import trusted1 from "../../images/trusted_by_1.png";
-import trusted2 from "../../images/trusted_by_2.png";
-import trusted3 from "../../images/trusted_by_3.png";
-import trusted4 from "../../images/trusted_by_4.png";
-
 import "./Footer.css";
 
 
