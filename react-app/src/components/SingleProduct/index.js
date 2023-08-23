@@ -24,6 +24,7 @@ function SingleProduct() {
     let session = useSelector(state => Object.values(state.session))
     let userReviews = new Set();
     allReviews.forEach(review=>{userReviews.add(review.userId)})
+console.log("session", session[0]?.id);
 
     useEffect(() => {
     dispatch(thunkGetReviewsByProduct(productId))
