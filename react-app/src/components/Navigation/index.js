@@ -38,6 +38,12 @@ function Navigation({ isLoaded }) {
 			</div>
 			{isLoaded && (
 				<div className='navRight'>
+					{sessionUser &&
+					<button className='userProfileButton'
+					onClick={()=>history.push(`/account/${sessionUser.id}/overview`)}>
+						Profile
+					</button>
+					}
 					<button className="navButton"
 						onClick={()=>alert('Feature Coming Soon')}
 					>
