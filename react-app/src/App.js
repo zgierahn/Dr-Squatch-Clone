@@ -39,7 +39,7 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route exact path="/account/:userId/overview">
+          <Route exact path="/account/:userId/:type">
             <ProfilePage />
           </Route>
 

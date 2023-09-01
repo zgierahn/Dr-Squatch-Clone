@@ -128,3 +128,12 @@ if environment == "production":
         op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
+
+
+/------------------ End Point setup for github readme -------------------/
+
+## ENDPOINTS
+| REQUEST | PURPOSE | Return Value |
+| ------- | ------- |  ------- |
+| GET /api/tickets/ | This fetch will get every ticket available |
+| GET /api/tickets/:ticketId/ | This fetch will get a single ticket based on the given ticketId |
