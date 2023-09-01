@@ -21,7 +21,7 @@ function Navigation({ isLoaded }) {
 				<button className='navSubscribe' onClick={()=>alert('Feature Coming Soon')}>
 					Subscribe
 				</button>
-				<button  className="navButton" onClick={()=>history.push("/collections")}>
+				<button  className="navButton" onClick={()=>history.push("/collections/all")}>
 					Products
 				</button>
 				<button className="navButton" onClick={()=>alert('Feature Coming Soon')}>

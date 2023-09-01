@@ -38,7 +38,7 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route exact path="/collections">
+          <Route exact path="/collections/:categories">
             <Products />
           </Route>
 
