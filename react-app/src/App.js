@@ -43,10 +43,6 @@ function App() {
             <ProfilePage />
           </Route>
 
-          <Route exact path="/account/:userId/:type">
-            <ProfilePage /> 
-          </Route>
-
           <Route exact path="/collections/:categories">
             <Products />
           </Route>
