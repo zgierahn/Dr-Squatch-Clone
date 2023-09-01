@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { thunkGetProducts } from '../../store/product';
 import { updateCart } from '../../store/cart';
 import america from "../../images/avengers-america.webp"
@@ -16,7 +16,57 @@ function Products() {
 
 const dispatch = useDispatch();
 const history = useHistory();
+const { categories } = useParams();
 let allProducts = useSelector(state => Object.values(state.product.allProducts))
+
+let filteredProducts;
+if(categories === "all") {
+    filteredProducts = allProducts;
+} else {
+    let filtered;
+    switch (categories) {
+        case 'bar-soap':
+            filtered = "Bar Soap";
+            break;
+        case 'face-care':
+            filtered = "Face Care";
+            break;
+        case 'hair-care':
+            filtered = "Hair Care";
+            break;
+        case 'deodorant':
+            filtered = "Deodorant";
+            break;
+        case 'lotion':
+            filtered = "Lotion";
+            break;
+        case 'cologne':
+            filtered = "Cologne";
+            break;
+        case 'shower-boosters':
+            filtered = "Shower Booster";
+            break;
+        case 'candles':
+            filtered = "Candle";
+            break;
+        case 'beard-oil':
+            filtered = "Beard";
+            break;
+        case 'gift-cards':
+            filtered = "Gift Cards";
+            break;
+        case 'swag':
+            filtered = "Swag";
+            break;
+        case 'toothpaste':
+            filtered = "Toothpaste";
+            break;
+        default:
+            filtered = "Bar Soap";
+        }
+    filteredProducts = allProducts.filter((product) => product.category === filtered);
+}
+
 
 useEffect(() => {
     dispatch(thunkGetProducts())
@@ -37,7 +87,6 @@ const addToCart = (product) => {
         localStorage.setItem("shop", JSON.stringify(shop))
         dispatch(updateCart(shop))
     }
-
 }
 
 	return (
@@ -59,75 +108,75 @@ const addToCart = (product) => {
             </div>
             <section className='outerProductsContainer'>
                 <ul className='productListBar'>
-                    <h3 className='sidebarTitle'>ESSENTIALS</h3>
+                    <h3 className='sidebarTitle'>
+                        ESSENTIALS
+                    </h3>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/bar-soap")}
                     >
                         Bar Soaps
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/face-care")}
                     >
                         Face Wash
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/hair-care")}
                     >
                         Hair Care
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/deodorant")}
                     >
                         Deodorant
                         </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/lotion")}
                     >
                         Lotion
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/cologne")}
                     >
                         Cologne
                     </button>
-                    <h3 className='sidebarTitle'
-                    onClick={()=>alert('Feature Coming Soon')}
-                    >
+                    <h3 className='sidebarTitle'>
                         MORE PRODUCTS
                     </h3>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/shower-boosters")}
                     >
                         Shower Boosters
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/candles")}
                     >
                         Candles
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/beard-oil")}
                     >
                         Beard Oil
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/gift-cards")}
                     >
                         Gift Cards
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/swag")}
                     >
                         Swag
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>alert('Feature Coming Soon')}
+                    onClick={()=>history.push("/collections/toothpaste")}
                     >
                         Toothpaste
                     </button>
                 </ul>
                 <div className='mainProductsContainer'>
-                    {allProducts.map((product)=>{
+                    {filteredProducts.map((product)=>{
                     return <div className='productContainer' key={product.id} value={product.id}
                             onClick={()=>{history.push(`/collections/products/${product.id}`)
                             }}>

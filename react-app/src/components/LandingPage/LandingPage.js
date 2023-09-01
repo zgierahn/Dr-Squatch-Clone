@@ -1,6 +1,7 @@
 import React from 'react';  // , { useEffect }
 // import { useDispatch, useSelector } from 'react-redux'
 // import { updateCart } from "../../store/cart";
+import { useHistory } from 'react-router-dom';
 import avengersAd from "../../images/avengers-tile-1.png"
 import avengers from "../../images/avengers.webp"
 import avengersBG from "../../images/avengers-bg.jpg"
@@ -22,6 +23,7 @@ import './LandingPage.css';
 
 function LandingPage() {
 
+	const history = useHistory();
 
 
 	return (
@@ -41,7 +43,7 @@ function LandingPage() {
 					<button className='addToCartButton' onClick={()=>alert('Feature Coming Soon')}>
 						Get Started
 					</button>
-					<button className='addToCartButton' onClick={()=>alert('Feature Coming Soon')}>
+					<button className='addToCartButton' onClick={()=>history.push("/collections/bar-soap")}>
 						Shop Bar Soaps
 					</button>
 				</span>
