@@ -1,0 +1,57 @@
+/* ---------------------- Outer Page ---------------------- */
+
+.mainUser {
+
+}
+
+/* ---------------------- SideBar ---------------------- */
+
+.userSideBarContainer {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    height: 100%;
+    height: 88vh;
+    background-color: #473729;
+}
+
+.welcomeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.userSteinPipeImg {
+    height: 125px;
+    margin: 10px;
+}
+
+.welcomeSpan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin: 10px 10px 30px 10px;
+}
+
+.userSideBarList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+}
+
+.userSideBarButtons {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: white;
+    margin-left: 17px;
+    font-size: 14px;
+
+}
+
+.userSideBarBreaks {
+    width: 80%;
+}
