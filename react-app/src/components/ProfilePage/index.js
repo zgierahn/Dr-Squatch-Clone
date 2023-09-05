@@ -14,7 +14,9 @@ function ProfilePage() {
 	const history = useHistory();
   const { type } = useParams();
 	const sessionUser = useSelector(state => state.session.user);
-console.log("THIS IS TYPE", type);
+  console.log("SESSIOn user", sessionUser);
+
+
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
@@ -87,7 +89,9 @@ console.log("THIS IS TYPE", type);
               <p>
               Spend $20 more to reach Stein Man status and unlock rewards!
               </p>
-              <button>
+              <button className='userProfileButton1'
+              onClick={()=>alert('Feature Coming Soon')}
+              >
                 Redeem Points
               </button>
             </span>
@@ -100,8 +104,10 @@ console.log("THIS IS TYPE", type);
               <p>
                 No Orders Found
               </p>
-              <button>
-                Shop Now
+              <button className='userProfileButton'
+              onClick={()=>history.push("/collections/all")}
+              >
+                SHOP NOW
               </button>
             </div>
           </span>
@@ -121,7 +127,9 @@ console.log("THIS IS TYPE", type);
                   Cancel anytime.
                 </div>
               </span>
-              <button>
+              <button className='userProfileButton1'
+              onClick={()=>alert('Feature Coming Soon')}
+              >
                 Subscribe & Save
               </button>
             </div>
@@ -136,9 +144,18 @@ console.log("THIS IS TYPE", type);
           <h1>
             MY ORDERS
           </h1>
-          <button>
-            SHOP NOW
-          </button>
+          <div className='myOrdersContainer'>
+            <span className='userProfileSpan'>
+              <div>
+                No Orders Found
+              </div>
+            </span>
+            <button className='userProfileButton'
+            onClick={()=>history.push("/collections/all")}
+            >
+              SHOP NOW
+            </button>
+          </div>
         </section>
       }
 
@@ -163,7 +180,9 @@ console.log("THIS IS TYPE", type);
                 you start a subscription, your payment method will be located here.
               </div>
             </span>
-            <button>
+            <button className='userProfileButton1'
+            onClick={()=>alert('Feature Coming Soon')}
+            >
               Subscribe & Save
             </button>
           </div>
@@ -176,7 +195,7 @@ console.log("THIS IS TYPE", type);
                 Name
               </div>
               <div>
-                First and Last Name
+                {sessionUser.firstName} {sessionUser.lastName}
               </div>
             </span>
             <span className='addressContainerSpan'>
@@ -213,7 +232,7 @@ console.log("THIS IS TYPE", type);
                 Name
               </div>
               <div>
-                Your Name
+                {sessionUser.firstName} {sessionUser.lastName}
               </div>
             </span>
             <span className='profileEmailSpan'>
@@ -221,7 +240,7 @@ console.log("THIS IS TYPE", type);
                 Email
               </div>
               <div>
-                Your email
+              {sessionUser.email}
               </div>
               <div>
                 Change Email
