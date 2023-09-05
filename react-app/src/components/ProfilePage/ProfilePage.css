@@ -58,11 +58,68 @@
 }
 
 
-/* ---------------------- Main Container ---------------------- */
+/* ---------------------- Main Section Container ---------------------- */
 
 
 .profileContainer {
     max-width: 940px;
     width: 77%;
+    padding-left: 30px;
     border: 1px solid red;
+}
+
+.detailsContainer,
+.accountSettingsProfileContainer,
+.shippingAddressContainer,
+.loyaltyContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 15px;
+    width: 70%;
+    border-radius: 10px;
+    border: 1px solid blue;
+
+}
+
+
+.subscriptionStatusSpan,
+.totalOrdersSpan,
+.lastOrderSpan,
+.profilePasswordSpan,
+.profileEmailSpan,
+.profileNameSpan,
+.addressContainerSpan,
+.nameSpan,
+.loyaltyStatusSpan,
+.loyaltyPointsSpan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    border: 1px solid yellow;
+
+}
+
+.billingContainer,
+.recentOrdersContainer,
+.joinPackContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 70%;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid blue;
+
+}
+
+.innerAddressSpan,
+.billingSpan,
+.subsribeSpan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

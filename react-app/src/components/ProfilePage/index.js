@@ -64,41 +64,214 @@ console.log("THIS IS TYPE", type);
           </button>
         </div>
       </section>
+
+
       {type === "overview" &&
         <section className='profileContainer'>
           <h1>
             OVERVIEW
           </h1>
-          <span>
-            <h3>
-              Loyalty Status
-            </h3>
-            <div>
-
-            </div>
-          </span>
+          <h3>
+            Loyalty Status
+          </h3>
+          <div className='loyaltyContainer'>
+            <span className='loyaltyStatusSpan'>
+              <p>
+                this is an image
+              </p>
+              <p>
+                Stein Man
+              </p>
+            </span>
+            <span className='loyaltyPointsSpan'>
+              <p>
+              Spend $20 more to reach Stein Man status and unlock rewards!
+              </p>
+              <button>
+                Redeem Points
+              </button>
+            </span>
+          </div>
           <span>
             <h3>
               Recent Orders
             </h3>
-            <div>
-
+            <div className='recentOrdersContainer'>
+              <p>
+                No Orders Found
+              </p>
+              <button>
+                Shop Now
+              </button>
             </div>
           </span>
           <span>
             <h3>
               Join the Pack
             </h3>
-            <div>
-
+            <div className='joinPackContainer'>
+              <div>
+                You currently do not have any subscriptions.
+              </div>
+              <span className='subsribeSpan'>
+                <div>
+                  Subscribe, save, and get everything you need delivered right to your door.
+                </div>
+                <div>
+                  Cancel anytime.
+                </div>
+              </span>
+              <button>
+                Subscribe & Save
+              </button>
             </div>
           </span>
 
         </section>
       }
-      <section>
 
-      </section>
+
+      { type === "orders" &&
+        <section className='profileContainer'>
+          <h1>
+            MY ORDERS
+          </h1>
+          <button>
+            SHOP NOW
+          </button>
+        </section>
+      }
+
+
+      { type === "address" &&
+        <section className='profileContainer'>
+          <h1>
+            BILLING AND SHIPPING
+          </h1>
+          <h3>
+            Billing Info
+          </h3>
+          <div className='billingContainer'>
+            <div>
+            No payment method on file
+            </div>
+            <span className='billingSpan'>
+              <div>
+                We're only able to store a payment method for subscriptions at this time - if
+              </div>
+              <div>
+                you start a subscription, your payment method will be located here.
+              </div>
+            </span>
+            <button>
+              Subscribe & Save
+            </button>
+          </div>
+          <h3>
+            Shipping Addresses
+          </h3>
+          <div className='shippingAddressContainer'>
+            <span className='nameSpan'>
+              <div>
+                Name
+              </div>
+              <div>
+                First and Last Name
+              </div>
+            </span>
+            <span className='addressContainerSpan'>
+              <div>
+                Address
+              </div>
+              <span className='innerAddressSpan'>
+                <div>
+                  null, null
+                </div>
+                <div>
+                  United States,  null
+                </div>
+              </span>
+            </span>
+
+          </div>
+
+        </section>
+      }
+
+
+      { type === "settings" &&
+        <section className='profileContainer'>
+          <h1>
+            ACCOUNT SETTINGS
+          </h1>
+          <h3>
+            Profile
+          </h3>
+          <div className='accountSettingsProfileContainer'>
+            <span className='profileNameSpan'>
+              <div>
+                Name
+              </div>
+              <div>
+                Your Name
+              </div>
+            </span>
+            <span className='profileEmailSpan'>
+              <div>
+                Email
+              </div>
+              <div>
+                Your email
+              </div>
+              <div>
+                Change Email
+              </div>
+            </span>
+            <span className='profilePasswordSpan'>
+              <div>
+                Password
+              </div>
+              <div>
+                ******
+              </div>
+              <div>
+                Change Password
+              </div>
+            </span>
+          </div>
+          <h3>
+            Details
+          </h3>
+          <div className='detailsContainer'>
+            <span className='lastOrderSpan'>
+              <div>
+                LastOrder
+              </div>
+              <div>
+                N/A
+              </div>
+            </span>
+            <span className='totalOrdersSpan'>
+              <div>
+                Total Orders
+              </div>
+              <div>
+                number of orders
+              </div>
+            </span>
+            <span className='subscriptionStatusSpan'>
+              <div>
+                Subscription Status
+              </div>
+              <div>
+                Inactive
+              </div>
+            </span>
+          </div>
+        </section>
+      }
+
+
 
     </main>
 
