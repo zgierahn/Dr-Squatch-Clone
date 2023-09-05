@@ -14,7 +14,7 @@ function ProfilePage() {
 	const history = useHistory();
   const { type } = useParams();
 	const sessionUser = useSelector(state => state.session.user);
-
+console.log("THIS IS TYPE", type);
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
@@ -64,6 +64,38 @@ function ProfilePage() {
           </button>
         </div>
       </section>
+      {type === "overview" &&
+        <section className='profileContainer'>
+          <h1>
+            OVERVIEW
+          </h1>
+          <span>
+            <h3>
+              Loyalty Status
+            </h3>
+            <div>
+
+            </div>
+          </span>
+          <span>
+            <h3>
+              Recent Orders
+            </h3>
+            <div>
+
+            </div>
+          </span>
+          <span>
+            <h3>
+              Join the Pack
+            </h3>
+            <div>
+
+            </div>
+          </span>
+
+        </section>
+      }
       <section>
 
       </section>

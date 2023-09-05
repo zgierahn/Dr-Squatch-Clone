@@ -1,7 +1,8 @@
 /* ---------------------- Outer Page ---------------------- */
 
 .mainUser {
-
+    display: flex;
+    flex-direction: row;
 }
 
 /* ---------------------- SideBar ---------------------- */
@@ -54,4 +55,14 @@
 
 .userSideBarBreaks {
     width: 80%;
+}
+
+
+/* ---------------------- Main Container ---------------------- */
+
+
+.profileContainer {
+    max-width: 940px;
+    width: 77%;
+    border: 1px solid red;
 }
