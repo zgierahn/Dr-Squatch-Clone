@@ -6,11 +6,11 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_addresses():
     add1 = Address(
-        category = "shipping", address1 = '123 Street', city = "Foosha", state = "East Blue", country = "New World", user_id = 1)
+        category = "shipping", address1 = '123 Street', city = "Foosha", state = "East Blue", postal_code = 12345, country = "New World", user_id = 1)
     add2 = Address(
-        category = "both", address1 = '456 Street', city = "Denver", state = "CO", country = "New World", user_id = 2)
+        category = "both", address1 = '456 Street', city = "Denver", state = "CO", postal_code = 90210, country = "New World", user_id = 2)
     add3 = Address(
-        category = "billing", address1 = '789 Street', city = "Talladega", state = "Al", country = "United States", user_id = 3)
+        category = "billing", address1 = '789 Street', city = "Talladega", state = "Al", postal_code = 90210, country = "United States", user_id = 3)
 
     db.session.add(add1)
     db.session.add(add2)

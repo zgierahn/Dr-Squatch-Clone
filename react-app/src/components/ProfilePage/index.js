@@ -14,7 +14,6 @@ function ProfilePage() {
 	const history = useHistory();
   const { type } = useParams();
 	const sessionUser = useSelector(state => state.session.user);
-  console.log("SESSIOn user", sessionUser);
 
 
   const handleLogout = (e) => {
@@ -81,7 +80,7 @@ function ProfilePage() {
               <div className='pointTotalDiv'>
                 <span className='pointTotalSpan'>
                   <div>
-                    10
+                    {sessionUser.rewardsPoints}
                   </div>
                   <div>
                     Points
@@ -176,7 +175,7 @@ function ProfilePage() {
             Billing Info
           </h3>
           <div className='billingContainer'>
-            <div>
+            <div className='bold'>
             No payment method on file
             </div>
             <span className='billingSpan'>
@@ -198,29 +197,64 @@ function ProfilePage() {
           </h3>
           <div className='shippingAddressContainer'>
             <span className='nameSpan'>
-              <div>
+              <div className='bold'>
                 Name
               </div>
               <div>
                 {sessionUser.firstName} {sessionUser.lastName}
               </div>
             </span>
+
+            {sessionUser.addresses.length === 0 ?
+            (
             <span className='addressContainerSpan'>
+            <div className='bold'>
+              Address
+            </div>
+            <span className='innerAddressSpan'>
               <div>
-                Address
+                null
               </div>
-              <span className='innerAddressSpan'>
-                <div>
-                  null, null
-                </div>
-                <div>
-                  United States,  null
-                </div>
-              </span>
+              <div>
+                null, null, null
+              </div>
+              <div>
+                United States
+              </div>
             </span>
-
+            </span>
+            ) :
+              sessionUser.addresses.map((address)=>{
+                return <span key={address.id} className='addressContainerSpan'>
+                  <span className='centeringSpan'>
+                    <div className='bold'>
+                      Address
+                    </div>
+                    <div>
+                      type: {address.category}
+                    </div>
+                  </span>
+                  <span className='innerAddressSpan'>
+                    <div>
+                      {address.address1}
+                    </div>
+                    <div>
+                      {address.address2}
+                    </div>
+                    <div>
+                      {address.address3}
+                    </div>
+                    <div>
+                      {address.city}, {address.state}, {address.postalCode}
+                    </div>
+                    <div>
+                      {address.country}
+                    </div>
+                  </span>
+                </span>
+              })
+            }
           </div>
-
         </section>
       }
 

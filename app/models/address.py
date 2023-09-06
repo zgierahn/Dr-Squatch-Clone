@@ -14,6 +14,7 @@ class Address(db.Model):
     address3 = db.Column(db.String(255))
     city = db.Column(db.String(255))
     state = db.Column(db.String(255))
+    postal_code = db.Column(db.Integer)
     country = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
@@ -31,6 +32,7 @@ class Address(db.Model):
             "address3" : self.address3,
             "city" : self.city,
             "state" : self.state,
+            "postalCode" : self.postal_code,
             "country" : self.country,
             "userId" : self.user.id,
         }

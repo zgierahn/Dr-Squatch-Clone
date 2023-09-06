@@ -146,7 +146,8 @@
 
 .innerAddressSpan,
 .billingSpan,
-.subsribeSpan {
+.subsribeSpan,
+.centeringSpan {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -167,4 +168,9 @@
 
 .userProfileButton1:hover {
     box-shadow: inset 0px 0px 10px 15px rgba(255, 255, 255, 0.40);
+}
+
+
+.bold {
+    font-weight: bold;
 }
