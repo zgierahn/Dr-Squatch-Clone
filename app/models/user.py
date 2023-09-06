@@ -62,5 +62,5 @@ class User(db.Model, UserMixin):
             "profileImage" : self.profile_image,
             "createdAt" : self.created_at,
             "editedAt" : self.edited_at,
-            'address': self.address
+            'address': [info.to_dict() for info in self.address]
         }
