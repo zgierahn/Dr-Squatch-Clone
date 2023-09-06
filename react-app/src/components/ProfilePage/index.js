@@ -78,12 +78,19 @@ function ProfilePage() {
           </h3>
           <div className='loyaltyContainer'>
             <span className='loyaltyStatusSpan'>
-              <p>
-                this is an image
-              </p>
-              <p>
+              <div className='pointTotalDiv'>
+                <span className='pointTotalSpan'>
+                  <div>
+                    10
+                  </div>
+                  <div>
+                    Points
+                  </div>
+                </span>
+              </div>
+              <div>
                 Stein Man
-              </p>
+              </div>
             </span>
             <span className='loyaltyPointsSpan'>
               <p>

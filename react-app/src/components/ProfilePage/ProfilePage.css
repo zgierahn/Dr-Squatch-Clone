@@ -75,7 +75,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 15px;
+    padding: 20px;
     width: 70%;
     border-radius: 10px;
     border: 1px solid blue;
@@ -92,6 +92,24 @@
     border: 1px solid red;
 }
 
+
+.pointTotalDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../images/star-1-stroke.webp");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 80px;
+}
+
+.pointTotalSpan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .subscriptionStatusSpan,
 .totalOrdersSpan,
@@ -118,7 +136,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
     width: 70%;
     gap: 10px;
     border-radius: 10px;
