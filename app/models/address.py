@@ -8,6 +8,7 @@ class Address(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(255))
     address1 = db.Column(db.String(255))
     address2 = db.Column(db.String(255))
     address3 = db.Column(db.String(255))
@@ -18,12 +19,13 @@ class Address(db.Model):
 
     user = db.relationship(
         "User",
-        back_populates="address"
+        back_populates="addresses"
     )
 
     def to_dict(self):
         return {
             'id': self.id,
+            "category" : self.category,
             "address1" : self.address1,
             "address2" : self.address2,
             "address3" : self.address3,

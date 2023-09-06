@@ -33,7 +33,7 @@ class User(db.Model, UserMixin):
             back_populates="user"
         )
 
-    address = db.relationship(
+    addresses = db.relationship(
         "Address",
         cascade="all, delete-orphan",
         back_populates="user"
@@ -62,5 +62,5 @@ class User(db.Model, UserMixin):
             "profileImage" : self.profile_image,
             "createdAt" : self.created_at,
             "editedAt" : self.edited_at,
-            'address': [info.to_dict() for info in self.address]
+            'addresses': [info.to_dict() for info in self.addresses]
         }
