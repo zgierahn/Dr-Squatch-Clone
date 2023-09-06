@@ -1,19 +1,20 @@
 """empty message
 
-Revision ID: 33aea38b14db
+Revision ID: f8c785f57b08
 Revises:
-Create Date: 2023-08-17 14:53:05.293682
+Create Date: 2023-09-06 12:21:06.999517
 
 """
 from alembic import op
 import sqlalchemy as sa
+
 import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = '33aea38b14db'
+revision = 'f8c785f57b08'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -27,12 +28,25 @@ def upgrade():
     sa.Column('lastName', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('subscription', sa.Boolean(), nullable=True),
-    sa.Column('rewards', sa.Integer(), nullable=True),
+    sa.Column('rewards_points', sa.Integer(), nullable=True),
+    sa.Column('profile_image', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('edited_at', sa.DateTime(), nullable=True),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
+    )
+    op.create_table('addresses',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('address1', sa.String(length=255), nullable=True),
+    sa.Column('address2', sa.String(length=255), nullable=True),
+    sa.Column('address3', sa.String(length=255), nullable=True),
+    sa.Column('city', sa.String(length=255), nullable=True),
+    sa.Column('state', sa.String(length=255), nullable=True),
+    sa.Column('country', sa.String(length=255), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('products',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -46,6 +60,9 @@ def upgrade():
     op.create_table('orders',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('quantity', sa.Integer(), nullable=True),
+    sa.Column('unit_price', sa.Integer(), nullable=True),
+    sa.Column('total_price', sa.Integer(), nullable=True),
+    sa.Column('tax_rate', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.Date(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('product_id', sa.Integer(), nullable=False),
@@ -66,12 +83,13 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    # ### end Alembic commands ###
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE addresses SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
-    # ### end Alembic commands ###
 
 
 def downgrade():
@@ -79,5 +97,6 @@ def downgrade():
     op.drop_table('reviews')
     op.drop_table('orders')
     op.drop_table('products')
+    op.drop_table('addresses')
     op.drop_table('users')
     # ### end Alembic commands ###

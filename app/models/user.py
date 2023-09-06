@@ -14,7 +14,8 @@ class User(db.Model, UserMixin):
     lastName = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     subscription = db.Column(db.Boolean)
-    rewards = db.Column(db.Integer)
+    rewards_points = db.Column(db.Integer)
+    profile_image = db.Column(db.String)
     created_at = db.Column(db.DateTime)
     edited_at = db.Column(db.DateTime)
     hashed_password = db.Column(db.String(255), nullable=False)
@@ -31,6 +32,12 @@ class User(db.Model, UserMixin):
             cascade="all, delete-orphan",
             back_populates="user"
         )
+
+    address = db.relationship(
+        "Address",
+        cascade="all, delete-orphan",
+        back_populates="user"
+    )
 
 
     @property
@@ -51,7 +58,9 @@ class User(db.Model, UserMixin):
             "lastName" : self.lastName,
             "email" : self.email,
             "subscription" : self.subscription,
-            "rewards" : self.rewards,
+            "rewardsPoints" : self.rewards_points,
+            "profileImage" : self.profile_image,
             "createdAt" : self.created_at,
-            "editedAt" : self.edited_at
+            "editedAt" : self.edited_at,
+            'address': self.address
         }

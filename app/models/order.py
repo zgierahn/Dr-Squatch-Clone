@@ -9,6 +9,9 @@ class Order(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     quantity = db.Column(db.Integer)
+    unit_price = db.Column(db.Integer)
+    total_price = db.Column(db.Integer)
+    tax_rate = db.Column(db.Integer)
     created_at = db.Column(db.Date)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")), nullable=False)
@@ -28,6 +31,9 @@ class Order(db.Model):
         return {
             'id': self.id,
             "quantity" : self.quantity,
+            "unitPrice" : self.unit_price,
+            "totalPrice" : self.total_price,
+            "taxRate" : self.tax_rate,
             "createdAt" : self.created_at,
             "userId" : self.user_id,
             "productId" : self.product_id
