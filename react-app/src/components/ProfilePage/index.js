@@ -14,7 +14,8 @@ function ProfilePage() {
 	const history = useHistory();
   const { type } = useParams();
 	const sessionUser = useSelector(state => state.session.user);
-
+  const billingAddresses = sessionUser.addresses.filter((address)=>{ return (address.category === "billing" || address.category === "both" )})
+  const shippingAddresses = sessionUser.addresses.filter((address)=>{ return (address.category === "shipping" || address.category === "both" )})
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -26,7 +27,11 @@ function ProfilePage() {
     <main className='mainUser'>
       <section className='userSideBarContainer'>
         <span className='welcomeContainer'>
-          <img className="userSteinPipeImg" src={SteinPipe} alt='Frankenstein smoking a pipe'/>
+          { sessionUser.profileImage ? (
+          <img className="userProfileImg" src={sessionUser.profileImage} alt='Frankenstein smoking a pipe'/>
+          ) : (
+          <img className="userSteinPipeImg" src={SteinPipe} alt='Frankenstein smoking a pipe'/>)
+          }
           <span className='welcomeSpan'>
             <div>
               Welcome,
@@ -35,8 +40,8 @@ function ProfilePage() {
               {sessionUser.firstName}
             </div>
           </span>
-
         </span>
+
         <div className='userSideBarList'>
           <button className='userSideBarButtons'
             onClick={()=>{history.push("/account/1/overview")}}>
@@ -140,7 +145,6 @@ function ProfilePage() {
               </button>
             </div>
           </span>
-
         </section>
       }
 
@@ -171,6 +175,7 @@ function ProfilePage() {
           <h1>
             BILLING AND SHIPPING
           </h1>
+
           <h3>
             Billing Info
           </h3>
@@ -192,6 +197,7 @@ function ProfilePage() {
               Subscribe & Save
             </button>
           </div>
+
           <h3>
             Shipping Addresses
           </h3>
@@ -205,7 +211,7 @@ function ProfilePage() {
               </div>
             </span>
 
-            {sessionUser.addresses.length === 0 ?
+            {shippingAddresses.length === 0 ?
             (
             <span className='addressContainerSpan'>
             <div className='bold'>
@@ -224,7 +230,7 @@ function ProfilePage() {
             </span>
             </span>
             ) :
-              sessionUser.addresses.map((address)=>{
+              shippingAddresses.map((address)=>{
                 return <span key={address.id} className='addressContainerSpan'>
                   <span className='centeringSpan'>
                     <div className='bold'>
@@ -250,6 +256,67 @@ function ProfilePage() {
                     <div>
                       {address.country}
                     </div>
+                    <button className='changeUserProfile'>
+                      Change Address
+                    </button>
+                  </span>
+                </span>
+              })
+            }
+          </div>
+
+          <h3>
+            Billing Addresses
+          </h3>
+          <div className='shippingAddressContainer'>
+            { billingAddresses.length === 0 ?
+            (
+            <span className='addressContainerSpan'>
+            <div className='bold'>
+              Address
+            </div>
+            <span className='innerAddressSpan'>
+              <div>
+                null
+              </div>
+              <div>
+                null, null, null
+              </div>
+              <div>
+                United States
+              </div>
+            </span>
+            </span>
+            ) :
+              billingAddresses.map((address)=>{
+                return <span key={address.id} className='addressContainerSpan'>
+                  <span className='centeringSpan'>
+                    <div className='bold'>
+                      Address
+                    </div>
+                    <div>
+                      type: {address.category}
+                    </div>
+                  </span>
+                  <span className='innerAddressSpan'>
+                    <div>
+                      {address.address1}
+                    </div>
+                    <div>
+                      {address.address2}
+                    </div>
+                    <div>
+                      {address.address3}
+                    </div>
+                    <div>
+                      {address.city}, {address.state}, {address.postalCode}
+                    </div>
+                    <div>
+                      {address.country}
+                    </div>
+                    <button className='changeUserProfile'>
+                      Change Address
+                    </button>
                   </span>
                 </span>
               })
@@ -264,6 +331,7 @@ function ProfilePage() {
           <h1>
             ACCOUNT SETTINGS
           </h1>
+
           <h3>
             Profile
           </h3>
@@ -275,6 +343,9 @@ function ProfilePage() {
               <div>
                 {sessionUser.firstName} {sessionUser.lastName}
               </div>
+              <button className='changeUserProfile'>
+                Change Name
+              </button>
             </span>
             <span className='profileEmailSpan'>
               <div>
@@ -283,9 +354,9 @@ function ProfilePage() {
               <div>
               {sessionUser.email}
               </div>
-              <div>
+              <button className='changeUserProfile'>
                 Change Email
-              </div>
+              </button>
             </span>
             <span className='profilePasswordSpan'>
               <div>
@@ -294,11 +365,12 @@ function ProfilePage() {
               <div>
                 ******
               </div>
-              <div>
+              <button className='changeUserProfile'>
                 Change Password
-              </div>
+              </button>
             </span>
           </div>
+
           <h3>
             Details
           </h3>
