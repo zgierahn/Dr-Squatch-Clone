@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../../store/session";
+import EditUserModal from '../MyModals/EditUserModal';
 import SteinPipe from "../../images/Dr-Stein-pipe-logo.png"
 
 
@@ -343,9 +344,9 @@ function ProfilePage() {
               <div>
                 {sessionUser.firstName} {sessionUser.lastName}
               </div>
-              <button className='changeUserProfile'>
-                Change Name
-              </button>
+
+              <EditUserModal attribute={"Name"} />
+
             </span>
             <span className='profileEmailSpan'>
               <div>
@@ -354,9 +355,9 @@ function ProfilePage() {
               <div>
               {sessionUser.email}
               </div>
-              <button className='changeUserProfile'>
-                Change Email
-              </button>
+
+              <EditUserModal attribute={"Email"} />
+
             </span>
             <span className='profilePasswordSpan'>
               <div>
@@ -365,9 +366,9 @@ function ProfilePage() {
               <div>
                 ******
               </div>
-              <button className='changeUserProfile'>
-                Change Password
-              </button>
+
+              <EditUserModal attribute={"Password"} />
+
             </span>
           </div>
 

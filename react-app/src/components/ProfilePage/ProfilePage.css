@@ -30,7 +30,8 @@
     height: 125px;
     max-width: 210px;
     object-fit: cover;
-    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .welcomeSpan {

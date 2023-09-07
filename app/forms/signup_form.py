@@ -42,9 +42,13 @@ def is_valid(form, field):
 
 
 class SignUpForm(FlaskForm):
-    # username = StringField(
-    #     'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists, is_valid])
     firstName = StringField('firstname', validators=[DataRequired(), firstname_exists])
     lastName = StringField('lastname', validators=[DataRequired(), lastname_exists])
     password = StringField('password', validators=[DataRequired(), password_exists])
+
+class ChangeUserForm(FlaskForm):
+    email = StringField('email', validators=[user_exists, is_valid])
+    firstName = StringField('firstname', validators=[firstname_exists])
+    lastName = StringField('lastname', validators=[lastname_exists])
+    password = StringField('password', validators=[password_exists])
