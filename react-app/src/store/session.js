@@ -100,14 +100,15 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
 
 
 export const thunkEditName = (id, firstName, lastName) => async (dispatch) => {
-console.log("thunk edit name params", id, firstName, lastName);
 	const response = await fetch(`/api/auth/edit-name/${id}`,
 	{
 		method: "PUT",
 		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(firstName, lastName),
+		body: JSON.stringify({
+			firstName,
+			lastName
+			}),
 	});
-	console.log("print thunk response", response);
 	if (response.ok) {
 		const data = await response.json();
 		dispatch(setUser(data));
@@ -124,15 +125,13 @@ console.log("thunk edit name params", id, firstName, lastName);
 
 
 export const thunkEditEmail = (id, email) => async (dispatch) => {
-	console.log("thunk edit email params", id, email);
 
 	const response = await fetch(`/api/auth/edit-email/${id}`,
 	{
 		method: "PUT",
 		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(email),
+		body: JSON.stringify({email}),
 	});
-	console.log("print thunk response", response);
 	if (response.ok) {
 		const data = await response.json();
 		dispatch(setUser(data));
@@ -148,14 +147,18 @@ export const thunkEditEmail = (id, email) => async (dispatch) => {
 };
 
 
-export const thunkEditPassword = (id, confirmPassword, newPassword) => async (dispatch) => {
-	console.log("thunk edit password params", id,  confirmPassword, newPassword);
+export const thunkEditPassword = (id, email, password, newPassword) => async (dispatch) => {
+	console.log("thunk edit password params", id,  password, newPassword);
 
 	const response = await fetch(`/api/auth/edit-password/${id}`,
 	{
 		method: "PUT",
 		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(confirmPassword, newPassword),
+		body: JSON.stringify({
+			email,
+			password,
+			newPassword
+		}),
 	});
 	console.log("print thunk response", response);
 	if (response.ok) {

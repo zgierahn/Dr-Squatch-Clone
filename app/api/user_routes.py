@@ -23,3 +23,13 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+
+#Delete an Existing User
+@user_routes.route("/<int:id>/delete", methods=['GET','POST','DELETE'])
+@login_required
+def delete_user(id):
+  user = User.query.get(id)
+  db.session.delete(user)
+  db.session.commit()
+  return {'message':'deleted'}

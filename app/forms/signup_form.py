@@ -56,5 +56,6 @@ class ChangeNameForm(FlaskForm):
     lastName = StringField('lastname', validators=[DataRequired(), lastname_exists])
 
 class ChangePasswordForm(FlaskForm):
-    confirmPassword = StringField('password', validators=[DataRequired(), password_matches])
-    newPassword = StringField('password', validators=[DataRequired(), password_exists])
+    email = StringField('email')
+    password = StringField('password', validators=[DataRequired(), password_matches])
+    newPassword = StringField('newpassword', validators=[DataRequired(), password_exists])

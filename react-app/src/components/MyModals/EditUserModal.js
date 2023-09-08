@@ -14,7 +14,7 @@ function EditUserModal({attribute}) {
 	const [firstName, setFirstName] = useState(sessionUser.firstName);
 	const [lastName, setLastName] = useState(sessionUser.lastName);
 	const [newPassword, setNewPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
+	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const [modal, setModal] = useState(false);
 
@@ -35,7 +35,7 @@ function EditUserModal({attribute}) {
         }
         if(attribute === "Password"){
             console.log('inside password thunk', attribute);
-            data = await dispatch(thunkEditPassword(userId, confirmPassword, newPassword));
+            data = await dispatch(thunkEditPassword(userId, sessionUser.email, password, newPassword));
         }
         console.log("returned data", data);
         if (data) {
@@ -102,8 +102,8 @@ function EditUserModal({attribute}) {
                         Confirm Existing Password
                         <input
                             type="password"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             required
                             />
                     </label>

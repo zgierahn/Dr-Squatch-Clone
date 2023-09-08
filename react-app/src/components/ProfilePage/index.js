@@ -45,22 +45,22 @@ function ProfilePage() {
 
         <div className='userSideBarList'>
           <button className='userSideBarButtons'
-            onClick={()=>{history.push("/account/1/overview")}}>
+            onClick={()=>{history.push(`/account/${sessionUser.id}/overview`)}}>
             Overview
           </button>
           <hr className='userSideBarBreaks'></hr>
           <button className='userSideBarButtons'
-             onClick={()=>{history.push("/account/1/orders")}}>
+             onClick={()=>{history.push(`/account/${sessionUser.id}/orders`)}}>
             My Orders
           </button>
           <hr className='userSideBarBreaks'></hr>
           <button className='userSideBarButtons'
-             onClick={()=>{history.push("/account/1/address")}}>
+             onClick={()=>{history.push(`/account/${sessionUser.id}/address`)}}>
             Billing & Shipping
           </button>
           <hr className='userSideBarBreaks'></hr>
           <button className='userSideBarButtons'
-             onClick={()=>{history.push("/account/1/settings")}}>
+             onClick={()=>{history.push(`/account/${sessionUser.id}/settings`)}}>
             Account Settings
           </button>
           <hr className='userSideBarBreaks'></hr>
