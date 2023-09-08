@@ -1,2 +1,2 @@
 from .login_form import LoginForm
-from .signup_form import SignUpForm, ChangeUserForm
+from .signup_form import SignUpForm, ChangeNameForm, ChangeEmailForm, ChangePasswordForm

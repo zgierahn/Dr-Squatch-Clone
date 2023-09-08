@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import User, db
 from app.forms import LoginForm
-from app.forms import SignUpForm, ChangeUserForm
+from app.forms import SignUpForm, ChangeNameForm, ChangeEmailForm, ChangePasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from datetime import datetime
 
@@ -85,21 +85,48 @@ def unauthorized():
     return {'errors': ['Unauthorized']}, 401
 
 
-@auth_routes.route('/edit-user/<int:id>', methods=['GET','POST','PUT'])
+@auth_routes.route('/edit-name/<int:id>', methods=['GET','POST','PUT'])
 @login_required
 def change_name(id):
     print("----------------------------------------------------------------")
     user = User.query.get(id)
-    print("---------------------------------------", user)
-    form = ChangeUserForm()
+    form = ChangeNameForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        user.email = form.data['email'] if form.data['email'] is not None else user.email
-        user.firstName = form.data['firstName'] if form.data['firstName'] is not None else user.firstName
-        user.lastName = form.data['lastName'] if form.data['lastName'] is not None else user.lastName
-        user.edited_at = datetime.utcnow()
-        user.password = form.data['password'] if form.data['password'] is not None else user.password
+        print("------------------ inside validation ---------------------------------")
+        user.firstName = form.data['firstName']
+        user.lastName = form.data['lastName']
+        # db.session.commit()
+        print("-------------------------------------", user.firstName)
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@auth_routes.route('/edit-email/<int:id>', methods=['GET','POST','PUT'])
+@login_required
+def change_email(id):
+    print("----------------------------------------------------------------")
+    user = User.query.get(id)
+    form = ChangeEmailForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user.email = form.data['email']
         # db.session.commit()
         print("-------------------------------------", user.email)
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@auth_routes.route('/edit-password/<int:id>', methods=['GET','POST','PUT'])
+@login_required
+def change_password(id):
+    print("----------------------------------------------------------------")
+    user = User.query.get(id)
+    form = ChangePasswordForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user.password = form.data['newPassword']
+        # db.session.commit()
+        print("-------------------------------------", user.password)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

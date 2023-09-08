@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { thunkEditUser } from "../../store/session";
+import { thunkEditName, thunkEditEmail, thunkEditPassword } from "../../store/session";
 
 
 
 function EditUserModal({attribute}) {
 
+	const sessionUser = useSelector(state => state.session.user);
     const { userId } = useParams();
 	const dispatch = useDispatch();
-	const [email, setEmail] = useState("");
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState(sessionUser.email);
+	const [firstName, setFirstName] = useState(sessionUser.firstName);
+	const [lastName, setLastName] = useState(sessionUser.lastName);
+	const [newPassword, setNewPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const [modal, setModal] = useState(false);
@@ -22,25 +23,26 @@ function EditUserModal({attribute}) {
     }
 
 	const handleSubmit = async (e) => {
-        let user = {};
-        user.email = email ? email : null;
-        user.firstName = firstName ? firstName : null;
-        user.lastName = lastName ? lastName : null;
-        user.password = password ? password : null;
 		e.preventDefault();
-		if (password === confirmPassword) {
-            const data = await dispatch(thunkEditUser(userId, user));
-            console.log("returned data", data);
-			if (data) {
-				setErrors(data);
-			} else {
-				toggleButton();
-			}
-		} else {
-			setErrors([
-				"Confirm Password field must be the same as the Password field",
-			]);
-		}
+        let data;
+        if(attribute === "Name"){
+            console.log('inside name thunk', attribute);
+            data = await dispatch(thunkEditName(userId, firstName, lastName));
+        }
+        if(attribute === "Email"){
+            console.log('inside email thunk', attribute);
+            data = await dispatch(thunkEditEmail(userId, email));
+        }
+        if(attribute === "Password"){
+            console.log('inside password thunk', attribute);
+            data = await dispatch(thunkEditPassword(userId, confirmPassword, newPassword));
+        }
+        console.log("returned data", data);
+        if (data) {
+            setErrors(data);
+        } else {
+            toggleButton();
+        }
 	};
 
 	return (
@@ -96,22 +98,22 @@ function EditUserModal({attribute}) {
                             />
                     </label>
                     )} { attribute === "Password" &&
-                        <label>
-                        Password
+                    <label>
+                        Confirm Existing Password
                         <input
                             type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                             />
                     </label>
                     } { attribute === "Password" &&
                     <label>
-                        Confirm Password
+                         Set New Password
                         <input
                             type="password"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            value={newPassword}
+                            onChange={(e) => setNewPassword(e.target.value)}
                             required
                             />
                     </label>

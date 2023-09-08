@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
+from .login_form import password_matches
 from app.models import User
 import re
 
@@ -47,8 +48,13 @@ class SignUpForm(FlaskForm):
     lastName = StringField('lastname', validators=[DataRequired(), lastname_exists])
     password = StringField('password', validators=[DataRequired(), password_exists])
 
-class ChangeUserForm(FlaskForm):
-    email = StringField('email', validators=[user_exists, is_valid])
-    firstName = StringField('firstname', validators=[firstname_exists])
-    lastName = StringField('lastname', validators=[lastname_exists])
-    password = StringField('password', validators=[password_exists])
+class ChangeEmailForm(FlaskForm):
+    email = StringField('email', validators=[DataRequired(), user_exists, is_valid])
+
+class ChangeNameForm(FlaskForm):
+    firstName = StringField('firstname', validators=[DataRequired(), firstname_exists])
+    lastName = StringField('lastname', validators=[DataRequired(), lastname_exists])
+
+class ChangePasswordForm(FlaskForm):
+    confirmPassword = StringField('password', validators=[DataRequired(), password_matches])
+    newPassword = StringField('password', validators=[DataRequired(), password_exists])
