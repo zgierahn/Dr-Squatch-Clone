@@ -50,7 +50,7 @@ def create_address(userId):
          address1 = form.data['address1'],
          address2 = form.data['address2'],
          address3 = form.data['address3'],
-         city = form.data['citry'],
+         city = form.data['city'],
          state = form.data['state'],
          postal_code = form.data['postal_code'],
          country = form.data['country'],

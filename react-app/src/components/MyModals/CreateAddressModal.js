@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { thunkCreateAddress, thunkEditAddress } from "../../store/session";
 
@@ -28,7 +28,16 @@ function CreateAddressModal() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-        const data = await dispatch();
+        let addressObj = {};
+        addressObj.category = category;
+        addressObj.address1 = address1;
+        addressObj.address2 = address2;
+        addressObj.address3 = address3;
+        addressObj.city = city;
+        addressObj.state = state;
+        addressObj.postal_code = postalCode;
+        addressObj.country = country;
+        const data = await dispatch(thunkCreateAddress(userId, addressObj));
         if (data) {
             setErrors(data);
         } else {
@@ -77,6 +86,7 @@ function CreateAddressModal() {
                             value={address1}
                             onChange={(e) => setAddress1(e.target.value)}
                             required
+                            minLength="6"
                             />
                     </label>
                     <label className="reviewLabel">
@@ -86,7 +96,6 @@ function CreateAddressModal() {
                             placeholder="optional"
                             value={address2}
                             onChange={(e) => setAddress2(e.target.value)}
-                            required
                             />
                     </label>
                     <label className="reviewLabel">
@@ -96,7 +105,6 @@ function CreateAddressModal() {
                             placeholder="optional"
                             value={address3}
                             onChange={(e) => setAddress3(e.target.value)}
-                            required
                             />
                     </label>
                     <label className="reviewLabel">
@@ -119,10 +127,13 @@ function CreateAddressModal() {
                     </label>
                     <label className="reviewLabel">
                         Postal Code
-                        <input
+                        <input className="postalCodeInput"
                             value={postalCode}
                             onChange={(e) => setPostalCode(e.target.value)}
                             required
+                            type="number"
+                            min="10000"
+                            max="99999"
                             />
                     </label>
                     <label className="reviewLabel">

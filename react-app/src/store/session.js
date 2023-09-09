@@ -196,7 +196,8 @@ export const thunkCreateAddress = (userId, addressObj) => async (dispatch) => {
 	});
 
 	if (response.ok) {
-		const data = await fetch(`/api/users/${userId}`)
+		const response = await fetch(`/api/users/${userId}`)
+		const data = await response.json();
 		dispatch(setUser(data));
 		return null;
 	} else if (response.status < 500) {
@@ -219,7 +220,8 @@ export const thunkEditAddress = (userId, addressObj) => async (dispatch) => {
 	});
 
 	if (response.ok) {
-		const data = await fetch(`/api/users/${userId}`)
+		const response = await fetch(`/api/users/${userId}`)
+		const data = await response.json();
 		dispatch(setUser(data));
 		return null;
 	} else if (response.status < 500) {
@@ -239,9 +241,10 @@ export const thunkDeleteAddress = (userId, addressId) => async (dispatch) => {
         method: 'DELETE'
     });
     if(res.ok) {
-        const data = await fetch(`/api/users/${userId}`)
+        const response = await fetch(`/api/users/${userId}`)
+		const data = await response.json();
 		dispatch(setUser(data));
-        return null;
+		return null;
     } else {
         const err = await res.json();
         return err;

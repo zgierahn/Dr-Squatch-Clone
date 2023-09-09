@@ -17,8 +17,8 @@ function ProfilePage() {
 	const history = useHistory();
   const { type } = useParams();
 	const sessionUser = useSelector(state => state.session.user);
-  const billingAddresses = sessionUser.addresses.filter((address)=>{ return (address.category === "billing" || address.category === "both" )})
-  const shippingAddresses = sessionUser.addresses.filter((address)=>{ return (address.category === "shipping" || address.category === "both" )})
+  const billingAddresses = sessionUser.addresses?.filter((address)=>{ return (address.category === "billing" || address.category === "both" )})
+  const shippingAddresses = sessionUser.addresses?.filter((address)=>{ return (address.category === "shipping" || address.category === "both" )})
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -217,9 +217,9 @@ function ProfilePage() {
               </span>
 
             <CreateAddressModal />
-            
+
             </span>
-            {shippingAddresses.length === 0 ?
+            {shippingAddresses && shippingAddresses.length === 0 ?
             (
             <span className='addressContainerSpan'>
             <div className='bold'>
@@ -238,7 +238,7 @@ function ProfilePage() {
             </span>
             </span>
             ) :
-              shippingAddresses.map((address)=>{
+              shippingAddresses?.map((address)=>{
                 return <span key={address.id} className='addressContainerSpan'>
                   <span className='centeringSpan'>
                     <div className='bold'>
@@ -277,7 +277,7 @@ function ProfilePage() {
             Billing Addresses
           </h3>
           <div className='shippingAddressContainer'>
-            { billingAddresses.length === 0 ?
+            { billingAddresses && billingAddresses.length === 0 ?
             (
             <span className='addressContainerSpan'>
             <div className='bold'>
@@ -296,7 +296,7 @@ function ProfilePage() {
             </span>
             </span>
             ) :
-              billingAddresses.map((address)=>{
+              billingAddresses?.map((address)=>{
                 return <span key={address.id} className='addressContainerSpan'>
                   <span className='centeringSpan'>
                     <div className='bold'>

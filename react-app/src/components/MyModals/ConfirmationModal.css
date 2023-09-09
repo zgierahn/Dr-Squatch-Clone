@@ -67,3 +67,7 @@ select {
 input {
     padding: 5px 8px;
 }
+
+.postalCodeInput {
+    width: 169px;
+}
