@@ -160,6 +160,12 @@
     align-items: center;
 }
 
+.spanListApart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid red;
+}
 
 .userProfileButton1 {
     width: 50%;

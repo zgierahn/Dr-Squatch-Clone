@@ -8,6 +8,7 @@ import SteinPipe from "../../images/Dr-Stein-pipe-logo.png"
 
 
 import "./ProfilePage.css"
+import CreateAddressModal from '../MyModals/CreateAddressModal';
 
 
 function ProfilePage() {
@@ -205,15 +206,19 @@ function ProfilePage() {
             Shipping Addresses
           </h3>
           <div className='shippingAddressContainer'>
-            <span className='nameSpan'>
-              <div className='bold'>
-                Name
-              </div>
-              <div>
-                {sessionUser.firstName} {sessionUser.lastName}
-              </div>
-            </span>
+            <span className='spanListApart'>
+              <span className='nameSpan'>
+                <div className='bold'>
+                  Name
+                </div>
+                <div>
+                  {sessionUser.firstName} {sessionUser.lastName}
+                </div>
+              </span>
 
+            <CreateAddressModal />
+            
+            </span>
             {shippingAddresses.length === 0 ?
             (
             <span className='addressContainerSpan'>

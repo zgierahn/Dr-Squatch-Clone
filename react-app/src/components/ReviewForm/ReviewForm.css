@@ -32,9 +32,13 @@
 }
 
 .reviewLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-size: larger;
-    padding: 5px;
+    padding: 1px;
     color: white;
+    gap: 5px;
 }
 
 .ReviewDescriptionInput {
