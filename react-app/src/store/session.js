@@ -73,9 +73,7 @@ export const logout = () => async (dispatch) => {
 export const signUp = (firstName, lastName, email, password) => async (dispatch) => {
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
+		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify({
 			firstName,
 			lastName,
@@ -148,8 +146,6 @@ export const thunkEditEmail = (id, email) => async (dispatch) => {
 
 
 export const thunkEditPassword = (id, email, password, newPassword) => async (dispatch) => {
-	console.log("thunk edit password params", id,  password, newPassword);
-
 	const response = await fetch(`/api/auth/edit-password/${id}`,
 	{
 		method: "PUT",
@@ -174,17 +170,78 @@ export const thunkEditPassword = (id, email, password, newPassword) => async (di
 	}
 };
 
+
 // Delete User by Id
 export const thunkDeleteUser = (id) => async (dispatch) => {
-	console.log("inside thunk delete user");
     const res = await fetch(`/api/users/${id}/delete`,{
         method: 'DELETE'
     });
     if(res.ok) {
-	console.log("inside good response delete user");
         const response = await res.json();
         dispatch(removeUser());
         return response;
+    } else {
+        const err = await res.json();
+        return err;
+    }
+};
+
+
+// Create a new Address
+export const thunkCreateAddress = (userId, addressObj) => async (dispatch) => {
+	const response = await fetch(`/api/users/${userId}/address`, {
+		method: "POST",
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify(addressObj),
+	});
+
+	if (response.ok) {
+		data = await fetch(`/api/users/${userId}`)
+		dispatch(setUser(data));
+		return null;
+	} else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
+};
+
+
+// Edit an Existing Address
+export const thunkEditAddress = (userId, addressObj) => async (dispatch) => {
+	const response = await fetch(`/api/users/${userId}/address/${addressObj.id}/edit`, {
+		method: "PUT",
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify(addressObj),
+	});
+
+	if (response.ok) {
+		data = await fetch(`/api/users/${userId}`)
+		dispatch(setUser(data));
+		return null;
+	} else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
+};
+
+
+// Delete Address by Id
+export const thunkDeleteAddress = (userId, addressId) => async (dispatch) => {
+    const res = await fetch(`/api/users/${userId}/address/${addressId}/delete`,{
+        method: 'DELETE'
+    });
+    if(res.ok) {
+        data = await fetch(`/api/users/${userId}`)
+		dispatch(setUser(data));
+        return null;
     } else {
         const err = await res.json();
         return err;
