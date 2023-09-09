@@ -3,12 +3,13 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../../store/session";
 import ConfirmDeleteAccountModal from '../MyModals/ConfirmDeleteAccountModal';
+import ConfirmDeleteAddressModal from '../MyModals/ConfirmDeleteAddressModal';
 import EditUserModal from '../MyModals/EditUserModal';
+import CreateAddressModal from '../MyModals/CreateAddressModal';
 import SteinPipe from "../../images/Dr-Stein-pipe-logo.png"
 
 
 import "./ProfilePage.css"
-import CreateAddressModal from '../MyModals/CreateAddressModal';
 
 
 function ProfilePage() {
@@ -267,6 +268,9 @@ function ProfilePage() {
                     <button className='changeUserProfile'>
                       Change Address
                     </button>
+
+                    <ConfirmDeleteAddressModal addressId={address.id}/>
+
                   </span>
                 </span>
               })
@@ -325,6 +329,8 @@ function ProfilePage() {
                     <button className='changeUserProfile'>
                       Change Address
                     </button>
+                    
+                    <ConfirmDeleteAddressModal addressId={address.id}/>
                   </span>
                 </span>
               })

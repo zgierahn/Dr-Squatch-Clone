@@ -20,7 +20,6 @@ function CreateAddressModal() {
 	const [errors, setErrors] = useState([]);
 	const [modal, setModal] = useState(false);
 
-    console.log("this is category", category);
 
     const toggleButton = () => {
         setModal(!modal)

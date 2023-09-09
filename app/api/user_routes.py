@@ -65,7 +65,7 @@ def create_address(userId):
 #Edit an Address by User
 @user_routes.route("/<int:userId>/address/<int:addressId>/edit", methods=['GET','POST','PUT'])
 @login_required
-def edit_address(addressId):
+def edit_address(userId, addressId):
    form = AddressForm()
    form['csrf_token'].data = request.cookies['csrf_token']
    address = Address.query.get(addressId)
@@ -86,8 +86,10 @@ def edit_address(addressId):
 #Delete an Existing Address
 @user_routes.route("/<int:userId>/address/<int:addressId>/delete", methods=['GET','POST','DELETE'])
 @login_required
-def delete_address(addressId):
+def delete_address(userId, addressId):
   address = Address.query.get(addressId)
-  db.session.delete(address)
-  db.session.commit()
-  return {'message':'deleted'}
+  if address.user_id == userId:
+     db.session.delete(address)
+     db.session.commit()
+     return {'message':'deleted'}
+  return {'errors': 'error'}, 401
