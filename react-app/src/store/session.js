@@ -176,10 +176,12 @@ export const thunkEditPassword = (id, email, password, newPassword) => async (di
 
 // Delete User by Id
 export const thunkDeleteUser = (id) => async (dispatch) => {
+	console.log("inside thunk delete user");
     const res = await fetch(`/api/users/${id}/delete`,{
         method: 'DELETE'
     });
     if(res.ok) {
+	console.log("inside good response delete user");
         const response = await res.json();
         dispatch(removeUser());
         return response;

@@ -5,7 +5,7 @@ import { thunkGetSingleProduct } from '../../store/product';
 import { thunkGetReviewsByProduct } from '../../store/review';
 import { updateCart } from '../../store/cart';
 import ConfirmReviewModal from '../MyModals/ConfirmReviewModal';
-import ConfirmDeleteModal from '../MyModals/ConfirmDeleteModal';
+import ConfirmDeleteReviewModal from '../MyModals/ConfirmDeleteReviewModal';
 import crossBones from "../../images/cross-bones.png";
 import drops from "../../images/drops.png";
 import handWorld from "../../images/hand-world.png";
@@ -157,7 +157,7 @@ const addToCart = (product) => {
                             </div>
                             {session[0]?.id === review.userId && (
                                 <span className='conditionalReviewButtonSpan'>
-                                <ConfirmDeleteModal review={review}/>
+                                <ConfirmDeleteReviewModal review={review}/>
                                 <ConfirmReviewModal review={review}/>
                                 </span>
                             )}

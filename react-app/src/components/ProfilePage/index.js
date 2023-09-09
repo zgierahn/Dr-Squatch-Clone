@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../../store/session";
+import ConfirmDeleteAccountModal from '../MyModals/ConfirmDeleteAccountModal';
 import EditUserModal from '../MyModals/EditUserModal';
 import SteinPipe from "../../images/Dr-Stein-pipe-logo.png"
 
@@ -23,6 +24,7 @@ function ProfilePage() {
     dispatch(logout());
     history.push("/");
   };
+
 
   return (
     <main className='mainUser'>
@@ -401,6 +403,9 @@ function ProfilePage() {
               </div>
             </span>
           </div>
+
+          <ConfirmDeleteAccountModal userId={sessionUser.id}/>
+
         </section>
       }
 

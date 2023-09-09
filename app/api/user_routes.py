@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify
+from app.models import db
 from flask_login import login_required
 from app.models import User
 
@@ -26,7 +27,7 @@ def user(id):
 
 
 #Delete an Existing User
-@user_routes.route("/<int:id>/delete", methods=['GET','POST','DELETE'])
+@user_routes.route("/<int:id>/delete", methods=['GET','DELETE'])
 @login_required
 def delete_user(id):
   user = User.query.get(id)
