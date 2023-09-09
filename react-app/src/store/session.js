@@ -160,7 +160,6 @@ export const thunkEditPassword = (id, email, password, newPassword) => async (di
 			newPassword
 		}),
 	});
-	console.log("print thunk response", response);
 	if (response.ok) {
 		const data = await response.json();
 		dispatch(setUser(data));
@@ -173,6 +172,21 @@ export const thunkEditPassword = (id, email, password, newPassword) => async (di
 	} else {
 		return ["An error occurred. Please try again."];
 	}
+};
+
+// Delete User by Id
+export const thunkDeleteUser = (id) => async (dispatch) => {
+    const res = await fetch(`/api/users/${id}/delete`,{
+        method: 'DELETE'
+    });
+    if(res.ok) {
+        const response = await res.json();
+        dispatch(removeUser());
+        return response;
+    } else {
+        const err = await res.json();
+        return err;
+    }
 };
 
 
