@@ -5,7 +5,7 @@ import { logout } from "../../store/session";
 import ConfirmDeleteAccountModal from '../MyModals/ConfirmDeleteAccountModal';
 import ConfirmDeleteAddressModal from '../MyModals/ConfirmDeleteAddressModal';
 import EditUserModal from '../MyModals/EditUserModal';
-import CreateAddressModal from '../MyModals/CreateAddressModal';
+import AddressModal from '../MyModals/AddressModal';
 import SteinPipe from "../../images/Dr-Stein-pipe-logo.png"
 
 
@@ -217,7 +217,7 @@ function ProfilePage() {
                 </div>
               </span>
 
-            <CreateAddressModal />
+            <AddressModal address={""}/>
 
             </span>
             {shippingAddresses && shippingAddresses.length === 0 ?
@@ -266,9 +266,10 @@ function ProfilePage() {
                       {address.country}
                     </div>
                     <button className='changeUserProfile'>
-                      Change Address
+                      Change
                     </button>
 
+                    <AddressModal address={address}/>
                     <ConfirmDeleteAddressModal addressId={address.id}/>
 
                   </span>
@@ -326,10 +327,9 @@ function ProfilePage() {
                     <div>
                       {address.country}
                     </div>
-                    <button className='changeUserProfile'>
-                      Change Address
-                    </button>
                     
+                    <AddressModal address={address}/>
+
                     <ConfirmDeleteAddressModal addressId={address.id}/>
                   </span>
                 </span>

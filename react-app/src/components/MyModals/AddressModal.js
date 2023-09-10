@@ -5,24 +5,35 @@ import { thunkCreateAddress, thunkEditAddress } from "../../store/session";
 
 
 
-function CreateAddressModal() {
-
+function AddressModal({address}) {
+console.log("this is my address", address);
     const { userId } = useParams();
 	const dispatch = useDispatch();
-    const [category, setCategory] = useState("");
-    const [address1, setAddress1] = useState("");
-    const [address2, setAddress2] = useState("");
-    const [address3, setAddress3] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [postalCode, setPostalCode] = useState("");
-    const [country, setCountry] = useState("");
+    const [category, setCategory] = useState(address ? address.category : "" );
+    const [address1, setAddress1] = useState(address ? address.address1 : "" );
+    const [address2, setAddress2] = useState(address ? address.address2 : "" );
+    const [address3, setAddress3] = useState(address ? address.address3 : "" );
+    const [city, setCity] = useState(address ? address.city : "" );
+    const [state, setState] = useState(address ? address.state : "" );
+    const [postalCode, setPostalCode] = useState(address ? address.postalCode : "" );
+    const [country, setCountry] = useState(address ? address.country : "" );
 	const [errors, setErrors] = useState([]);
 	const [modal, setModal] = useState(false);
 
 
     const toggleButton = () => {
         setModal(!modal)
+    }
+
+    const resetData = () => {
+        setCategory(address ? address.category : "" )
+        setAddress1(address ? address.address1 : "" );
+        setAddress2(address ? address.address2 : "" );
+        setAddress3(address ? address.address3 : "" );
+        setCity(address ? address.city : "" );
+        setState(address ? address.state : "" );
+        setPostalCode(address ? address.postalCode : "" );
+        setCountry(address ? address.country : "" );
     }
 
 	const handleSubmit = async (e) => {
@@ -36,13 +47,28 @@ function CreateAddressModal() {
         addressObj.state = state;
         addressObj.postal_code = postalCode;
         addressObj.country = country;
-        const data = await dispatch(thunkCreateAddress(userId, addressObj));
+
+        let data;
+        if(address === ""){
+            console.log("with thunk Create");
+            data = await dispatch(thunkCreateAddress(userId, addressObj));
+        } else {
+            addressObj.id = address.id
+            console.log("with thunk edit");
+            data = await dispatch(thunkEditAddress(userId, addressObj));
+        }
         if (data) {
             setErrors(data);
         } else {
             toggleButton();
+            resetData();
         }
 	};
+
+    const cancelSubmit = async () => {
+        toggleButton();
+        resetData();
+    }
 
 	return (
 		<main>
@@ -50,14 +76,14 @@ function CreateAddressModal() {
             <button className='changeUserProfile'
             onClick={()=>{toggleButton()
             }}>
-                Create an Address
+                {address ? "Edit" : "Create an" } Address
             </button>
 
             {modal && (
             <div className='reviewModalOverlay'>
                 <div className='reviewModal'>
                 <h1 className="modalTitles">
-                    Create an Address
+                    {address ? "Edit" : "Create an" } Address
                 </h1>
                 <form className="signupForm"
                 onSubmit={handleSubmit}>
@@ -71,6 +97,7 @@ function CreateAddressModal() {
                         <select name="category"
                         onChange={(e) => setCategory(e.target.value)}
                         required
+                        defaultValue={category}
                         >
                             <option value="">--Please choose an option--</option>
                             <option value="shipping">Shipping</option>
@@ -149,7 +176,7 @@ function CreateAddressModal() {
                             Submit
                         </button>
                         <button className='userProfileButton'
-                        onClick={()=>{toggleButton()
+                        onClick={()=>{cancelSubmit()
                         }}>
                             Cancel
                         </button>
@@ -162,4 +189,4 @@ function CreateAddressModal() {
     )
 };
 
-export default CreateAddressModal;
+export default AddressModal;

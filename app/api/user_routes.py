@@ -69,12 +69,14 @@ def edit_address(userId, addressId):
    form = AddressForm()
    form['csrf_token'].data = request.cookies['csrf_token']
    address = Address.query.get(addressId)
+   if address.user_id != userId:
+      return {'errors': 'error'}, 401
    if form.validate_on_submit():
       address.category = form.data['category']
       address.address1 = form.data['address1']
       address.address2 = form.data['address2']
       address.address3 = form.data['address3']
-      address.city = form.data['citry']
+      address.city = form.data['city']
       address.state = form.data['state']
       address.postal_code = form.data['postal_code']
       address.country = form.data['country']
