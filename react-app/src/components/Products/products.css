@@ -57,6 +57,8 @@
 .outerProductsContainer {
     display: flex;
     flex-direction: row;
+    margin-bottom: 25px;
+
 }
 
 /* ----------------------- SideBar List ------------------------ */
@@ -68,6 +70,7 @@
     min-width: 200px;
     width: 200px;
     height: auto;
+    margin-bottom: 50px
 }
 
 .sidebarTitle {
@@ -93,7 +96,6 @@
 .mainProductsContainer {
     display: flex;
     flex-wrap: wrap;
-    /* width: 1100px; */
     height: auto;
     padding: 10px;
     gap: 10px;

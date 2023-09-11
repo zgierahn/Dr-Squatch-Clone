@@ -34,7 +34,7 @@ function ProfilePage() {
       <section className='userSideBarContainer'>
         <span className='welcomeContainer'>
           { sessionUser.profileImage ? (
-          <img className="userProfileImg" src={sessionUser.profileImage} alt='bad image link'/>
+          <img className="userProfileImg" src={sessionUser.profileImage} alt='bad link'/>
           ) : (
           <img className="userSteinPipeImg" src={SteinPipe} alt='Frankenstein smoking a pipe'/>)
           }
