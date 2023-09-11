@@ -10,6 +10,7 @@ import SteinPipe from "../../images/Dr-Stein-pipe-logo.png"
 
 
 import "./ProfilePage.css"
+import ConfirmProfileImg from '../MyModals/ConfirmProfileImg';
 
 
 function ProfilePage() {
@@ -33,10 +34,13 @@ function ProfilePage() {
       <section className='userSideBarContainer'>
         <span className='welcomeContainer'>
           { sessionUser.profileImage ? (
-          <img className="userProfileImg" src={sessionUser.profileImage} alt='Frankenstein smoking a pipe'/>
+          <img className="userProfileImg" src={sessionUser.profileImage} alt='bad image link'/>
           ) : (
           <img className="userSteinPipeImg" src={SteinPipe} alt='Frankenstein smoking a pipe'/>)
           }
+
+          <ConfirmProfileImg profile={sessionUser} />
+
           <span className='welcomeSpan'>
             <div>
               Welcome,

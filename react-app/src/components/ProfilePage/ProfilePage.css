@@ -23,14 +23,14 @@
 
 .userSteinPipeImg {
     height: 125px;
-    margin: 10px;
+    margin: 10px 10px 0px 10px;
 }
 
 .userProfileImg {
     height: 125px;
     max-width: 210px;
     object-fit: cover;
-    margin: 10px;
+    margin: 10px 10px 0px 10px;
     border-radius: 10px;
 }
 
@@ -195,6 +195,7 @@
 
 }
 
+.whiteChangeUserProfile:hover,
 .changeUserProfile:hover {
     color: rgb(211, 116, 1);
 }

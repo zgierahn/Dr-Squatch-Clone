@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import User, db
 from app.forms import LoginForm
-from app.forms import SignUpForm, ChangeNameForm, ChangeEmailForm, ChangePasswordForm
+from app.forms import SignUpForm, ChangeNameForm, ChangeEmailForm, ChangePasswordForm, UserImageForm
 from flask_login import current_user, login_user, logout_user, login_required
 from datetime import datetime
 
@@ -90,7 +90,7 @@ def unauthorized():
 
 
 #Edit name of User
-@auth_routes.route('/edit-name/<int:id>', methods=['GET','POST','PUT'])
+@auth_routes.route('/edit-name/<int:id>', methods=['GET', 'POST', 'PUT'])
 @login_required
 def change_name(id):
     user = User.query.get(id)
@@ -105,7 +105,7 @@ def change_name(id):
 
 
 #Edit Email of User
-@auth_routes.route('/edit-email/<int:id>', methods=['GET','POST','PUT'])
+@auth_routes.route('/edit-email/<int:id>', methods=['GET', 'POST', 'PUT'])
 @login_required
 def change_email(id):
     user = User.query.get(id)
@@ -120,7 +120,7 @@ def change_email(id):
 
 
 #Edit Password of User
-@auth_routes.route('/edit-password/<int:id>', methods=['GET','POST','PUT'])
+@auth_routes.route('/edit-password/<int:id>', methods=['GET', 'POST', 'PUT'])
 @login_required
 def change_password(id):
     user = User.query.get(id)
@@ -132,3 +132,29 @@ def change_password(id):
         login_user(user)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+#Add User Image
+@auth_routes.route('/profile-image/<int:id>/put', methods=['GET', 'PUT', 'POST'])
+@login_required
+def add_profile_image(id):
+    user = User.query.get(id)
+    form = UserImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user.profile_image = form.data['profileImage']
+        db.session.commit()
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+#Remove User Image
+@auth_routes.route('/profile-image/<int:id>/delete', methods=['GET', 'POST', 'DELETE'])
+@login_required
+def remove_profile_image(id):
+    user = User.query.get(id)
+    if current_user.id == user.id:
+        user.profile_image = None
+        db.session.commit()
+        return user.to_dict()
+    return {'errors': "an error occured"}, 401

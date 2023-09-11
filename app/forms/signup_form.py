@@ -59,3 +59,6 @@ class ChangePasswordForm(FlaskForm):
     email = StringField('email')
     password = StringField('password', validators=[DataRequired(), password_matches])
     newPassword = StringField('newpassword', validators=[DataRequired(), password_exists])
+
+class UserImageForm(FlaskForm):
+    profileImage = StringField('profileImage', validators=[DataRequired()])

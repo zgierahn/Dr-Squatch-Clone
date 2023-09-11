@@ -71,3 +71,14 @@ input {
 .postalCodeInput {
     width: 169px;
 }
+
+
+.whiteChangeUserProfile {
+    color: white;
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+}

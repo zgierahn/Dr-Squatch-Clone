@@ -238,7 +238,8 @@ export const thunkEditAddress = (userId, addressObj) => async (dispatch) => {
 
 // Delete Address by Id
 export const thunkDeleteAddress = (userId, addressId) => async (dispatch) => {
-    const res = await fetch(`/api/users/${userId}/address/${addressId}/delete`,{
+    const res = await fetch(`/api/users/${userId}/address/${addressId}/delete`,
+	{
         method: 'DELETE'
     });
     if(res.ok) {
@@ -250,6 +251,52 @@ export const thunkDeleteAddress = (userId, addressId) => async (dispatch) => {
         const err = await res.json();
         return err;
     }
+};
+
+
+// Add an image to user profile
+export const thunkAddUserProfileImg = (id, profileImage) => async (dispatch) => {
+
+	const response = await fetch(`/api/auth/profile-image/${id}/put`,
+	{
+		method: "PUT",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({profileImage}),
+	});
+	if (response.ok) {
+		const data = await response.json();
+		dispatch(setUser(data));
+		return null;
+	} else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
+};
+
+
+// Delete an image from user profile
+export const thunkDeleteUserProfileImg = (id) => async (dispatch) => {
+
+	const response = await fetch(`/api/auth/profile-image/${id}/delete`,
+	{
+		method: "DELETE",
+	});
+	if (response.ok) {
+		const data = await response.json();
+		dispatch(setUser(data));
+		return null;
+	} else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
 };
 
 
