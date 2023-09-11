@@ -210,7 +210,7 @@ function ProfilePage() {
             <span className='spanListApart'>
               <span className='nameSpan'>
                 <div className='bold'>
-                  Name
+                  Name:
                 </div>
                 <div>
                   {sessionUser.firstName} {sessionUser.lastName}
@@ -224,7 +224,7 @@ function ProfilePage() {
             (
             <span className='addressContainerSpan'>
             <div className='bold'>
-              Address
+              Address:
             </div>
             <span className='innerAddressSpan'>
               <div>
@@ -243,7 +243,7 @@ function ProfilePage() {
                 return <span key={address.id} className='addressContainerSpan'>
                   <span className='centeringSpan'>
                     <div className='bold'>
-                      Address
+                      Address:
                     </div>
                     <div>
                       type: {address.category}
@@ -265,9 +265,6 @@ function ProfilePage() {
                     <div>
                       {address.country}
                     </div>
-                    <button className='changeUserProfile'>
-                      Change
-                    </button>
 
                     <AddressModal address={address}/>
                     <ConfirmDeleteAddressModal addressId={address.id}/>
@@ -286,7 +283,7 @@ function ProfilePage() {
             (
             <span className='addressContainerSpan'>
             <div className='bold'>
-              Address
+              Address:
             </div>
             <span className='innerAddressSpan'>
               <div>
@@ -305,7 +302,7 @@ function ProfilePage() {
                 return <span key={address.id} className='addressContainerSpan'>
                   <span className='centeringSpan'>
                     <div className='bold'>
-                      Address
+                      Address:
                     </div>
                     <div>
                       type: {address.category}
@@ -327,7 +324,7 @@ function ProfilePage() {
                     <div>
                       {address.country}
                     </div>
-                    
+
                     <AddressModal address={address}/>
 
                     <ConfirmDeleteAddressModal addressId={address.id}/>
