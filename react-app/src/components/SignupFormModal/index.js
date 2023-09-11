@@ -40,7 +40,7 @@ function SignupFormModal() {
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
-				<label>
+				<label className="reviewLabel">
 					Email
 					<input
 						type="text"
@@ -49,7 +49,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+				<label className="reviewLabel">
 					First Name
 					<input
 						type="text"
@@ -58,7 +58,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+				<label className="reviewLabel">
 					Last Name
 					<input
 						type="text"
@@ -67,7 +67,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+				<label className="reviewLabel">
 					Password
 					<input
 						type="password"
@@ -76,7 +76,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+				<label className="reviewLabel">
 					Confirm Password
 					<input
 						type="password"

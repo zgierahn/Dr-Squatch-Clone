@@ -33,7 +33,7 @@ function LoginFormModal() {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
+        <label className="reviewLabel">
           Email
           <input
             type="text"
@@ -42,7 +42,7 @@ function LoginFormModal() {
             required
           />
         </label>
-        <label>
+        <label className="reviewLabel">
           Password
           <input
             type="password"

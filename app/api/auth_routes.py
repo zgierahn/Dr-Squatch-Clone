@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import User, db
 from app.forms import LoginForm
-from app.forms import SignUpForm
+from app.forms import SignUpForm, ChangeNameForm, ChangeEmailForm, ChangePasswordForm, UserImageForm
 from flask_login import current_user, login_user, logout_user, login_required
 from datetime import datetime
 
@@ -29,6 +29,7 @@ def authenticate():
     return {'errors': ['Unauthorized']}
 
 
+#Login
 @auth_routes.route('/login', methods=['POST'])
 def login():
     """
@@ -46,6 +47,7 @@ def login():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
+#Logout
 @auth_routes.route('/logout')
 def logout():
     """
@@ -55,6 +57,7 @@ def logout():
     return {'message': 'User logged out'}
 
 
+#Signup
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
     """
@@ -67,6 +70,7 @@ def sign_up():
             email=form.data['email'],
             firstName=form.data['firstName'],
             lastName=form.data['lastName'],
+            rewards_points = 10,
             created_at = datetime.utcnow(),
             password=form.data['password']
         )
@@ -83,3 +87,74 @@ def unauthorized():
     Returns unauthorized JSON when flask-login authentication fails
     """
     return {'errors': ['Unauthorized']}, 401
+
+
+#Edit name of User
+@auth_routes.route('/edit-name/<int:id>', methods=['GET', 'POST', 'PUT'])
+@login_required
+def change_name(id):
+    user = User.query.get(id)
+    form = ChangeNameForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user.firstName = form.data['firstName']
+        user.lastName = form.data['lastName']
+        db.session.commit()
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+#Edit Email of User
+@auth_routes.route('/edit-email/<int:id>', methods=['GET', 'POST', 'PUT'])
+@login_required
+def change_email(id):
+    user = User.query.get(id)
+    form = ChangeEmailForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user.email = form.data['email']
+        db.session.commit()
+        login_user(user)
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+#Edit Password of User
+@auth_routes.route('/edit-password/<int:id>', methods=['GET', 'POST', 'PUT'])
+@login_required
+def change_password(id):
+    user = User.query.get(id)
+    form = ChangePasswordForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user.password = form.data['newPassword']
+        db.session.commit()
+        login_user(user)
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+#Add User Image
+@auth_routes.route('/profile-image/<int:id>/put', methods=['GET', 'PUT', 'POST'])
+@login_required
+def add_profile_image(id):
+    user = User.query.get(id)
+    form = UserImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user.profile_image = form.data['profileImage']
+        db.session.commit()
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+#Remove User Image
+@auth_routes.route('/profile-image/<int:id>/delete', methods=['GET', 'POST', 'DELETE'])
+@login_required
+def remove_profile_image(id):
+    user = User.query.get(id)
+    if current_user.id == user.id:
+        user.profile_image = None
+        db.session.commit()
+        return user.to_dict()
+    return {'errors': "an error occured"}, 401

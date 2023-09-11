@@ -41,14 +41,17 @@ function App() {
 
           <Route exact path="/account/:userId/:type">
             <ProfilePage />
+            <Footer />
           </Route>
 
           <Route exact path="/collections/:categories">
             <Products />
+            <Footer />
           </Route>
 
           <Route exact path="/collections/products/:productId">
             <SingleProduct />
+            <Footer />
           </Route>
 
           <Route exact path="/products/:productId/reviews/new" >

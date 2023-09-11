@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
+from .login_form import password_matches
 from app.models import User
 import re
 
@@ -42,9 +43,22 @@ def is_valid(form, field):
 
 
 class SignUpForm(FlaskForm):
-    # username = StringField(
-    #     'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists, is_valid])
     firstName = StringField('firstname', validators=[DataRequired(), firstname_exists])
     lastName = StringField('lastname', validators=[DataRequired(), lastname_exists])
     password = StringField('password', validators=[DataRequired(), password_exists])
+
+class ChangeEmailForm(FlaskForm):
+    email = StringField('email', validators=[DataRequired(), user_exists, is_valid])
+
+class ChangeNameForm(FlaskForm):
+    firstName = StringField('firstname', validators=[DataRequired(), firstname_exists])
+    lastName = StringField('lastname', validators=[DataRequired(), lastname_exists])
+
+class ChangePasswordForm(FlaskForm):
+    email = StringField('email')
+    password = StringField('password', validators=[DataRequired(), password_matches])
+    newPassword = StringField('newpassword', validators=[DataRequired(), password_exists])
+
+class UserImageForm(FlaskForm):
+    profileImage = StringField('profileImage', validators=[DataRequired()])

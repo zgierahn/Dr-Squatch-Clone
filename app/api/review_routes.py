@@ -16,7 +16,6 @@ session = SessionFactory()
 
 #Get review by Id
 @review_routes.route('/<int:reviewId>')
-# @login_required
 def review(reviewId):
     review = Review.query.get(reviewId)
     return review.to_dict()
@@ -26,7 +25,6 @@ def review(reviewId):
 @review_routes.route('/products/<int:productId>')
 def reviewsByProduct(productId):
     reviews = Review.query.filter(Review.product_id == productId)
-    print('-----------------reviews--------------------', reviews)
     return [review.to_dict() for review in reviews]
 
 
@@ -48,7 +46,6 @@ def create_Review(productId):
             user_id = current_user.id,
             product_id = productId,
         )
-        print('-----------------backend---------------------',review)
         db.session.add(review)
         db.session.commit()
         return review.to_dict()
@@ -72,10 +69,6 @@ def edit_review(reviewId):
     form = ReviewForm()
     review = Review.query.get(reviewId)
     form['csrf_token'].data = request.cookies['csrf_token']
-    # if review != True:
-    #     return {'error':'Review cannnot be found'},404
-    print("---------------------------------------------------------", review)
-    print("=========================================================", form.data)
     review.title = form.data['title']
     review.body = form.data['body']
     review.rating = form.data['rating']

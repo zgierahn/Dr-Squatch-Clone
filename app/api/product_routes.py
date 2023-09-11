@@ -9,7 +9,7 @@ product_routes = Blueprint('products', __name__)
 @product_routes.route('/')
 def products():
     products = Product.query.all()
-    print('products', products)
+    # print('products', products)
     return [product.to_dict() for product in products]
 
 

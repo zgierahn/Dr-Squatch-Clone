@@ -6,7 +6,7 @@ import { thunkDeleteReview } from '../../store/review'
 import "./ConfirmationModal.css"
 
 
-function ConfirmDeleteModal({review}) {
+function ConfirmDeleteReviewModal({review}) {
 
 const dispatch = useDispatch();
 const [modal, setModal] = useState(false);
@@ -51,4 +51,4 @@ const toggleButton = () => {
   )
 }
 
-export default ConfirmDeleteModal
+export default ConfirmDeleteReviewModal
