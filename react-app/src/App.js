@@ -11,7 +11,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { authenticate } from "./store/session";
-
+import ReactGA from 'react-ga';
+const TRACKING_ID = "G-3Q98YQM47R"; // YOUR_OWN_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
   const dispatch = useDispatch();
