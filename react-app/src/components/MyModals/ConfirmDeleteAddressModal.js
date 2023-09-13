@@ -31,7 +31,7 @@ console.log("userId & addressId", userId, addressId);
         {modal && (
             <div className='reviewModalOverlay'>
                 <div className='reviewModal'>
-                    <h1 className='ConfirmModalTitles'>
+                    <h1 className='confirmModalTitles'>
                         Do you want to delete your Address?
                     </h1>
                     <span className='confirmButtonSpan'>

@@ -35,21 +35,21 @@ function ConfirmReviewModal({review}) {
         {modal && (
             <div className='reviewModalOverlay'>
                 <div className='reviewModal'>
-                    <h1 className="ConfirmModalTitles">
+                    <h1 className="confirmModalTitles">
                         Do you want to edit your Review?
                     </h1>
-                    <section className='ReviewFormModal'>
+                    <section className='reviewFormModal'>
                         <label className="editReviewTitles">
                             Title:
                         </label>
-                        <input type="text"className="ReviewTitleInput" value={title}
+                        <input type="text"className="reviewTitleInput" value={title}
                             onChange={(e) => {
                                 setTitle(e.target.value)
                         }}/>
                         <label className="editReviewTitles">
                             Description:
                         </label>
-                        <textarea type="text"className="ReviewDescriptionInput" value={body}
+                        <textarea type="text"className="reviewDescriptionInput" value={body}
                             onChange={(e) => {
                                 setBody(e.target.value)
                         }}/>

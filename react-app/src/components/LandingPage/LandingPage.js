@@ -52,7 +52,7 @@ function LandingPage() {
 		</header>
 			<section className='secondAdContainer'>
 				<div className='bundleContainer'>
-					<img className='LandingBundle1' src={bundle} alt="bundle of products"/>
+					<img className='landingBundle1' src={bundle} alt="bundle of products"/>
 					<span className='bundleSloganSpan'>
 						<h3 className='adTitle1'>
 							FEEL LIKE A MAN,
@@ -65,8 +65,8 @@ function LandingPage() {
 						</p>
 					</span>
 				</div>
-				<span className='SecondAdRightSideContainer'>
-					<div className='BarSoapsContainer'>
+				<span className='secondAdRightSideContainer'>
+					<div className='barSoapsContainer'>
 						<h3 className='adTitle1' id='barSoaps'>
 							Bar Soaps
 						</h3>

@@ -1,5 +1,4 @@
 
-
 .navBarContainer {
   display: flex;
     justify-content: space-between;
@@ -16,9 +15,6 @@
 
 }
 
-.navCenter {
-
-}
 
 .navSubscribe {
   padding: 6px;
@@ -40,14 +36,14 @@
 }
 
 .userProfileButton{
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    background-color: rgb(211, 116, 1);
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(211, 116, 1);
 }
 
 .userProfileButton:hover {

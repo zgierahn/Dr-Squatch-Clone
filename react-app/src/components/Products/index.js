@@ -93,7 +93,7 @@ const addToCart = (product) => {
 		<main className='productsMain'>
         <header>
 			<img className="avBGBanner" src={avengersBG} alt="blue background"/>
-            <div className='ProductsImageBanner'>
+            <div className='productsImageBanner'>
                 <img className="avengerSoap" src={america} alt="AvengersSoap" />
                 <span className='centerAvengersSpan'>
                     <img className="avengerProductsLogo" src={avengers} alt="AvengersSoap" />

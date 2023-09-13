@@ -67,7 +67,7 @@ const cancelFunc = () => {
                         <span className='confirmButtonSpan'>
                         <label className="reviewLabel">
                             User Profile Image URL:
-                        <input className="ReviewTitleInput"
+                        <input className="reviewTitleInput"
                          value={profileImg}
                          type="text"
                          defaultValue={""}

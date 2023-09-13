@@ -46,13 +46,13 @@
     width: 475px;
 }
 
-.SPCategory {
+.sPCategory {
     padding: 5px 5px 0px 5px;
     font-size: 18px;
     margin-left: 10px;
 }
 
-.SingleProductName {
+.singleProductName {
     font-size: 30px;
     font-weight: 600;
     padding-inline: 10px;
@@ -64,7 +64,7 @@
     margin-left: 10px;
 }
 
-.SPdescription {
+.sPdescription {
     padding: 5px;
     height: 70px;
     font-size: 18px;
@@ -204,11 +204,6 @@
 .bold {
     font-weight: bold;
 }
-
-.reviewDateDiv {
-
-}
-
 
 .conditionalReviewButtonSpan {
     display: flex;

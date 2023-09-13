@@ -62,15 +62,15 @@ const addToCart = (product) => {
                     </div>
             </section>
             <section className='rightSideContainer'>
-                <div className='SPCategory'>{product.category}</div>
-                <header className='SingleProductName'>
+                <div className='sPCategory'>{product.category}</div>
+                <header className='singleProductName'>
                     {product.name}
                 </header>
                 {product.reviews && product.reviews.length > 0 ?
                     <div className='numReviews'>{product.reviews.length} reviews</div> :
                     <div className='numReviews'>New!</div>
                 }
-                <div className='SPdescription'>{product.description}</div>
+                <div className='sPdescription'>{product.description}</div>
                 <span className='singleProductSpan'>
                     <div className='miniLogoContainer'>
                         <img src={drops} alt="three drops" />

@@ -100,7 +100,7 @@
     border-radius: 10px;
 }
 
-.LandingBundle1 {
+.landingBundle1 {
  height: 300px;
 }
 
@@ -115,13 +115,13 @@
     border-radius: 10px;
 }
 
-.SecondAdRightSideContainer{
+.secondAdRightSideContainer{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.BarSoapsContainer {
+.barSoapsContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

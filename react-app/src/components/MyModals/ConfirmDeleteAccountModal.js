@@ -33,7 +33,7 @@ const deleteAccount = () => {
         {modal && (
             <div className='reviewModalOverlay'>
                 <div className='reviewModal'>
-                    <h1 className='ConfirmModalTitles'>
+                    <h1 className='confirmModalTitles'>
                         Do you want to delete your Account and lose your loyalty points?
                     </h1>
                     <span className='confirmButtonSpan'>

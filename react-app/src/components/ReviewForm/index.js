@@ -37,12 +37,12 @@ const submitReveiw = () => {
   return (
     <main className='mainReviewPage'>
         <h1>Review Form</h1>
-        <section className='ReviewFormContainer'>
+        <section className='reviewFormContainer'>
             <span className='labelInputSpan'>
                 <label className='reviewLabel'>
                     Title:
                 </label>
-                <input type="text"className="ReviewTitleInput" value={title}
+                <input type="text"className="reviewTitleInput" value={title}
                     onChange={(e) => {
                         setTitle(e.target.value)
                     }}/>
@@ -52,7 +52,7 @@ const submitReveiw = () => {
                 <label className='reviewLabel'>
                     Description:
                 </label>
-                <textarea type="text"className="ReviewDescriptionInput" value={body}
+                <textarea type="text"className="reviewDescriptionInput" value={body}
                     onChange={(e) => {
                         setBody(e.target.value)
                     }}/>

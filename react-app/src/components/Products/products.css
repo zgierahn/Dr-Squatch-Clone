@@ -1,10 +1,7 @@
-.productsMain {
-
-}
 
 /* -------------------- Products Ad Banner ---------------------- */
 
-.ProductsImageBanner {
+.productsImageBanner {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -17,6 +14,7 @@
     height: 215px;
     position: absolute;
 }
+
 .centerAvengersSpan {
     display: flex;
     flex-direction: column;
