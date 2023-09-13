@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 import { thunkGetProducts } from '../../store/product';
@@ -7,6 +7,7 @@ import america from "../../images/avengers-america.webp"
 import hulk from "../../images/avengers-hulk.webp"
 import avengers from "../../images/avengers.webp"
 import avengersBG from "../../images/avengers-bg.jpg"
+import CheckoutCartModal from '../MyModals/CheckoutCartModal';
 
 import './products.css';
 
@@ -17,6 +18,7 @@ function Products() {
 const dispatch = useDispatch();
 const history = useHistory();
 const { categories } = useParams();
+const [checkoutDiv, setCheckoutDiv] = useState(false);
 let allProducts = useSelector(state => Object.values(state.product.allProducts))
 
 let filteredProducts;
@@ -160,6 +162,7 @@ useEffect(() => {
                     </button>
                 </ul>
                 <div className='mainProductsContainer'>
+                    {checkoutDiv && <CheckoutCartModal setCheckoutDiv={setCheckoutDiv}/>}
                     {filteredProducts.map((product)=>{
                     return <div className='productContainer' key={product.id} value={product.id}
                             onClick={()=>{history.push(`/collections/products/${product.id}`)
@@ -178,7 +181,7 @@ useEffect(() => {
                                     )}
                                 </div>
 
-                                <AddToCartModal product={product}/>
+                                <AddToCartModal product={product} setCheckoutDiv={setCheckoutDiv}/>
 
                             </div>
                             })}

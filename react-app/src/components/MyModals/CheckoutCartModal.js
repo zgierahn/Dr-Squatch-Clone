@@ -7,7 +7,7 @@ import CompleteCheckout from "./CompleteCheckout";
 import './CheckoutCartModal.css'
 
 
-function CheckoutCartModal({button}) {
+function CheckoutCartModal({setCheckoutDiv}) {
 
 const dispatch = useDispatch();
 let cartState = useSelector(state => state.cart);
@@ -18,7 +18,7 @@ const toggleShoppingButton = () => {
 }
 
 const viewCartFunc = () => {
-    
+
 }
 
 let shop;
@@ -58,7 +58,7 @@ useEffect(() => {
 return (
     <div>
 
-        <button className='userProfileButton'
+        {/* <button className='userProfileButton'
         onClick={(e)=>{
         e.stopPropagation()
         toggleShoppingButton()}}
@@ -66,16 +66,16 @@ return (
             { button ? "View Cart" :
             <img className="shoppingCart" src={shoppingCart} alt="shopping cart" />
             }
-        </button>
+        </button> */}
 
-        {modal && (
+        {/* {modal && ( */}
             <div className='cart-modal'>
                 <div className='overlay'></div>
                 <div className='cart-content'>
                     <header className="cartHeader">
                         <span className="cartTitleSpan">
                             <h1>Your Cart</h1>
-                            <button onClick={()=>{toggleShoppingButton()}} className='close-review-modal'>
+                            <button onClick={()=>{setCheckoutDiv(false)}} className='close-review-modal'>
                                 <img className="exitButton" src={exit} alt="shopping cart" />
                             </button>
                         </span>
@@ -136,8 +136,7 @@ return (
                     </footer>
                 </div>
             </div>
-        )}
-
+        {/* )} */}
     </div>
 
 

@@ -8,7 +8,7 @@ import "./ConfirmationModal.css"
 import CheckoutCartModal from './CheckoutCartModal';
 
 
-function AddToCartModal({product}) {
+function AddToCartModal({product, setCheckoutDiv}) {
 
 const dispatch = useDispatch();
 const [modal, setModal] = useState(false);
@@ -55,12 +55,13 @@ const addToCart = (product) => {
                     <button className='reviewModalButtons'
                     onClick={(e)=>{
                     e.stopPropagation();
-                    addToCartToggleButton()
+                    addToCartToggleButton();
+                    setCheckoutDiv(true);
                      }}>
                         View Cart
                     </button>
 
-                    <CheckoutCartModal button={"View Cart"}/>
+                    {/* <CheckoutCartModal /> */}
 
                     <button className='userProfileButton'
                     onClick={(e)=>{

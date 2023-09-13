@@ -1,9 +1,9 @@
-import React from 'react';   // useEffect
+import React, { useState } from 'react';   // useEffect
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import ProfileButton from './ProfileButton';
 import CheckoutCartModal from '../MyModals/CheckoutCartModal';
-// import FrankyLogo from "../../images/Franky-logo.png"
+import shoppingCart from "../../images/Cart-Logo.png"
 import SteinLogo from "../../images/dr-stein.png"
 import SteinPipe from "../../images/Dr-Stein-pipe-logo.png"
 import './Navigation.css';
@@ -11,6 +11,7 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }) {
 
+	const [checkoutDiv, setCheckoutDiv] = useState(false);
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory();
 
@@ -51,7 +52,15 @@ function Navigation({ isLoaded }) {
 						Take Quiz
 					</button>
 					<ProfileButton user={sessionUser} />
-					<CheckoutCartModal button={""}/>
+					<button className='userProfileButton'
+					onClick={(e)=>{
+					e.stopPropagation();
+					setCheckoutDiv(true);
+					}}
+					>
+						<img className="shoppingCart" src={shoppingCart} alt="shopping cart" />
+					</button>
+					{checkoutDiv && <CheckoutCartModal setCheckoutDiv={setCheckoutDiv}/>}
 				</div>
 			)}
 		</nav>
