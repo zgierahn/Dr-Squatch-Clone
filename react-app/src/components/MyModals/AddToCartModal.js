@@ -52,7 +52,8 @@ const addToCart = (product) => {
                         Added to Cart!
                     </h1>
                     <span className='confirmButtonSpan'>
-                    <button className='reviewModalButtons'
+
+                    <button className='userProfileButton'
                     onClick={(e)=>{
                     e.stopPropagation();
                     addToCartToggleButton();
@@ -61,14 +62,13 @@ const addToCart = (product) => {
                         View Cart
                     </button>
 
-                    {/* <CheckoutCartModal /> */}
-
                     <button className='userProfileButton'
                     onClick={(e)=>{
                     e.stopPropagation();
                     addToCartToggleButton()}}>
                         Continue Shopping
                     </button>
+
                     </span>
                 </div>
             </div>
