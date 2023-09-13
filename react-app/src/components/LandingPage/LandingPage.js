@@ -54,10 +54,10 @@ function LandingPage() {
 				<div className='bundleContainer'>
 					<img className='LandingBundle1' src={bundle} alt="bundle of products"/>
 					<span className='bundleSloganSpan'>
-						<h3 className='adTitle'>
+						<h3 className='adTitle1'>
 							FEEL LIKE A MAN,
 						</h3>
-						<h3 className='adTitle'>
+						<h3 className='adTitle1'>
 							SMELL LIKE A CHAMPION.
 						</h3>
 						<p className='adDescription'>
@@ -67,7 +67,7 @@ function LandingPage() {
 				</div>
 				<span className='SecondAdRightSideContainer'>
 					<div className='BarSoapsContainer'>
-						<h3 className='adTitle' id='barSoaps'>
+						<h3 className='adTitle1' id='barSoaps'>
 							Bar Soaps
 						</h3>
 						<img className='singlePineTar' src={pineTar} alt="single Pine Tar soap"/>
@@ -75,12 +75,12 @@ function LandingPage() {
 					<span className='faceAndDeoSpan'>
 						<div className='facewashContainer'>
 							<img className='faceWash' src={faceWash} alt="single Pine Tar soap"/>
-							<h3 className='adTitle' id='faceWash'>
+							<h3 className='adTitle1' id='faceWash'>
 								Face Wash
 							</h3>
 						</div>
 						<div className='deoContainer'>
-							<h3 className='adTitle' id='deo'>
+							<h3 className='adTitle1' id='deo'>
 								Deodorant
 							</h3>
 							<img className='bayRum' src={bayRum} alt="single Pine Tar soap"/>
