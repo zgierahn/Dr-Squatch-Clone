@@ -51,7 +51,7 @@ function Navigation({ isLoaded }) {
 						Take Quiz
 					</button>
 					<ProfileButton user={sessionUser} />
-					<CheckoutCartModal />
+					<CheckoutCartModal button={""}/>
 				</div>
 			)}
 		</nav>

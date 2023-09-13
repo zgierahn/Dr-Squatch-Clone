@@ -7,7 +7,7 @@ import CompleteCheckout from "./CompleteCheckout";
 import './CheckoutCartModal.css'
 
 
-function CheckoutCartModal() {
+function CheckoutCartModal({button}) {
 
 const dispatch = useDispatch();
 let cartState = useSelector(state => state.cart);
@@ -15,6 +15,10 @@ const [modal, setModal] = useState(false);
 
 const toggleShoppingButton = () => {
     setModal(!modal)
+}
+
+const viewCartFunc = () => {
+    
 }
 
 let shop;
@@ -54,10 +58,14 @@ useEffect(() => {
 return (
     <div>
 
-        <button className='reserve-button'
-        onClick={()=>{toggleShoppingButton()}}
+        <button className='userProfileButton'
+        onClick={(e)=>{
+        e.stopPropagation()
+        toggleShoppingButton()}}
         >
+            { button ? "View Cart" :
             <img className="shoppingCart" src={shoppingCart} alt="shopping cart" />
+            }
         </button>
 
         {modal && (

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 import { thunkGetProducts } from '../../store/product';
-import { updateCart } from '../../store/cart';
+import AddToCartModal from '../MyModals/AddToCartModal';
 import america from "../../images/avengers-america.webp"
 import hulk from "../../images/avengers-hulk.webp"
 import avengers from "../../images/avengers.webp"
@@ -72,22 +72,6 @@ useEffect(() => {
     dispatch(thunkGetProducts())
 }, [dispatch])
 
-
-const addToCart = (product) => {
-    if(!localStorage.getItem("shop") ) {
-        let shop = {}
-        product.quantity = 1;
-        shop[product.id] = product;
-        localStorage.setItem("shop", JSON.stringify(shop))
-        dispatch(updateCart(shop))
-    } else {
-        let shop = JSON.parse(localStorage.getItem("shop"))
-        product.quantity = 1;
-        shop[product.id] = product
-        localStorage.setItem("shop", JSON.stringify(shop))
-        dispatch(updateCart(shop))
-    }
-}
 
 	return (
 		<main className='productsMain'>
@@ -193,13 +177,9 @@ const addToCart = (product) => {
                                     <div>{product.reviews.length} reviews</div>
                                     )}
                                 </div>
-                                <button className='addToCartButton'
-                                onClick={(e)=>{
-                                    e.stopPropagation();
-                                    addToCart(product)
-                                }}>
-                                    + Add to Cart
-                                </button>
+
+                                <AddToCartModal product={product}/>
+
                             </div>
                             })}
                 </div>

@@ -82,3 +82,8 @@ input {
     margin-bottom: 10px;
 
 }
+
+
+.displayContent {
+    display: contents;
+}
