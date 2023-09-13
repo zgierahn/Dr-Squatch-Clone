@@ -92,8 +92,8 @@ console.log("this is my address", address);
                             <li key={idx}>{error}</li>
                             ))}
                     </ul>
-                        <label className="reviewLabel">
-                        Category
+                    <label className="labelInput">
+                        Category:
                         <select name="category"
                         onChange={(e) => setCategory(e.target.value)}
                         required
@@ -105,8 +105,8 @@ console.log("this is my address", address);
                             <option value="both">Both</option>
                         </select>
                     </label>
-                    <label className="reviewLabel">
-                        Address
+                    <label className="labelInput">
+                        Address:
                         <input
                             type="text"
                             value={address1}
@@ -115,8 +115,8 @@ console.log("this is my address", address);
                             minLength="6"
                             />
                     </label>
-                    <label className="reviewLabel">
-                        Address Line 2
+                    <label className="labelInput">
+                        Address Line 2:
                         <input
                             type="text"
                             placeholder="optional"
@@ -124,8 +124,8 @@ console.log("this is my address", address);
                             onChange={(e) => setAddress2(e.target.value)}
                             />
                     </label>
-                    <label className="reviewLabel">
-                        Address Line 3
+                    <label className="labelInput">
+                        Address Line 3:
                         <input
                             type="text"
                             placeholder="optional"
@@ -133,8 +133,8 @@ console.log("this is my address", address);
                             onChange={(e) => setAddress3(e.target.value)}
                             />
                     </label>
-                    <label className="reviewLabel">
-                        City
+                    <label className="labelInput">
+                        City:
                         <input
                             type="text"
                             value={city}
@@ -142,8 +142,8 @@ console.log("this is my address", address);
                             required
                             />
                     </label>
-                    <label className="reviewLabel">
-                        State
+                    <label className="labelInput">
+                        State:
                         <input
                             type="text"
                             value={state}
@@ -151,8 +151,8 @@ console.log("this is my address", address);
                             required
                             />
                     </label>
-                    <label className="reviewLabel">
-                        Postal Code
+                    <label className="labelInput">
+                        Postal Code:
                         <input className="postalCodeInput"
                             value={postalCode}
                             onChange={(e) => setPostalCode(e.target.value)}
@@ -162,8 +162,8 @@ console.log("this is my address", address);
                             max="99999"
                             />
                     </label>
-                    <label className="reviewLabel">
-                         Country
+                    <label className="labelInput">
+                         Country:
                         <input
                             value={country}
                             onChange={(e) => setCountry(e.target.value)}

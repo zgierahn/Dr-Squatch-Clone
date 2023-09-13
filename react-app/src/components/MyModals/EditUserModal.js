@@ -68,8 +68,8 @@ function EditUserModal({attribute}) {
                             ))}
                     </ul>
                     { attribute === "Email" &&
-                        <label>
-                        Email
+                    <label className="labelInput">
+                        Email:
                         <input
                             type="text"
                             value={email}
@@ -78,8 +78,8 @@ function EditUserModal({attribute}) {
                             />
                     </label>
                     } { attribute === "Name" && (
-                        <label>
-                        First Name
+                    <label className="labelInput">
+                        First Name:
                         <input
                             type="text"
                             value={firstName}
@@ -88,8 +88,8 @@ function EditUserModal({attribute}) {
                             />
                     </label>
                     )} { attribute === "Name" && (
-                    <label>
-                        Last Name
+                    <label className="labelInput">
+                        Last Name:
                         <input
                             type="text"
                             value={lastName}
@@ -98,8 +98,8 @@ function EditUserModal({attribute}) {
                             />
                     </label>
                     )} { attribute === "Password" &&
-                    <label>
-                        Confirm Existing Password
+                    <label className="labelInput">
+                        Confirm Existing Password:
                         <input
                             type="password"
                             value={password}
@@ -108,8 +108,8 @@ function EditUserModal({attribute}) {
                             />
                     </label>
                     } { attribute === "Password" &&
-                    <label>
-                         Set New Password
+                    <label className="labelInput">
+                         Set New Password:
                         <input
                             type="password"
                             value={newPassword}
