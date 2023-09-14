@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 import { thunkGetProducts } from '../../store/product';
+import { updateCart } from '../../store/cart';
 import AddToCartModal from '../MyModals/AddToCartModal';
 import america from "../../images/avengers-america.webp"
 import hulk from "../../images/avengers-hulk.webp"
 import avengers from "../../images/avengers.webp"
 import avengersBG from "../../images/avengers-bg.jpg"
 import CheckoutCartModal from '../MyModals/CheckoutCartModal';
-
 import './products.css';
 
 
@@ -19,6 +19,7 @@ const dispatch = useDispatch();
 const history = useHistory();
 const { categories } = useParams();
 const [checkoutDiv, setCheckoutDiv] = useState(false);
+const [addToCartDiv, setAddToCartDiv] = useState(false);
 let allProducts = useSelector(state => Object.values(state.product.allProducts))
 
 let filteredProducts;
@@ -74,6 +75,22 @@ useEffect(() => {
     dispatch(thunkGetProducts())
 }, [dispatch])
 
+
+const addToCart = (product) => {
+    if(!localStorage.getItem("shop") ) {
+        let shop = {}
+        product.quantity = 1;
+        shop[product.id] = product;
+        localStorage.setItem("shop", JSON.stringify(shop))
+        dispatch(updateCart(shop))
+    } else {
+        let shop = JSON.parse(localStorage.getItem("shop"))
+        product.quantity = 1;
+        shop[product.id] = product
+        localStorage.setItem("shop", JSON.stringify(shop))
+        dispatch(updateCart(shop))
+    }
+}
 
 	return (
 		<main className='productsMain'>
@@ -181,7 +198,16 @@ useEffect(() => {
                                     )}
                                 </div>
 
-                                <AddToCartModal product={product} setCheckoutDiv={setCheckoutDiv}/>
+                                <button className='addToCartButton'
+                                onClick={(e)=>{
+                                e.stopPropagation();
+                                addToCart(product);
+                                setAddToCartDiv(true);
+                                }}>
+                                    + Add to Cart
+                                </button>
+
+                               {addToCartDiv && <AddToCartModal setAddToCartDiv={setAddToCartDiv} setCheckoutDiv={setCheckoutDiv}/>}
 
                             </div>
                             })}

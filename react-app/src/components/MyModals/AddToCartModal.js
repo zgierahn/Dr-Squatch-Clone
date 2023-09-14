@@ -1,79 +1,41 @@
 import React from 'react'
-import { useState } from "react"; // , useEffect
-import { useDispatch } from 'react-redux'  //  , useSelector
-import { updateCart } from '../../store/cart';
-
-
 import "./ConfirmationModal.css"
-import CheckoutCartModal from './CheckoutCartModal';
 
 
-function AddToCartModal({product, setCheckoutDiv}) {
+function AddToCartModal({ setCheckoutDiv, setAddToCartDiv }) {
 
-const dispatch = useDispatch();
-const [modal, setModal] = useState(false);
 
-const addToCartToggleButton = () => {
-    setModal(!modal)
-}
 
-const addToCart = (product) => {
-    if(!localStorage.getItem("shop") ) {
-        let shop = {}
-        product.quantity = 1;
-        shop[product.id] = product;
-        localStorage.setItem("shop", JSON.stringify(shop))
-        dispatch(updateCart(shop))
-    } else {
-        let shop = JSON.parse(localStorage.getItem("shop"))
-        product.quantity = 1;
-        shop[product.id] = product
-        localStorage.setItem("shop", JSON.stringify(shop))
-        dispatch(updateCart(shop))
-    }
-}
 
   return (
+
     <div className='displayContent'>
+        <div className='reviewModalOverlay'>
+            <div className='reviewModal'>
+                <h1 className='confirmModalTitles'>
+                    Added to Cart!
+                </h1>
+                <span className='confirmButtonSpan'>
 
-        <button className='addToCartButton'
-            onClick={(e)=>{
+                <button className='userProfileButton'
+                onClick={(e)=>{
                 e.stopPropagation();
-                addToCart(product)
-                addToCartToggleButton()
-            }}>
-                + Add to Cart
-        </button>
+                setAddToCartDiv(false);
+                setCheckoutDiv(true);
+                    }}>
+                    View Cart
+                </button>
 
-        {modal && (
-            <div className='reviewModalOverlay'>
-                <div className='reviewModal'>
-                    <h1 className='confirmModalTitles'>
-                        Added to Cart!
-                    </h1>
-                    <span className='confirmButtonSpan'>
+                <button className='userProfileButton'
+                onClick={(e)=>{
+                e.stopPropagation();
+                setAddToCartDiv(false)}}>
+                    Continue Shopping
+                </button>
 
-                    <button className='userProfileButton'
-                    onClick={(e)=>{
-                    e.stopPropagation();
-                    addToCartToggleButton();
-                    setCheckoutDiv(true);
-                     }}>
-                        View Cart
-                    </button>
-
-                    <button className='userProfileButton'
-                    onClick={(e)=>{
-                    e.stopPropagation();
-                    addToCartToggleButton()}}>
-                        Continue Shopping
-                    </button>
-
-                    </span>
-                </div>
+                </span>
             </div>
-        )}
-
+        </div>
     </div>
   )
 }

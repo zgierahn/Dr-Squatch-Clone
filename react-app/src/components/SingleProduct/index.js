@@ -6,11 +6,12 @@ import { thunkGetReviewsByProduct } from '../../store/review';
 import { updateCart } from '../../store/cart';
 import ConfirmReviewModal from '../MyModals/ConfirmReviewModal';
 import ConfirmDeleteReviewModal from '../MyModals/ConfirmDeleteReviewModal';
+import CheckoutCartModal from '../MyModals/CheckoutCartModal';
+import AddToCartModal from '../MyModals/AddToCartModal';
 import crossBones from "../../images/cross-bones.png";
 import drops from "../../images/drops.png";
 import handWorld from "../../images/hand-world.png";
 import soapBar from "../../images/soap-bar.png";
-
 import "./singleProduct.css"
 
 function SingleProduct() {
@@ -19,6 +20,8 @@ function SingleProduct() {
     const dispatch = useDispatch();
     const {productId} = useParams();
     const [quantity, setQuantity] = useState(1);
+    const [checkoutDiv, setCheckoutDiv] = useState(false);
+    const [addToCartDiv, setAddToCartDiv] = useState(false);
     let product = useSelector(state => state.product.singleProduct)
     let allReviews = useSelector(state => Object.values(state.review.reviews))
     let session = useSelector(state => Object.values(state.session))
@@ -110,7 +113,14 @@ const addToCart = (product) => {
                         <div>${product.price} / each</div>
                     </span>
                 </div>
-                <button className='addToCartButton' onClick={()=>{addToCart(product)}}>
+
+                {addToCartDiv && <AddToCartModal setAddToCartDiv={setAddToCartDiv} setCheckoutDiv={setCheckoutDiv}/>}
+                {checkoutDiv && <CheckoutCartModal setCheckoutDiv={setCheckoutDiv}/>}
+
+                <button className='addToCartButton'
+                onClick={()=>{addToCart(product)
+                setAddToCartDiv(true);
+                }}>
                     ${product.price * quantity} | Add to Cart
                 </button>
             </section>
