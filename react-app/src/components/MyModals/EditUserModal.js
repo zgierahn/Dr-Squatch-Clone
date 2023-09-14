@@ -26,18 +26,14 @@ function EditUserModal({attribute}) {
 		e.preventDefault();
         let data;
         if(attribute === "Name"){
-            console.log('inside name thunk', attribute);
             data = await dispatch(thunkEditName(userId, firstName, lastName));
         }
         if(attribute === "Email"){
-            console.log('inside email thunk', attribute);
             data = await dispatch(thunkEditEmail(userId, email));
         }
         if(attribute === "Password"){
-            console.log('inside password thunk', attribute);
             data = await dispatch(thunkEditPassword(userId, sessionUser.email, password, newPassword));
         }
-        console.log("returned data", data);
         if (data) {
             setErrors(data);
         } else {

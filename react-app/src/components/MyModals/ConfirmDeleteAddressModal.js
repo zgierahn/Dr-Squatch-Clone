@@ -13,8 +13,6 @@ function ConfirmDeleteAddressModal({addressId}) {
     const dispatch = useDispatch();
     const [modal, setModal] = useState(false);
 
-console.log("userId & addressId", userId, addressId);
-
     const toggleButton = () => {
     setModal(!modal)
     }

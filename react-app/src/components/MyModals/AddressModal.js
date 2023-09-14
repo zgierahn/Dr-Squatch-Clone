@@ -6,7 +6,6 @@ import { thunkCreateAddress, thunkEditAddress } from "../../store/session";
 
 
 function AddressModal({address}) {
-console.log("this is my address", address);
     const { userId } = useParams();
 	const dispatch = useDispatch();
     const [category, setCategory] = useState(address ? address.category : "" );
@@ -50,11 +49,9 @@ console.log("this is my address", address);
 
         let data;
         if(address === ""){
-            console.log("with thunk Create");
             data = await dispatch(thunkCreateAddress(userId, addressObj));
         } else {
             addressObj.id = address.id
-            console.log("with thunk edit");
             data = await dispatch(thunkEditAddress(userId, addressObj));
         }
         if (data) {

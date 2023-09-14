@@ -213,7 +213,6 @@ export const thunkCreateAddress = (userId, addressObj) => async (dispatch) => {
 
 // Edit an Existing Address
 export const thunkEditAddress = (userId, addressObj) => async (dispatch) => {
-	console.log("in thunk edit", addressObj.id);
 	const response = await fetch(`/api/users/${userId}/address/${addressObj.id}/edit`, {
 		method: "PUT",
 		headers: {"Content-Type": "application/json"},
