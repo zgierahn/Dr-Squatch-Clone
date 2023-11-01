@@ -74,13 +74,14 @@ function ProfileButton({ user }) {
             <button className="userProfileButton" onClick={async () => {
                 await dispatch(login('demo@aa.io', "password")).then(closeMenu)
             }} >
-                Demo User
+                Demo User 1
             </button>
             <button className="userProfileButton" onClick={async () => {
                 await dispatch(login('marnie@aa.io', "password")).then(closeMenu)
             }} >
                 Demo User 2
             </button>
+            <a className="googleButton" href="http://localhost:5000/api/auth/oauth_login">Login with Google</a>
           </>
         )}
       </ul>
