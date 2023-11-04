@@ -22,16 +22,26 @@ function SingleProduct() {
     const [quantity, setQuantity] = useState(1);
     const [checkoutDiv, setCheckoutDiv] = useState(false);
     const [addToCartDiv, setAddToCartDiv] = useState(false);
-    let product = useSelector(state => state.product.singleProduct)
-    let allReviews = useSelector(state => Object.values(state.review.reviews))
-    let session = useSelector(state => Object.values(state.session))
+    let product = useSelector(state => state.product.singleProduct);
+    let allReviews = useSelector(state => Object.values(state.review.reviews));
+    let session = useSelector(state => Object.values(state.session));
     let userReviews = new Set();
-    allReviews.forEach(review=>{userReviews.add(review.userId)})
+    allReviews.forEach(review=>{userReviews.add(review.userId)});
 
-    useEffect(() => {
+
+    const buyContainer = document.querySelectorAll(".multiBuy");
+    const selectQuantity = (n) => {
+        setQuantity(n)
+        buyContainer.forEach(each => {
+            +each.id[8] === n ? document.getElementById(each.id).className = "multiBuy picked"
+            : document.getElementById(each.id).className = "multiBuy"
+        })
+    };
+
+useEffect(() => {
     dispatch(thunkGetReviewsByProduct(productId))
     dispatch(thunkGetSingleProduct(productId))
-}, [dispatch, productId])
+}, [dispatch, productId]);
 
 const addToCart = (product) => {
     if(!localStorage.getItem("shop") ) {
@@ -47,7 +57,7 @@ const addToCart = (product) => {
         localStorage.setItem("shop", JSON.stringify(shop))
         dispatch(updateCart(shop))
     }
-}
+};
 
     return (
     <main>
@@ -100,15 +110,15 @@ const addToCart = (product) => {
                     Select Quantity:
                 </div>
                 <div className='selectPricesContainer'>
-                    <span className='multiBuy' onClick={()=>{setQuantity(1)}}>
+                    <span className='multiBuy picked' id="multiBuy1" onClick={()=>{selectQuantity(1)}}>
                         <div >Buy 1</div>
                         <div>${product.price} / each</div>
                     </span>
-                    <span className='multiBuy'onClick={()=>{setQuantity(2)}}>
+                    <span className='multiBuy' id="multiBuy2" onClick={()=>{selectQuantity(2)}}>
                         <div>Buy 2</div>
                         <div>${product.price} / each</div>
                     </span>
-                    <span className='multiBuy'onClick={()=>{setQuantity(3)}}>
+                    <span className='multiBuy' id="multiBuy3" onClick={()=>{selectQuantity(3)}}>
                         <div>Buy 3</div>
                         <div>${product.price} / each</div>
                     </span>

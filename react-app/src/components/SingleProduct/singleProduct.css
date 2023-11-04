@@ -124,7 +124,8 @@
     border-radius: 5px;
 }
 
-.multiBuy:hover {
+.multiBuy:hover,
+.picked {
     /* color: rgb(211, 116, 1); */
     background-color: lightgray;
     box-shadow: 0px 0px 2px 3px #ddc8ad;
