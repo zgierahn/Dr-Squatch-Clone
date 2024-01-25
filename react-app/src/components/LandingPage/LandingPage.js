@@ -16,7 +16,7 @@ import trusted1 from "../../images/trusted_by_1.png";
 import trusted2 from "../../images/trusted_by_2.png";
 import trusted3 from "../../images/trusted_by_3.png";
 import trusted4 from "../../images/trusted_by_4.png";
-
+// import soapAd from "../../videos/soap-ad.m3u8";
 import './LandingPage.css';
 
 
@@ -135,9 +135,22 @@ function LandingPage() {
 					</p>
 				</span>
 			</section>
-			<section className='fourthAdContainer'>
 
-			</section>
+
+
+{/*
+			<section className='fourthAdContainer'>
+				<div className="soapAdClass" autoPlay={true} type="application/x-mpegURL">
+
+				<video className="soapAdClass" src={soapAd} autoPlay={true} type="application/x-mpegURL" />
+
+				</div>
+			</section> */}
+
+
+
+
+
 		<footer className='trustedFooter'>
             <div className='trustedByText'>
                 Trusted By
