@@ -144,6 +144,11 @@ const addToCart = (product) => {
                     >
                         Cologne
                     </button>
+                    <button className='sidebarLinks sidebarLinkSelection'
+                    onClick={()=>history.push("/collections/all")}
+                    >
+                        Shop All
+                    </button>
                     <h3 className='sidebarTitle'>
                         MORE PRODUCTS
                     </h3>
