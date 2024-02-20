@@ -68,12 +68,18 @@ if(categories === "all") {
             filtered = "Bar Soap";
         }
     filteredProducts = allProducts.filter((product) => product.category === filtered);
-}
+};
 
+const linksContainer = document.querySelectorAll(".sidebarLinks");
+const linkSelector = (name) =>{
+    linksContainer.forEach(link =>{
+        link.innerText === name ? link.className = "sidebarLinks selectedSidebarLink" : link.className = "sidebarLinks";
+    })
+};
 
 useEffect(() => {
     dispatch(thunkGetProducts())
-}, [dispatch])
+}, [dispatch]);
 
 
 const addToCart = (product) => {
@@ -115,37 +121,57 @@ const addToCart = (product) => {
                         ESSENTIALS
                     </h3>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/bar-soap")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/bar-soap")
+                    }}
                     >
                         Bar Soaps
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/face-care")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/face-care")
+                    }}
                     >
                         Face Wash
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/hair-care")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/hair-care")
+                    }}
                     >
                         Hair Care
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/deodorant")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/deodorant")
+                    }}
                     >
                         Deodorant
                         </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/lotion")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/lotion")
+                    }}
                     >
                         Lotion
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/cologne")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/cologne")
+                    }}
                     >
                         Cologne
                     </button>
-                    <button className='sidebarLinks sidebarLinkSelection'
-                    onClick={()=>history.push("/collections/all")}
+                    <button className='sidebarLinks selectedSidebarLink'
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/all")}}
                     >
                         Shop All
                     </button>
@@ -153,32 +179,50 @@ const addToCart = (product) => {
                         MORE PRODUCTS
                     </h3>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/shower-boosters")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/shower-boosters")
+                    }}
                     >
                         Shower Boosters
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/candles")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/candles")
+                    }}
                     >
                         Candles
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/beard-oil")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/beard-oil")
+                    }}
                     >
                         Beard Oil
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/gift-cards")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/gift-cards")
+                    }}
                     >
                         Gift Cards
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/swag")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/swag")
+                    }}
                     >
                         Swag
                     </button>
                     <button className='sidebarLinks'
-                    onClick={()=>history.push("/collections/toothpaste")}
+                    onClick={(e)=>{
+                        linkSelector(e.target.innerText)
+                        history.push("/collections/toothpaste")
+                    }}
                     >
                         Toothpaste
                     </button>

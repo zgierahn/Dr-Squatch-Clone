@@ -84,12 +84,12 @@
 }
 
 .sidebarLinks:hover {
-    color: rgb(185, 103, 1);
     color: white;
 }
 
-.sidebarLinkSelection {
-    
+.selectedSidebarLink {
+    border-left: 3px solid;
+    color: white;
 }
 
 /* ----------------------- Main Products Container ------------------------ */
